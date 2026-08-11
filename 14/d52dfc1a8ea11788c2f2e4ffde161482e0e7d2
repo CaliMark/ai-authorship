@@ -1,0 +1,19 @@
+AI-AUTHORSHIP.md
+  s_30f00a1884ee3d::t_a7011485687f5d 10-12,14-15,27-28,44-88
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "14d52dfc1a8ea11788c2f2e4ffde161482e0e7d2",
+  "prompts": {},
+  "sessions": {
+    "s_30f00a1884ee3d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_0251ccc8bffeRD38fJ4fosd3c2",
+        "model": "big-pickle"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
