@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **8** (last 50)
-- Total lines added: **1276**
-- **AI-generated:** 1036 lines (81.2%)
+- Commits analyzed: **10** (last 50)
+- Total lines added: **1466**
+- **AI-generated:** 1174 lines (80.1%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 240 lines (18.8%)
-- **Agents:** opencode · big-pickle (1036 lines)
+- **Untracked:** 292 lines (19.9%)
+- **Agents:** gemini (138 lines), opencode · big-pickle (1036 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -24,6 +24,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| e35dcb2 | 2026-08-10 | chore: gemini attribution on live example | 138 | 100% | 0% | gemini |
+| 012e360 | 2026-08-11 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 | 408112d | 2026-08-10 | docs: add Antigravity attribution runbook | 59 | 100% | 0% | opencode · big-pickle |
 | e571d62 | 2026-08-11 | docs: regenerate AI authorship report | 53 | 0% | 0% | untracked |
 | 54748ce | 2026-08-10 | chore: neutral troubleshooting wording in verify script | 3 | 100% | 0% | opencode · big-pickle |
@@ -39,7 +41,51 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 408112d62cd9f9254fb2594d4c6c17d895af2d77 (HEAD -> main, origin/main)
+commit e35dcb2e6bbfbd32f2b01752af4bb68398affa0b (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-10T22:09:02-07:00
+
+    chore: gemini attribution on live example
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      README.md
+        s_a658dce9a473dd::t_3fe8cd80470b61 1,3,5-8,10,12-14,16,18-19,21,23-47,50-56,58-64,66,68,72-73,75,77-79,83-87,89,91,96,98-99,101,103-109,113-115,117,119,121-124,126-128,130-134,136-137,139,141,143-148,150-177,180-182,184
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "e35dcb2e6bbfbd32f2b01752af4bb68398affa0b",
+        "prompts": {},
+        "sessions": {
+          "s_a658dce9a473dd": {
+            "agent_id": {
+              "tool": "gemini",
+              "id": "85c9c557-f816-49fc-8210-15f20ece868a",
+              "model": "unknown"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 012e36036742babbf0a3ee9ef817205111aafda4
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-11T05:01:54Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 408112d62cd9f9254fb2594d4c6c17d895af2d77
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-10T22:01:07-07:00
 
