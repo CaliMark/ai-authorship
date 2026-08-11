@@ -7,11 +7,11 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **13** (last 50)
-- Total lines added: **1521**
-- **AI-generated:** 1177 lines (77.4%)
+- Commits analyzed: **15** (last 50)
+- Total lines added: **1603**
+- **AI-generated:** 1177 lines (73.4%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 344 lines (22.6%)
+- **Untracked:** 426 lines (26.6%)
 - **Agents:** gemini (138 lines), gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1036 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
@@ -24,6 +24,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 89f38c3 | 2026-08-10 | fix(bridge): write turn record with model for PostToolUse-only sessions | 16 | 0% | 0% | untracked |
+| faad984 | 2026-08-11 | docs: regenerate AI authorship report | 66 | 0% | 0% | untracked |
 | 14d52df | 2026-08-10 | Merge branch 'main' of https://github.com/CaliMark/ai-authorship # Please enter a commit message to explain why this merge is necessary, # especially if it merges an updated upstream into a topic branch. # # Lines starting with '#' will be ignored, and an empty message aborts # the commit. | 0 | 0% | 0% | none |
 | 90be8ae | 2026-08-10 | chore : small change to the readme.md | 3 | 100% | 0% | gemini · gemini-3.6-flash-medium |
 | 904437a | 2026-08-11 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
@@ -44,7 +46,33 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 14d52dfc1a8ea11788c2f2e4ffde161482e0e7d2 (HEAD -> main, origin/main)
+commit 89f38c3e3ea90b2bc01ea6bf1fb1d63f5547e387 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-10T22:39:32-07:00
+
+    fix(bridge): write turn record with model for PostToolUse-only sessions
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit faad9845f54531993afb99bae101dcd88cdb7be5
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-11T05:36:16Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 14d52dfc1a8ea11788c2f2e4ffde161482e0e7d2
 Merge: 90be8ae 904437a
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-10T22:35:31-07:00
