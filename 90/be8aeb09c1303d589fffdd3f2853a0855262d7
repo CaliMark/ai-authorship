@@ -1,0 +1,19 @@
+README.md
+  s_a658dce9a473dd::t_053dccf089aa61 70-72
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "90be8aeb09c1303d589fffdd3f2853a0855262d7",
+  "prompts": {},
+  "sessions": {
+    "s_a658dce9a473dd": {
+      "agent_id": {
+        "tool": "gemini",
+        "id": "85c9c557-f816-49fc-8210-15f20ece868a",
+        "model": "gemini-3.6-flash-medium"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
