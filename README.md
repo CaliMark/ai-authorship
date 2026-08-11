@@ -67,6 +67,9 @@ graph LR
 
 ## 🚀 Quick Start
 
+> [!NOTE]
+> The Antigravity IDE Windows bridge has been fully tested and verified directly on this repository.
+
 ### 1. Install git-ai
 
 Download `git-ai` for your platform from [usegitai.com](https://usegitai.com) and add it to your `PATH`.
