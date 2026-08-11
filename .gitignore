@@ -1,0 +1,10 @@
+# runtime artifacts
+bridge.log
+attribution-result.txt
+bridge/stubs/
+*.log
+
+# git-ai / tooling temp
+.ai-authorship-detail.tmp
+node_modules/
+dist/

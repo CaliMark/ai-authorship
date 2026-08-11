@@ -1,0 +1,8 @@
+{
+    "preToolUseDecisions": {
+        "write_to_file": "allow",
+        "replace_file_content": "allow",
+        "multi_replace_file_content": "allow",
+        "run_command": "ask"
+    }
+}

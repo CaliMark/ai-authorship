@@ -1,0 +1,133 @@
+# AI Authorship
+
+Automated AI authorship attribution for [git-ai](https://usegitai.com).
+
+Every commit gets a git note saying which AI agent (or human) wrote each line.
+Two agent integrations ship in this repo:
+
+- **OpenCode** — native (no bridge needed).
+- **Antigravity IDE** (Gemini CLI) — via a small Windows bridge in `bridge/`.
+
+A GitHub Actions workflow turns the attribution notes into a public
+`AI-AUTHORSHIP.md` report at your repo root, like this:
+
+```
+| Commit | Date | Message           | Lines | AI | Human | Agent(s)          |
+| ------ | ---- | ----------------- | ----- | -- | ----- | ------------------ |
+| ab12cd4 | 2026-07-28 | add checkout | 142 | 100% | 0% | opencode · big-pickle |
+| e5f6g7h | 2026-07-27 | fix nav      | 18  | 0%   | 100% | human              |
+```
+
+## How it works
+
+```
+   OpenCode ──(built-in hooks)──────────────┐
+                                            ├──► git-ai ──(git notes)──► AI-AUTHORSHIP.md
+   Antigravity IDE ──(bridge/ hooks)────────┘         refs/notes/ai        (GitHub Actions)
+```
+
+1. When an agent edits a file, git-ai records a **checkpoint** with the
+   session id, tool name, file, working directory, and the tool's transcript.
+2. On your next `git add`/commit, git-ai **sweeps** pending checkpoints and
+   attaches an attribution note to the commit.
+3. The workflow in `workflow/authorship-report.yml` reads those notes and
+   regenerates `AI-AUTHORSHIP.md` on every push to `main`.
+
+## Requirements
+
+- **git-ai** CLI (Windows for the Antigravity bridge, Linux on CI).
+- **Windows** for the Antigravity bridge (`bridge/`).
+- **OpenCode** v1.12+ for native integration (or any git-ai-supported agent).
+- **Antigravity IDE** with Gemini CLI hooks (`.gemini/config/hooks.json`).
+- GitHub repo + Actions for the auto-report (optional but recommended).
+
+## Quick start
+
+### 1. Install git-ai
+
+Download the release for your platform and put `git-ai` on your PATH.
+The bridge also auto-detects the default install dir (`~/.git-ai/bin/git-ai.exe`)
+or the `GIT_AI_BIN` environment variable.
+
+### 2. OpenCode (native)
+
+```sh
+git-ai install-hooks
+```
+
+Now every OpenCode session is attributed automatically — nothing else to do.
+
+### 3. Antigravity IDE (Windows bridge)
+
+```bat
+cd bridge
+install.cmd
+```
+
+This merges the `git-ai-attribution` hook into
+`%USERPROFILE%\.gemini\config\hooks.json` (backing up the file first).
+The hook allows file edits and asks before shell commands — tune that in
+`bridge/config.json`.
+
+### 4. Make your first attributed edit
+
+1. Open a git repo in Antigravity and make a file edit.
+2. Close VSCode / any terminal running opencode (a live opencode session
+   would claim the attribution as `opencode` instead of `gemini`).
+3. In the repo, run:
+
+```bat
+bridge\verify-attribution.cmd
+```
+
+The script sweeps pending checkpoints, commits your changes, pushes the
+attribution notes, and reports `PASS`/`FAIL`/`MIXED`. On `PASS` your commit
+is attributed to the Antigravity gemini session.
+
+### 5. Publish the AI-AUTHORSHIP.md report
+
+1. Copy `workflow/authorship-report.yml` to your repo's
+   `.github/workflows/` and `scripts/authorship-report.sh` to `scripts/`.
+2. Commit them and push (this also publishes `refs/notes/ai`).
+3. Open the **Actions** tab — `AI-AUTHORSHIP.md` appears at your repo root
+   after the run.
+
+> Keep `GIT_AI_VERSION` in the workflow in sync with the git-ai version you
+> use locally so note formats stay compatible.
+
+## Configuration
+
+| Setting | Where | Effect |
+| --- | --- | --- |
+| `preToolUseDecisions` | `bridge/config.json` | `allow`/`ask`/`deny` per tool for Antigravity hooks |
+| `GIT_AI_BIN` | environment | path to `git-ai.exe` (overrides PATH/detect) |
+| `GIT_AI_VERSION` | workflow YAML | git-ai version used by CI to read notes |
+| commit limits | `scripts/authorship-report.sh` args | `bash scripts/authorship-report.sh 50 25` |
+
+## Troubleshooting
+
+- **`verify-attribution.cmd` reports FAIL/opencode** — a live opencode session
+  grabbed the commit. Close it, wait ~15s, commit again.
+- **UNKNOWN / no agent tool in the note** — open `bridge/bridge.log`; if there
+  are no `RAW` lines, Antigravity's hooks aren't firing (re-run `install.cmd`).
+- **Report shows everything as `untracked`** — the code was written before
+  git-ai attribution was set up. Only new work is attributed.
+- **`git push origin refs/notes/ai` fails** — remote rejects the note ref; run
+  it manually after your next push (the workflow also fetches notes directly).
+
+## Project layout
+
+```
+bridge/          Antigravity -> git-ai bridge (Windows)
+  agy-hook.ps1   the hook: forwards checkpoints + answers prompts
+  config.json    per-tool allow/ask decisions
+  install.cmd    register the hook in ~/.gemini/config/hooks.json
+  uninstall.cmd  remove the hook
+  verify-attribution.cmd   end-to-end attribution check
+scripts/         authorship-report.sh — generates AI-AUTHORSHIP.md
+workflow/        authorship-report.yml — GitHub Actions template
+```
+
+## License
+
+MIT — see [LICENSE](LICENSE).
