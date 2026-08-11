@@ -1,0 +1,20 @@
+bridge/verify-attribution.ps1
+  s_30f00a1884ee3d::t_6682b8bcbe5125 156-157
+  s_30f00a1884ee3d::t_d1b1bbc0da813a 170
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "54748ce0de2bb0737d4cfc06f6f3d189d1202b05",
+  "prompts": {},
+  "sessions": {
+    "s_30f00a1884ee3d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_0251ccc8bffeRD38fJ4fosd3c2",
+        "model": "big-pickle"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
