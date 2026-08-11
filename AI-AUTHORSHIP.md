@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **6** (last 50)
-- Total lines added: **1164**
-- **AI-generated:** 977 lines (83.9%)
+- Commits analyzed: **8** (last 50)
+- Total lines added: **1276**
+- **AI-generated:** 1036 lines (81.2%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 187 lines (16.1%)
-- **Agents:** opencode · big-pickle (977 lines)
+- **Untracked:** 240 lines (18.8%)
+- **Agents:** opencode · big-pickle (1036 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -24,6 +24,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 408112d | 2026-08-10 | docs: add Antigravity attribution runbook | 59 | 100% | 0% | opencode · big-pickle |
+| e571d62 | 2026-08-11 | docs: regenerate AI authorship report | 53 | 0% | 0% | untracked |
 | 54748ce | 2026-08-10 | chore: neutral troubleshooting wording in verify script | 3 | 100% | 0% | opencode · big-pickle |
 | b322469 | 2026-08-11 | docs: regenerate AI authorship report | 54 | 0% | 0% | untracked |
 | ba77809 | 2026-08-10 | docs: note this repo is a live example of the report | 9 | 100% | 0% | opencode · big-pickle |
@@ -37,7 +39,51 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 54748ce0de2bb0737d4cfc06f6f3d189d1202b05 (HEAD -> main, origin/main)
+commit 408112d62cd9f9254fb2594d4c6c17d895af2d77 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-10T22:01:07-07:00
+
+    docs: add Antigravity attribution runbook
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      docs/antigravity-commit.md
+        s_30f00a1884ee3d::t_3e6275e3df159f 1-59
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "408112d62cd9f9254fb2594d4c6c17d895af2d77",
+        "prompts": {},
+        "sessions": {
+          "s_30f00a1884ee3d": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_0251ccc8bffeRD38fJ4fosd3c2",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit e571d6213784ec1cadf62f7271d9e3f7b75c8a8b
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-11T04:37:17Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 54748ce0de2bb0737d4cfc06f6f3d189d1202b05
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-10T21:36:28-07:00
 
