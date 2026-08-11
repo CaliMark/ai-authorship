@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **10** (last 50)
-- Total lines added: **1466**
-- **AI-generated:** 1174 lines (80.1%)
+- Commits analyzed: **13** (last 50)
+- Total lines added: **1521**
+- **AI-generated:** 1177 lines (77.4%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 292 lines (19.9%)
-- **Agents:** gemini (138 lines), opencode · big-pickle (1036 lines)
+- **Untracked:** 344 lines (22.6%)
+- **Agents:** gemini (138 lines), gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1036 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -24,6 +24,9 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 14d52df | 2026-08-10 | Merge branch 'main' of https://github.com/CaliMark/ai-authorship # Please enter a commit message to explain why this merge is necessary, # especially if it merges an updated upstream into a topic branch. # # Lines starting with '#' will be ignored, and an empty message aborts # the commit. | 0 | 0% | 0% | none |
+| 90be8ae | 2026-08-10 | chore : small change to the readme.md | 3 | 100% | 0% | gemini · gemini-3.6-flash-medium |
+| 904437a | 2026-08-11 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 | e35dcb2 | 2026-08-10 | chore: gemini attribution on live example | 138 | 100% | 0% | gemini |
 | 012e360 | 2026-08-11 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 | 408112d | 2026-08-10 | docs: add Antigravity attribution runbook | 59 | 100% | 0% | opencode · big-pickle |
@@ -41,7 +44,64 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit e35dcb2e6bbfbd32f2b01752af4bb68398affa0b (HEAD -> main, origin/main)
+commit 14d52dfc1a8ea11788c2f2e4ffde161482e0e7d2 (HEAD -> main, origin/main)
+Merge: 90be8ae 904437a
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-10T22:35:31-07:00
+
+    Merge branch 'main' of https://github.com/CaliMark/ai-authorship # Please enter a commit message to explain why this merge is necessary, # especially if it merges an updated upstream into a topic branch. # # Lines starting with '#' will be ignored, and an empty message aborts # the commit.
+
+    Git AI stats:
+      stats skipped for merge commit
+
+    Authorship note:
+      (none)
+
+commit 90be8aeb09c1303d589fffdd3f2853a0855262d7
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-10T22:31:43-07:00
+
+    chore : small change to the readme.md
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      README.md
+        s_a658dce9a473dd::t_053dccf089aa61 70-72
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "90be8aeb09c1303d589fffdd3f2853a0855262d7",
+        "prompts": {},
+        "sessions": {
+          "s_a658dce9a473dd": {
+            "agent_id": {
+              "tool": "gemini",
+              "id": "85c9c557-f816-49fc-8210-15f20ece868a",
+              "model": "gemini-3.6-flash-medium"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 904437aa5b69fcc1799885c280a8aaa356492f33
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-11T05:13:05Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit e35dcb2e6bbfbd32f2b01752af4bb68398affa0b
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-10T22:09:02-07:00
 
