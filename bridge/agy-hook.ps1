@@ -66,6 +66,16 @@ function Write-GeminiTranscript {
         $turn = @{ id = $uuid; type = 'turn'; content = 'Working on the requested change.'; prompt = 'Working on the requested change.'; hidden = $false; timestamp = $ts; model = $model; metadata = @{}; config = 'gcloud'; usage = @{} } | ConvertTo-Json -Compress -Depth 4
         try { [System.IO.File]::AppendAllText($sessionFile, $turn + [Environment]::NewLine, $enc) } catch {}
     } else {
+        $hasTurn = $false
+        if (Test-Path $sessionFile) {
+            foreach ($line in [System.IO.File]::ReadLines($sessionFile)) {
+                if ($line -match '"type"\s*:\s*"turn"') { $hasTurn = $true; break }
+            }
+        }
+        if (-not $hasTurn) {
+            $turn = @{ id = [guid]::NewGuid().ToString(); type = 'turn'; content = 'Working on the requested change.'; prompt = 'Working on the requested change.'; hidden = $false; timestamp = $ts; model = $model; metadata = @{}; config = 'gcloud'; usage = @{} } | ConvertTo-Json -Compress -Depth 4
+            try { [System.IO.File]::AppendAllText($sessionFile, $turn + [Environment]::NewLine, $enc) } catch {}
+        }
         $toolLine = @{ id = [guid]::NewGuid().ToString(); type = 'tool'; name = 'local_edit_file'; state = 'success'; content = ''; prompt = $tool; timestamp = $ts; toolUseId = $uuid; config = 'gcloud'; usage = @{} } | ConvertTo-Json -Compress -Depth 4
         try { [System.IO.File]::AppendAllText($sessionFile, $toolLine + [Environment]::NewLine, $enc) } catch {}
     }
@@ -118,6 +128,12 @@ function Send-Checkpoint($o) {
 
 if ($evt -eq 'PreToolUse') {
     if (-not $p.toolCall) {
+        $cwd = ''
+        if ($p.workspacePaths -and $p.workspacePaths.Count -gt 0) { $cwd = [string]$p.workspacePaths[0] }
+        if (-not [string]::IsNullOrWhiteSpace($cwd)) { try { $cwd = [System.IO.Path]::GetFullPath($cwd) } catch {} }
+        if (-not [string]::IsNullOrWhiteSpace($cwd)) {
+            Write-GeminiTranscript -conv $conv -model $model -cwd $cwd -evt 'PreToolUse' -tool ''
+        }
         if ($ideFormat) { Write-Output '{"decision":"allow"}' } else { Write-Output '{"decision":"ask"}' }
         exit 0
     }
