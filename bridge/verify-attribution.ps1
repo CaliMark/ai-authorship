@@ -153,7 +153,8 @@ if ($hasGemini -and -not $hasOpencode) {
     Say "'human'/'untracked'. Check bridge.log for RAW payloads from Antigravity:"
     Say "    $(Join-Path $bridge 'bridge.log')"
     Say "If no RAW lines exist, Antigravity's hooks aren't firing or the payload"
-    Say "uses different field names than the bridge expects - send me bridge.log."
+    Say "uses different field names than the bridge expects. Include bridge.log when"
+    Say "filing an issue."
 }
 Say ""
 
@@ -166,7 +167,7 @@ Say "gemini session transcripts             : $gemTmp"
 Say "git-ai daemon logs (checkpoints/sweeps): $daemonLogs"
 Say "This result file                       : $resultFile"
 Say ""
-Say "If the result is FAIL/UNKNOWN, paste me:"
+Say "If the result is FAIL/UNKNOWN, gather these for debugging:"
 Say "  1) $resultFile"
 Say "  2) the last ~30 lines of $bridgeLog"
 Say "  3) the last ~15 'sweep item'/'checkpoint' lines from the newest file in $daemonLogs"
