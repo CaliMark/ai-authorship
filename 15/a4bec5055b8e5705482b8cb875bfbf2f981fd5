@@ -1,0 +1,19 @@
+README.md
+  s_a658dce9a473dd::t_3fe8cd80470b61 1,3,5-8,10,12-14,16,18-19,21,23-47,50-56,58-64,66,68,72-73,75,77-79,83-87,89,91,96,98-99,101,103-109,113-115,117,119,121-124,126-128,130-134,136-137,139,141,143-148,150-177,180-182,184
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "15a4bec5055b8e5705482b8cb875bfbf2f981fd5",
+  "prompts": {},
+  "sessions": {
+    "s_a658dce9a473dd": {
+      "agent_id": {
+        "tool": "gemini",
+        "id": "85c9c557-f816-49fc-8210-15f20ece868a",
+        "model": "unknown"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
