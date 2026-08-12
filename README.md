@@ -130,9 +130,15 @@ cp workflow/authorship-report.yml .github/workflows/
 mkdir -p scripts
 cp scripts/authorship-report.sh scripts/
 
-# 3. Commit and push
+# 3. Commit
 git add .github/workflows/authorship-report.yml scripts/authorship-report.sh
 git commit -m "ci: add AI authorship report workflow"
+
+# 4. Push (pull with --rebase first: the workflow auto-commits regenerated
+#    report updates to main, so a plain push can be rejected)
+git-ai await --timeout 30
+git pull --rebase origin main
+git push origin refs/notes/ai
 git push origin main
 ```
 
@@ -160,6 +166,7 @@ git push origin main
 | **`UNKNOWN` or missing agent in notes** | Antigravity hooks are not firing. | Check `bridge/bridge.log`. If missing `RAW` lines, re-run `bridge/install.cmd`. |
 | **Report shows `untracked`** | Edits occurred before `git-ai` was configured. | `git-ai` cannot retroactively attribute historical commits. |
 | **`git push origin refs/notes/ai` fails** | Remote ref rejection. | Push main first, then manually push note refs (`git push origin refs/notes/ai`). |
+| **`git push` rejected: `fetch first`** | The workflow auto-committed a regenerated report to `main` while you were working. | `git-ai await --timeout 30`, then `git pull --rebase origin main` before pushing notes and main. |
 
 ---
 

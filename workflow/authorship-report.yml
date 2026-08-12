@@ -1,7 +1,12 @@
 # TEMPLATE: copy this file into your repo at .github/workflows/authorship-report.yml
 # and commit the matching scripts/authorship-report.sh. Then push:
+#   git-ai await --timeout 30
+#   git pull --rebase origin main
 #   git push origin refs/notes/ai
-# (and normal push to main) to see AI-AUTHORSHIP.md appear at your repo root.
+#   git push origin main
+# (push to main triggers the workflow; AI-AUTHORSHIP.md appears at your repo root.
+#  Pull with --rebase before pushing: the workflow auto-commits regenerated
+#  reports to main, so a plain push will be rejected as non-fast-forward.)
 name: AI Authorship Report
 
 on:
