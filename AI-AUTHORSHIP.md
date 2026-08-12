@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **15** (last 50)
-- Total lines added: **1603**
-- **AI-generated:** 1177 lines (73.4%)
+- Commits analyzed: **17** (last 50)
+- Total lines added: **1656**
+- **AI-generated:** 1213 lines (73.2%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 426 lines (26.6%)
-- **Agents:** gemini (138 lines), gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1036 lines)
+- **Untracked:** 443 lines (26.8%)
+- **Agents:** gemini (138 lines), gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1072 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -24,7 +24,9 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
-| 89f38c3 | 2026-08-10 | fix(bridge): write turn record with model for PostToolUse-only sessions | 16 | 0% | 0% | untracked |
+| 8d6dd5d | 2026-08-11 | docs: document git pull --rebase before pushing to avoid fetch-first rejections | 20 | 100% | 0% | opencode · big-pickle |
+| a85e0e4 | 2026-08-11 | docs: regenerate AI authorship report | 33 | 0% | 0% | untracked |
+| 89f38c3 | 2026-08-10 | fix(bridge): write turn record with model for PostToolUse-only sessions | 16 | 100% | 0% | opencode · big-pickle |
 | faad984 | 2026-08-11 | docs: regenerate AI authorship report | 66 | 0% | 0% | untracked |
 | 14d52df | 2026-08-10 | Merge branch 'main' of https://github.com/CaliMark/ai-authorship # Please enter a commit message to explain why this merge is necessary, # especially if it merges an updated upstream into a topic branch. # # Lines starting with '#' will be ignored, and an empty message aborts # the commit. | 0 | 0% | 0% | none |
 | 90be8ae | 2026-08-10 | chore : small change to the readme.md | 3 | 100% | 0% | gemini · gemini-3.6-flash-medium |
@@ -46,11 +48,48 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 89f38c3e3ea90b2bc01ea6bf1fb1d63f5547e387 (HEAD -> main, origin/main)
+commit 8d6dd5d8e34286ece58b067df75281cbeb0876d1 (HEAD -> main, origin/main)
 Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-10T22:39:32-07:00
+Date:   2026-08-11T21:51:56-07:00
 
-    fix(bridge): write turn record with model for PostToolUse-only sessions
+    docs: document git pull --rebase before pushing to avoid fetch-first rejections
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      workflow/authorship-report.yml
+        s_988aa8c761b089::t_ec9e39c978e36f 3-4,6-9
+      README.md
+        s_988aa8c761b089::t_3cd4457f9b94ea 133
+        s_988aa8c761b089::t_8656ca92db0b5d 136-141
+        s_988aa8c761b089::t_169dc38dd04857 169
+      .github/workflows/authorship-report.yml
+        s_988aa8c761b089::t_ef163d06c51e7f 3-4,6-9
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "8d6dd5d8e34286ece58b067df75281cbeb0876d1",
+        "prompts": {},
+        "sessions": {
+          "s_988aa8c761b089": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit a85e0e47c5c09bd971b5f595d47fba35d5d678c8
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-11T05:41:00Z
+
+    docs: regenerate AI authorship report
 
     Git AI stats:
       you  ········································ ai
@@ -58,6 +97,38 @@ Date:   2026-08-10T22:39:32-07:00
 
     Authorship note:
       (none)
+
+commit 89f38c3e3ea90b2bc01ea6bf1fb1d63f5547e387
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-10T22:39:32-07:00
+
+    fix(bridge): write turn record with model for PostToolUse-only sessions
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      bridge/agy-hook.ps1
+        s_30f00a1884ee3d::t_c0f3010400b262 131-136
+        s_30f00a1884ee3d::t_17a8bf422d0047 69-78
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "89f38c3e3ea90b2bc01ea6bf1fb1d63f5547e387",
+        "prompts": {},
+        "sessions": {
+          "s_30f00a1884ee3d": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_0251ccc8bffeRD38fJ4fosd3c2",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
 
 commit faad9845f54531993afb99bae101dcd88cdb7be5
 Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
@@ -83,7 +154,25 @@ Date:   2026-08-10T22:35:31-07:00
       stats skipped for merge commit
 
     Authorship note:
-      (none)
+      AI-AUTHORSHIP.md
+        s_30f00a1884ee3d::t_a7011485687f5d 10-12,14-15,27-28,44-88
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "14d52dfc1a8ea11788c2f2e4ffde161482e0e7d2",
+        "prompts": {},
+        "sessions": {
+          "s_30f00a1884ee3d": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_0251ccc8bffeRD38fJ4fosd3c2",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
 
 commit 90be8aeb09c1303d589fffdd3f2853a0855262d7
 Author: CaliMark <mreed@needpc.net>
