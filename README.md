@@ -30,6 +30,8 @@ A GitHub Actions workflow automatically reads the attribution notes and generate
   - [3. Antigravity IDE Setup (Windows Bridge)](#3-antigravity-ide-setup-windows-bridge)
   - [4. Verify Your First Attributed Edit](#4-verify-your-first-attributed-edit)
   - [5. Publish the CI Report](#5-publish-the-ci-report)
+- [Supported Agents](#supported-agents)
+- [Workflows for Different Situations](#workflows-for-different-situations)
 - [Configuration](#%EF%B8%8F-configuration)
 - [Troubleshooting](#-troubleshooting)
 - [Project Layout](#-project-layout)
@@ -65,6 +67,27 @@ graph LR
 
 ---
 
+## 🧰 Supported Agents
+
+| Agent / IDE | Integration | Setup |
+| :--- | :--- | :--- |
+| **OpenCode** (TUI + IDE extension) | Native plugin (auto-installed) | `git-ai install-hooks` |
+| **Antigravity IDE** (Gemini CLI) | Windows bridge (`bridge/`) | `cd bridge && install.cmd` |
+| **VS Code** (Copilot Chat) | Native hooks (`~/.copilot/hooks/git-ai.json`) + optional extension | `git-ai install-hooks` |
+| **GitHub Copilot** | Native hooks | `git-ai install-hooks` |
+| **Claude Code · Cursor · Windsurf · Cline · Codex · Continue CLI · Amp · Pi · AI Tab · Firebender** | Checkpoint presets | `git-ai checkpoint <preset>` |
+
+> [!NOTE]
+> Only the first two rows are documented and tested against this repository; the
+> rest are supported by `git-ai` and use the same `refs/notes/ai` attribution.
+>
+> VS Code attribution comes from the `~/.copilot/hooks/git-ai.json` hooks, not the
+> extension. The git-ai extension is useful but optional on modern VS Code
+> (1.109.3+) — it adds the in-editor blame lens (Ctrl+Shift+A) and AI-tab tracking,
+> and is auto-installed by `git-ai install-hooks`.
+
+---
+
 ## 🚀 Quick Start
 
 > [!NOTE]
@@ -84,6 +107,14 @@ git-ai install-hooks
 ```
 
 That’s it! OpenCode sessions will automatically attribute code edits.
+
+> [!NOTE]
+> Attribution is **provider-agnostic** — it tracks the OpenCode *session*, not the
+> upstream model. Routing through OpenRouter (or any proxy / custom provider) works
+> identically; only the model label in the report changes, e.g.
+> `opencode · openrouter/anthropic/claude-sonnet-4`. For custom providers defined in
+> `opencode.json`, use a short readable model `id`, since that string appears
+> verbatim in the report.
 
 ---
 
@@ -158,6 +189,85 @@ git push origin main
 
 ---
 
+## 🧭 Workflows for Different Situations
+
+### Model routing (OpenRouter, proxies, local models)
+
+Attribution is **provider-agnostic** — `git-ai` tracks the agent session, not the
+upstream model. OpenRouter, OpenAI-compatible proxies, or local models (e.g.
+Ollama) all work without changes. Only the model label in the report changes to the
+provider's model id (e.g. `opencode · openrouter/anthropic/claude-sonnet-4`). For
+custom providers defined in `opencode.json`, use a short readable model `id`.
+
+### Multiple agents or sessions in one repo
+
+Keep only the active agent session open. A live OpenCode session can claim edits
+made by other tools, so close it before committing work attributed through the
+Antigravity bridge.
+
+### Switching models across sessions (e.g. OpenRouter)
+
+When jumping between models — all under OpenCode — open a **new session per model**.
+Attribution labels come from the session record, so each model's work gets a clean,
+distinct label (e.g. `opencode · big-pickle` vs `opencode · openrouter/...`).
+Switching models inside one session muddles attribution, since git-ai can only
+resolve a single model label for that session's edits.
+
+It doesn't matter which model performs the final push. Attribution is attached to
+each commit when it's made, not when it's pushed, so `AI-AUTHORSHIP.md` lists every
+model that wrote lines across all commits — regardless of who ran `git push`. Before
+that final push, make sure every session's pending checkpoints are swept:
+
+```bash
+git-ai await --timeout 30
+git pull --rebase origin main
+git push origin refs/notes/ai
+git push origin main
+```
+
+### Mixed human + AI commits
+
+Attribute human edits with `git-ai checkpoint human` so a single commit can show
+both `human` and AI lines. `bridge/verify-attribution.cmd` validates an
+end-to-end attributed edit.
+
+### Moving or renaming a repo
+
+Attribution data is keyed by session and commit IDs, not repo paths, so relocating
+a repo is safe. Keep the folder name when using the Antigravity bridge, since its
+transcripts are keyed by folder name.
+
+### Fresh clones and teammates
+
+History only shows attribution once notes exist locally. On a new clone run
+`git-ai fetch-notes` (or `git fetch origin refs/notes/ai:refs/notes/ai`), otherwise
+older commits display as `untracked`.
+
+### CI and bot commits
+
+Commits made by the workflow (e.g. `github-actions[bot]` regenerating the report)
+have no attribution and correctly show as `untracked`. Merge commits skip stats.
+
+### Pushing from any IDE / terminal
+
+The report regenerates on every push to `main`, regardless of where you push from.
+Remember to push the notes ref too:
+
+```bash
+git-ai await --timeout 30
+git pull --rebase origin main
+git push origin refs/notes/ai
+git push origin main
+```
+
+### Non-GitHub remotes (GitLab, self-hosted)
+
+The GitHub Actions workflow is GitHub-specific. For other remotes, run
+`scripts/authorship-report.sh` in your own CI pipeline (or locally) and commit the
+generated `AI-AUTHORSHIP.md`.
+
+---
+
 ## ❓ Troubleshooting
 
 | Issue | Likely Cause | Solution |
@@ -167,6 +277,8 @@ git push origin main
 | **Report shows `untracked`** | Edits occurred before `git-ai` was configured. | `git-ai` cannot retroactively attribute historical commits. |
 | **`git push origin refs/notes/ai` fails** | Remote ref rejection. | Push main first, then manually push note refs (`git push origin refs/notes/ai`). |
 | **`git push` rejected: `fetch first`** | The workflow auto-committed a regenerated report to `main` while you were working. | `git-ai await --timeout 30`, then `git pull --rebase origin main` before pushing notes and main. |
+| **Report shows a long model id like `openrouter/...`** | Expected — the label reflects the provider's model id. | No action needed. Use a short custom model `id` in `opencode.json` for cleaner labels. |
+| **Fresh clone shows everything as `untracked`** | Attribution notes are not fetched with the default clone. | Run `git-ai fetch-notes` (or `git fetch origin refs/notes/ai:refs/notes/ai`). |
 
 ---
 
