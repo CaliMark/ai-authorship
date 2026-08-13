@@ -9,10 +9,11 @@
 
 Every commit gets a `git note` tracking which AI agent (or human) wrote each line of code.
 
-This repository includes three agent integrations out-of-the-box:
+This repository includes four agent integrations out-of-the-box:
 - ⚡ **OpenCode** — Native integration (no bridge required).
 - 🛸 **Antigravity IDE** (Gemini CLI) — via a lightweight PowerShell/Windows bridge in [`bridge/`](file:///c:/Users/calim/ai-authorship/bridge).
 - ⚡ **VS Code / GitHub Copilot Chat** — via native Copilot hooks (`~/.copilot/hooks/git-ai.json`).
+- 🛠️ **Cursor** — via native Cursor agent hooks (`~/.cursor/hooks.json`).
 
 A GitHub Actions workflow automatically reads the attribution notes and generates a live [`AI-AUTHORSHIP.md`](file:///c:/Users/calim/ai-authorship/AI-AUTHORSHIP.md) report on every push to `main`.
 
@@ -29,9 +30,10 @@ A GitHub Actions workflow automatically reads the attribution notes and generate
   - [1. Install git-ai](#1-install-git-ai)
   - [2. OpenCode Setup (Native)](#2-opencode-setup-native)
   - [3. VS Code & GitHub Copilot Chat Setup (Native)](#3-vs-code--github-copilot-chat-setup-native)
-  - [4. Antigravity IDE Setup (Windows Bridge)](#4-antigravity-ide-setup-windows-bridge)
-  - [5. Verify Your First Attributed Edit](#5-verify-your-first-attributed-edit)
-  - [6. Publish the CI Report](#6-publish-the-ci-report)
+  - [4. Cursor Setup (Native Hooks)](#4-cursor-setup-native-hooks)
+  - [5. Antigravity IDE Setup (Windows Bridge)](#5-antigravity-ide-setup-windows-bridge)
+  - [6. Verify Your First Attributed Edit](#6-verify-your-first-attributed-edit)
+  - [7. Publish the CI Report](#7-publish-the-ci-report)
 - [Supported Agents](#supported-agents)
 - [Workflows for Different Situations](#workflows-for-different-situations)
 - [Configuration](#%EF%B8%8F-configuration)
@@ -48,6 +50,7 @@ graph LR
     A[OpenCode] -->|Native Hooks| C[git-ai]
     B[Antigravity IDE] -->|Bridge Hooks| C
     D[VS Code · Copilot Chat] -->|Native Hooks| C
+    G[Cursor] -->|Native Hooks| C
     C -->|refs/notes/ai| E[Git Commit Notes]
     E -->|GitHub Actions| F[AI-AUTHORSHIP.md Report]
 ```
@@ -66,6 +69,7 @@ graph LR
 | **Windows OS** | Windows 10/11 | Required for Antigravity bridge (`bridge/`) |
 | **OpenCode** | v1.12+ | Native `git-ai` integration |
 | **VS Code** | 1.109.3+ | Copilot Chat hooks (`~/.copilot/hooks/git-ai.json`) + `chat.useHooks: true` |
+| **Cursor** | Agent Hooks supported | Native Cursor hooks (`~/.cursor/hooks.json`) |
 | **Antigravity IDE** | Gemini CLI hooks enabled | Supported via `bridge/install.cmd` |
 | **GitHub Actions** | Standard runner (Ubuntu) | Automated Markdown report generation |
 
@@ -79,13 +83,16 @@ graph LR
 | **Antigravity IDE** (Gemini CLI) | Windows bridge (`bridge/`) | `cd bridge && install.cmd` |
 | **VS Code** (Copilot Chat) | Native hooks (`~/.copilot/hooks/git-ai.json`) + optional extension | `git-ai install-hooks` |
 | **GitHub Copilot** | Native hooks | `git-ai install-hooks` |
-| **Claude Code · Cursor · Windsurf · Cline · Codex · Continue CLI · Amp · Pi · AI Tab · Firebender** | Checkpoint presets | `git-ai checkpoint <preset>` |
+| **Cursor** | Native hooks (`~/.cursor/hooks.json`) | `git-ai install-hooks` |
+| **Claude Code · Windsurf · Cline · Codex · Continue CLI · Amp · Pi · AI Tab · Firebender** | Checkpoint presets | `git-ai checkpoint <preset>` |
 
 > [!NOTE]
-> The first three rows are documented and tested against this repository (plus
-> the [game-of-life](https://github.com/CaliMark/game-of-life) live example, which
-> shows `gemini`, `opencode`, and `github-copilot` all attributed in one repo);
-> the rest are supported by `git-ai` and use the same `refs/notes/ai` attribution.
+> The OpenCode, Antigravity IDE, VS Code / Copilot Chat, and Cursor integrations
+> are all documented and tested against this repository (plus the
+> [game-of-life](https://github.com/CaliMark/game-of-life) live example, which
+> shows `gemini`, `opencode`, `github-copilot`, and `cursor` all attributed in one
+> repo); the rest are supported by `git-ai` and use the same `refs/notes/ai`
+> attribution.
 >
 > VS Code attribution comes from the `~/.copilot/hooks/git-ai.json` hooks, not the
 > extension. Enable it with `"chat.useHooks": true` in VS Code user settings. The
@@ -93,14 +100,20 @@ graph LR
 > the in-editor blame lens (Ctrl+Shift+A) and AI-tab tracking, and is
 > auto-installed by `git-ai install-hooks`. The Copilot model is resolved from
 > session data (e.g. `github-copilot · claude-haiku-4.5`).
+>
+> Cursor attribution comes from Cursor's native agent hooks
+> (`~/.cursor/hooks.json`), which `git-ai install-hooks` writes automatically. The
+> model label comes straight from Cursor's hook payload (e.g.
+> `cursor · composer-2.5-fast`).
 
 ---
 
 ## 🚀 Quick Start
 
 > [!NOTE]
-> The Antigravity IDE Windows bridge and the VS Code / Copilot Chat hooks have
-> both been fully tested and verified directly on this repository (and the
+> The Antigravity IDE Windows bridge, the VS Code / Copilot Chat hooks, and the
+> Cursor agent hooks have all been fully tested and verified directly on this
+> repository (and the
 > [game-of-life](https://github.com/CaliMark/game-of-life) live example).
 
 ### 1. Install git-ai
@@ -153,7 +166,26 @@ edits are attributed automatically. Verified live: Copilot Chat commits in the
 
 ---
 
-### 4. Antigravity IDE Setup (Windows Bridge)
+### 4. Cursor Setup (Native Hooks)
+
+Attribution in Cursor uses its native agent hooks file.
+
+1. Run in your terminal:
+
+```bash
+git-ai install-hooks
+```
+
+That's it — `git-ai` writes `~/.cursor/hooks.json` (with `preToolUse` /
+`postToolUse` events), and Cursor edits are attributed automatically. The model
+label comes straight from Cursor's hook payload (e.g.
+`cursor · composer-2.5-fast`). Verified live: a Cursor edit committed in the
+[game-of-life](https://github.com/CaliMark/game-of-life) repo shows
+`100% AI | agent: cursor` attribution.
+
+---
+
+### 5. Antigravity IDE Setup (Windows Bridge)
 
 Run in Command Prompt or PowerShell:
 
@@ -169,7 +201,7 @@ This merges the `git-ai-attribution` hook into `%USERPROFILE%\.gemini\config\hoo
 
 ---
 
-### 5. Verify Your First Attributed Edit
+### 6. Verify Your First Attributed Edit
 
 1. Open a Git repository in **Antigravity IDE** and edit any file.
 2. Ensure active OpenCode sessions are closed *(an open OpenCode session may claim attribution as `opencode`)*.
@@ -183,7 +215,7 @@ The script sweeps pending checkpoints, commits your changes, pushes attribution 
 
 ---
 
-### 6. Publish the CI Report
+### 7. Publish the CI Report
 
 Copy the workflow and report generator scripts into your repository:
 
