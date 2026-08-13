@@ -9,9 +9,10 @@
 
 Every commit gets a `git note` tracking which AI agent (or human) wrote each line of code.
 
-This repository includes two agent integrations out-of-the-box:
+This repository includes three agent integrations out-of-the-box:
 - ⚡ **OpenCode** — Native integration (no bridge required).
 - 🛸 **Antigravity IDE** (Gemini CLI) — via a lightweight PowerShell/Windows bridge in [`bridge/`](file:///c:/Users/calim/ai-authorship/bridge).
+- ⚡ **VS Code / GitHub Copilot Chat** — via native Copilot hooks (`~/.copilot/hooks/git-ai.json`).
 
 A GitHub Actions workflow automatically reads the attribution notes and generates a live [`AI-AUTHORSHIP.md`](file:///c:/Users/calim/ai-authorship/AI-AUTHORSHIP.md) report on every push to `main`.
 
@@ -27,9 +28,10 @@ A GitHub Actions workflow automatically reads the attribution notes and generate
 - [Quick Start](#-quick-start)
   - [1. Install git-ai](#1-install-git-ai)
   - [2. OpenCode Setup (Native)](#2-opencode-setup-native)
-  - [3. Antigravity IDE Setup (Windows Bridge)](#3-antigravity-ide-setup-windows-bridge)
-  - [4. Verify Your First Attributed Edit](#4-verify-your-first-attributed-edit)
-  - [5. Publish the CI Report](#5-publish-the-ci-report)
+  - [3. VS Code & GitHub Copilot Chat Setup (Native)](#3-vs-code--github-copilot-chat-setup-native)
+  - [4. Antigravity IDE Setup (Windows Bridge)](#4-antigravity-ide-setup-windows-bridge)
+  - [5. Verify Your First Attributed Edit](#5-verify-your-first-attributed-edit)
+  - [6. Publish the CI Report](#6-publish-the-ci-report)
 - [Supported Agents](#supported-agents)
 - [Workflows for Different Situations](#workflows-for-different-situations)
 - [Configuration](#%EF%B8%8F-configuration)
@@ -45,8 +47,9 @@ A GitHub Actions workflow automatically reads the attribution notes and generate
 graph LR
     A[OpenCode] -->|Native Hooks| C[git-ai]
     B[Antigravity IDE] -->|Bridge Hooks| C
-    C -->|refs/notes/ai| D[Git Commit Notes]
-    D -->|GitHub Actions| E[AI-AUTHORSHIP.md Report]
+    D[VS Code · Copilot Chat] -->|Native Hooks| C
+    C -->|refs/notes/ai| E[Git Commit Notes]
+    E -->|GitHub Actions| F[AI-AUTHORSHIP.md Report]
 ```
 
 1. **Checkpoint:** As agents edit files, `git-ai` records checkpoints containing session IDs, tools used, file paths, and transcript details.
@@ -62,6 +65,7 @@ graph LR
 | **git-ai CLI** | v1.6.0+ | Tracks line-by-line attribution notes |
 | **Windows OS** | Windows 10/11 | Required for Antigravity bridge (`bridge/`) |
 | **OpenCode** | v1.12+ | Native `git-ai` integration |
+| **VS Code** | 1.109.3+ | Copilot Chat hooks (`~/.copilot/hooks/git-ai.json`) + `chat.useHooks: true` |
 | **Antigravity IDE** | Gemini CLI hooks enabled | Supported via `bridge/install.cmd` |
 | **GitHub Actions** | Standard runner (Ubuntu) | Automated Markdown report generation |
 
@@ -78,20 +82,26 @@ graph LR
 | **Claude Code · Cursor · Windsurf · Cline · Codex · Continue CLI · Amp · Pi · AI Tab · Firebender** | Checkpoint presets | `git-ai checkpoint <preset>` |
 
 > [!NOTE]
-> Only the first two rows are documented and tested against this repository; the
-> rest are supported by `git-ai` and use the same `refs/notes/ai` attribution.
+> The first three rows are documented and tested against this repository (plus
+> the [game-of-life](https://github.com/CaliMark/game-of-life) live example, which
+> shows `gemini`, `opencode`, and `github-copilot` all attributed in one repo);
+> the rest are supported by `git-ai` and use the same `refs/notes/ai` attribution.
 >
 > VS Code attribution comes from the `~/.copilot/hooks/git-ai.json` hooks, not the
-> extension. The git-ai extension is useful but optional on modern VS Code
-> (1.109.3+) — it adds the in-editor blame lens (Ctrl+Shift+A) and AI-tab tracking,
-> and is auto-installed by `git-ai install-hooks`.
+> extension. Enable it with `"chat.useHooks": true` in VS Code user settings. The
+> git-ai extension is useful but optional on modern VS Code (1.109.3+) — it adds
+> the in-editor blame lens (Ctrl+Shift+A) and AI-tab tracking, and is
+> auto-installed by `git-ai install-hooks`. The Copilot model is resolved from
+> session data (e.g. `github-copilot · claude-haiku-4.5`).
 
 ---
 
 ## 🚀 Quick Start
 
 > [!NOTE]
-> The Antigravity IDE Windows bridge has been fully tested and verified directly on this repository.
+> The Antigravity IDE Windows bridge and the VS Code / Copilot Chat hooks have
+> both been fully tested and verified directly on this repository (and the
+> [game-of-life](https://github.com/CaliMark/game-of-life) live example).
 
 ### 1. Install git-ai
 
@@ -118,7 +128,32 @@ That’s it! OpenCode sessions will automatically attribute code edits.
 
 ---
 
-### 3. Antigravity IDE Setup (Windows Bridge)
+### 3. VS Code & GitHub Copilot Chat Setup (Native)
+
+Attribution in GitHub Copilot Chat uses the native Copilot hooks file, plus one
+setting in VS Code.
+
+1. Set `"chat.useHooks": true` in VS Code user settings (`settings.json`).
+2. Run in your terminal:
+
+```bash
+git-ai install-hooks
+```
+
+That’s it — `git-ai` writes `~/.copilot/hooks/git-ai.json`, and Copilot Chat
+edits are attributed automatically. Verified live: Copilot Chat commits in the
+[game-of-life](https://github.com/CaliMark/game-of-life) repo show
+`github-copilot · claude-haiku-4.5` attribution with the full session note.
+
+> [!NOTE]
+> The git-ai VS Code extension is optional (VS Code 1.109.3+) — it adds the
+> in-editor blame lens (Ctrl+Shift+A) and AI-tab tracking, and is auto-installed
+> by `git-ai install-hooks`. Attribution itself comes from the hooks file, not
+> the extension.
+
+---
+
+### 4. Antigravity IDE Setup (Windows Bridge)
 
 Run in Command Prompt or PowerShell:
 
@@ -134,7 +169,7 @@ This merges the `git-ai-attribution` hook into `%USERPROFILE%\.gemini\config\hoo
 
 ---
 
-### 4. Verify Your First Attributed Edit
+### 5. Verify Your First Attributed Edit
 
 1. Open a Git repository in **Antigravity IDE** and edit any file.
 2. Ensure active OpenCode sessions are closed *(an open OpenCode session may claim attribution as `opencode`)*.
@@ -148,7 +183,7 @@ The script sweeps pending checkpoints, commits your changes, pushes attribution 
 
 ---
 
-### 5. Publish the CI Report
+### 6. Publish the CI Report
 
 Copy the workflow and report generator scripts into your repository:
 
