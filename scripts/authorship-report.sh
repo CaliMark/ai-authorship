@@ -143,9 +143,11 @@ push to `main`.
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
-> session data). `untracked` = lines written before git-ai attribution was set
-> up (cannot be retroactively attributed). `human` = written directly by
-> a human. Note: these are line-count percentages, not commit counts.
+> session data). `untracked` = lines with no attribution data — written before
+> git-ai was set up, made in the github.com web UI, or created by CI bots
+> (cannot be retroactively attributed). `human` = written directly by a human
+> and recorded via `git-ai checkpoint human` or the git-ai extension. Note:
+> these are line-count percentages, not commit counts.
 
 ## Per-commit breakdown
 

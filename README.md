@@ -283,6 +283,15 @@ older commits display as `untracked`.
 Commits made by the workflow (e.g. `github-actions[bot]` regenerating the report)
 have no attribution and correctly show as `untracked`. Merge commits skip stats.
 
+### Web edits (github.com)
+
+Commits created in the github.com web UI (author your account, committer
+`GitHub <noreply@github.com>`) never touch local git-ai hooks, so they get no
+note and show as `untracked` — not `human`. `human` only appears from an explicit
+checkpoint: `git-ai checkpoint human` before committing your own edits, or the
+git-ai VS Code extension's save-based KnownHuman attestation. Prefer local edits
+if you want manual changes attributed as `human`.
+
 ### Pushing from any IDE / terminal
 
 The report regenerates on every push to `main`, regardless of where you push from.
