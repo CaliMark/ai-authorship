@@ -1,0 +1,40 @@
+README.md
+  s_52d0732141ad88::t_f9fd7796f4c000 56
+  s_52d0732141ad88::t_d9ec91e1ed7cf4 210-219
+  s_52d0732141ad88::t_8d46509c5a4c7b 205-209,220-244,274-276
+  s_52d0732141ad88::t_c75e379b2770b9 306
+  s_52d0732141ad88::t_68f208e5352200 35-38
+  s_52d0732141ad88::t_ba464b3095ec01 122-124
+  s_52d0732141ad88::t_46c4a23f6dc797 113-121
+  s_52d0732141ad88::t_4a14ad199fb116 255-267
+  s_52d0732141ad88::t_a094103578ab22 440
+  s_52d0732141ad88::t_5f732a2ff4d130 458-459
+  s_52d0732141ad88::t_d515f0ebc753a7 17
+  s_52d0732141ad88::t_64902d3605afda 245-254,268-273
+  s_52d0732141ad88::t_4cf0166e310eec 460-461
+  s_52d0732141ad88::t_0e4db10923d3ad 91-92
+  s_52d0732141ad88::t_66f643a331441b 76
+  s_52d0732141ad88::t_d3331d606d5310 292
+bridge/cline/PostToolUse.ps1
+  s_52d0732141ad88::t_7be697fadbcf45 1-38
+.gitignore
+  s_52d0732141ad88::t_a08e83cc4c57a8 11-13
+bridge/cline/PreToolUse.ps1
+  s_52d0732141ad88::t_4097f228bf3cdb 1-107
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "2d5c04ce11f62ae18add5526b8131773fccfdbf6",
+  "prompts": {},
+  "sessions": {
+    "s_52d0732141ad88": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+        "model": "big-pickle"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
