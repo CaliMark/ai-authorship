@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **25** (last 50)
-- Total lines added: **2422**
-- **AI-generated:** 1683 lines (69.5%)
+- Commits analyzed: **27** (last 50)
+- Total lines added: **2680**
+- **AI-generated:** 1868 lines (69.7%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 739 lines (30.5%)
-- **Agents:** gemini (138 lines), gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1542 lines)
+- **Untracked:** 812 lines (30.3%)
+- **Agents:** gemini (138 lines), gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1727 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -26,6 +26,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 7452c9a | 2026-08-13 | docs: document Devin Desktop attribution via .devin hooks + bridge | 185 | 100% | 0% | opencode · big-pickle |
+| 58e6850 | 2026-08-14 | docs: regenerate AI authorship report | 73 | 0% | 0% | untracked |
 | 2d5c04c | 2026-08-13 | docs: document Cline CLI + extension attribution and git-ai extension conflict | 248 | 100% | 0% | opencode · big-pickle |
 | d5b1944 | 2026-08-13 | docs: regenerate AI authorship report | 60 | 0% | 0% | untracked |
 | a49e791 | 2026-08-13 | docs: document native Cursor hooks integration | 46 | 100% | 0% | opencode · big-pickle |
@@ -58,7 +60,69 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 2d5c04ce11f62ae18add5526b8131773fccfdbf6 (HEAD -> main, origin/main)
+commit 7452c9a1a4b98ba4856e4ada50b75e365ef06977 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-13T22:15:45-07:00
+
+    docs: document Devin Desktop attribution via .devin hooks + bridge
+
+    - Add bridge/devin/HookBridge.ps1 adapter (payload casing, cwd/transcript_path,
+      sessions.db model lookup -> claude preset)
+    - Document .devin/hooks.v1.json setup, session-load discovery, and the
+      claude swe-1-6-slow live result on game-of-life
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      README.md
+        s_52d0732141ad88::t_ed5ac85f396317 135-137
+        s_52d0732141ad88::t_e259715b00e7b4 99-100,102-104
+        s_52d0732141ad88::t_6694a00def20f5 280-358
+        s_52d0732141ad88::t_e2321254a8ba49 58
+        s_52d0732141ad88::t_8f29e7bb1172d4 37-40
+        s_52d0732141ad88::t_50be0982767694 546-547
+        s_52d0732141ad88::t_8d4bc9027021e3 523-524
+        s_52d0732141ad88::t_b2e2e57018563e 18
+        s_52d0732141ad88::t_a45399c2c7748c 374
+        s_52d0732141ad88::t_345a784e1907e2 79
+        s_52d0732141ad88::t_8320a536014697 95
+        s_52d0732141ad88::t_6d5ee992ba6936 388
+      bridge/devin/HookBridge.ps1
+        s_52d0732141ad88::t_b81325351b4ece 1-84
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "7452c9a1a4b98ba4856e4ada50b75e365ef06977",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 58e685083e1982cd1dc9bb0d3a600c6dda06ba75
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-14T03:08:57Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 2d5c04ce11f62ae18add5526b8131773fccfdbf6
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-13T20:08:16-07:00
 
@@ -645,96 +709,6 @@ Date:   2026-08-11T03:21:10Z
 
     Authorship note:
       (none)
-
-commit 1f3ebcc403784c777b670c2db9027b0e59513a24
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-10T20:20:36-07:00
-
-    chore: add live workflow copy under .github/workflows
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      .github/workflows/authorship-report.yml
-        s_30f00a1884ee3d::t_f846e4bf6d9d31 1-70
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "1f3ebcc403784c777b670c2db9027b0e59513a24",
-        "prompts": {},
-        "sessions": {
-          "s_30f00a1884ee3d": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_0251ccc8bffeRD38fJ4fosd3c2",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit 665612bd0085c54d62ce4c242d21349f50848cf9
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-10T20:16:38-07:00
-
-    initial commit: AI authorship attribution package for git-ai
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      .gitattributes
-        s_30f00a1884ee3d::t_caf9f2688707cc 1-6
-      .gitignore
-        s_30f00a1884ee3d::t_6b696f25a74775 1-10
-      LICENSE
-        s_30f00a1884ee3d::t_4d72afe2f4f12c 1-21
-      README.md
-        s_30f00a1884ee3d::t_a8ad071e9331c0 1-133
-      bridge/agy-hook.cmd
-        s_30f00a1884ee3d::t_46804a5e4adee6 1-3
-      bridge/agy-hook.ps1
-        s_30f00a1884ee3d::t_5d40b9282efae3 1-187
-      bridge/config.json
-        s_30f00a1884ee3d::t_8d04b9a3a8793f 1-8
-      bridge/install.cmd
-        s_30f00a1884ee3d::t_c58fc94c81346c 1-3
-      bridge/install.ps1
-        s_30f00a1884ee3d::t_f2298adc14c1c1 1-64
-      bridge/uninstall.cmd
-        s_30f00a1884ee3d::t_570ad7765140ac 1-3
-      bridge/uninstall.ps1
-        s_30f00a1884ee3d::t_c3823d8e63efad 1-26
-      bridge/verify-attribution.cmd
-        s_30f00a1884ee3d::t_2d46a62022e890 1-12
-      bridge/verify-attribution.ps1
-        s_30f00a1884ee3d::t_dcef86d9266967 1-173
-      scripts/authorship-report.sh
-        s_30f00a1884ee3d::t_cdd834347c00da 1-176
-      workflow/authorship-report.yml
-        s_30f00a1884ee3d::t_ba1a9c5e2f82ee 1-70
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "665612bd0085c54d62ce4c242d21349f50848cf9",
-        "prompts": {},
-        "sessions": {
-          "s_30f00a1884ee3d": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_0251ccc8bffeRD38fJ4fosd3c2",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
 
 
 ```
