@@ -15,6 +15,7 @@ This repository includes four agent integrations out-of-the-box:
 - ⚡ **VS Code / GitHub Copilot Chat** — via native Copilot hooks (`~/.copilot/hooks/git-ai.json`).
 - 🛠️ **Cursor** — via native Cursor agent hooks (`~/.cursor/hooks.json`).
 - 🛠️ **Cline** — via CLI PreToolUse hooks with an apply-and-restore bridge (`~/.cline/hooks/PreToolUse.ps1`).
+- 🛠️ **Devin Desktop** (Devin Local) — via project `.devin/hooks.v1.json` hooks calling the `bridge/devin/HookBridge.ps1` adapter.
 
 A GitHub Actions workflow automatically reads the attribution notes and generates a live [`AI-AUTHORSHIP.md`](file:///c:/Users/calim/ai-authorship/AI-AUTHORSHIP.md) report on every push to `main`.
 
@@ -33,10 +34,10 @@ A GitHub Actions workflow automatically reads the attribution notes and generate
   - [3. VS Code & GitHub Copilot Chat Setup (Native)](#3-vs-code--github-copilot-chat-setup-native)
   - [4. Cursor Setup (Native Hooks)](#4-cursor-setup-native-hooks)
   - [5. Cline Setup (CLI Hooks)](#5-cline-setup-cli-hooks)
-  - [6. Antigravity IDE Setup (Windows Bridge)](#6-antigravity-ide-setup-windows-bridge)
-  - [7. Verify Your First Attributed Edit](#7-verify-your-first-attributed-edit)
-  - [8. Publish the CI Report](#8-publish-the-ci-report)
-- [Supported Agents](#supported-agents)
+  - [6. Devin Desktop Setup (Windows Bridge)](#6-devin-desktop-setup-windows-bridge)
+  - [7. Antigravity IDE Setup (Windows Bridge)](#7-antigravity-ide-setup-windows-bridge)
+  - [8. Verify Your First Attributed Edit](#8-verify-your-first-attributed-edit)
+  - [9. Publish the CI Report](#9-publish-the-ci-report)- [Supported Agents](#supported-agents)
 - [Workflows for Different Situations](#workflows-for-different-situations)
 - [Configuration](#%EF%B8%8F-configuration)
 - [Troubleshooting](#-troubleshooting)
@@ -54,6 +55,7 @@ graph LR
     D[VS Code · Copilot Chat] -->|Native Hooks| C
     G[Cursor] -->|Native Hooks| C
     H[Cline CLI] -->|CLI Hooks| C
+    I[Devin Desktop] -->|Project Hooks + Bridge| C
     C -->|refs/notes/ai| E[Git Commit Notes]
     E -->|GitHub Actions| F[AI-AUTHORSHIP.md Report]
 ```
@@ -74,6 +76,7 @@ graph LR
 | **VS Code** | 1.109.3+ | Copilot Chat hooks (`~/.copilot/hooks/git-ai.json`) + `chat.useHooks: true` |
 | **Cursor** | Agent Hooks supported | Native Cursor hooks (`~/.cursor/hooks.json`) |
 | **Cline** | CLI 3.x (Windows) | CLI PreToolUse hooks + apply/restore bridge (`~/.cline/hooks/PreToolUse.ps1`) |
+| **Devin Desktop** | Devin Local (Windows) | Project `.devin/hooks.v1.json` + `bridge/devin/HookBridge.ps1` |
 | **Antigravity IDE** | Gemini CLI hooks enabled | Supported via `bridge/install.cmd` |
 | **GitHub Actions** | Standard runner (Ubuntu) | Automated Markdown report generation |
 
@@ -89,15 +92,16 @@ graph LR
 | **GitHub Copilot** | Native hooks | `git-ai install-hooks` |
 | **Cursor** | Native hooks (`~/.cursor/hooks.json`) | `git-ai install-hooks` |
 | **Cline CLI** | CLI hooks bridge (`~/.cline/hooks/PreToolUse.ps1`) | Copy from `bridge/cline/` (see §5) |
+| **Devin Desktop** (Devin Local) | Project hooks + bridge (`bridge/devin/HookBridge.ps1`) | Copy from `bridge/devin/` (see §6) |
 | **Claude Code · Windsurf · Codex · Continue CLI · Amp · Pi · AI Tab · Firebender** | Checkpoint presets | `git-ai checkpoint <preset>` |
 
 > [!NOTE]
-> The OpenCode, Antigravity IDE, VS Code / Copilot Chat, and Cursor integrations
-> are all documented and tested against this repository (plus the
+> The OpenCode, Antigravity IDE, VS Code / Copilot Chat, Cursor, Cline, and Devin
+> integrations are all documented and tested against this repository (plus the
 > [game-of-life](https://github.com/CaliMark/game-of-life) live example, which
-> shows `gemini`, `opencode`, `github-copilot`, and `cursor` all attributed in one
-> repo); the rest are supported by `git-ai` and use the same `refs/notes/ai`
-> attribution.
+> shows `gemini`, `opencode`, `github-copilot`, `cursor`, `cline`, and `claude`
+> (via Devin Desktop) all attributed in one repo); the rest are supported by
+> `git-ai` and use the same `refs/notes/ai` attribution.
 >
 > VS Code attribution comes from the `~/.copilot/hooks/git-ai.json` hooks, not the
 > extension. Enable it with `"chat.useHooks": true` in VS Code user settings. The
@@ -128,9 +132,9 @@ graph LR
 ## 🚀 Quick Start
 
 > [!NOTE]
-> The Antigravity IDE Windows bridge, the VS Code / Copilot Chat hooks, and the
-> Cursor agent hooks have all been fully tested and verified directly on this
-> repository (and the
+> The Antigravity IDE Windows bridge, the VS Code / Copilot Chat hooks, the
+> Cursor agent hooks, the Cline hooks, and the Devin project hooks have all been
+> fully tested and verified directly on this repository (and the
 > [game-of-life](https://github.com/CaliMark/game-of-life) live example).
 
 ### 1. Install git-ai
@@ -273,7 +277,85 @@ Verified live: a Cline extension edit committed in the
 
 ---
 
-### 6. Antigravity IDE Setup (Windows Bridge)
+### 6. Devin Desktop Setup (Windows Bridge)
+
+Attribution in **Devin Desktop** (which runs the **Devin Local** agent under the
+hood — the rebranded successor to Windsurf's Cascade agent) uses project-level
+hooks in `.devin/hooks.v1.json` inside the repository.
+
+> [!NOTE]
+> Devin Local reads hooks from **project-level** `.devin/hooks.v1.json`
+> (the file's `hooks` object is the entire file) or from user-level
+> `%APPDATA%\Devin\config.json`. Hooks are discovered **when a session loads**, so
+> you must fully quit and reopen Devin Desktop after adding the file. The legacy
+> `~/.codeium/windsurf/hooks.json` paths are **not** read by Devin Local.
+>
+> Devin's hook payload is Claude-Code-compatible but **omits `cwd` and
+> `transcript_path`**, and its tool names are lowercase (`edit`, `write`, `exec`).
+> git-ai's `claude` preset requires `transcript_path` and matches `Edit`/`Write`/
+> `MultiEdit`, so the bundled `bridge/devin/HookBridge.ps1` adapts the payload
+> before calling `git-ai checkpoint claude`.
+
+1. Create `.devin/hooks.v1.json` in your repository root:
+
+```json
+{
+  "PostToolUse": [
+    {
+      "matcher": "edit|write|multi_edit|apply_patch|notebook",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "powershell -NoProfile -ExecutionPolicy Bypass -File C:/Users/<you>/.git-ai/bridge/devin/HookBridge.ps1"
+        }
+      ]
+    }
+  ],
+  "PreToolUse": [
+    {
+      "matcher": "edit|write|multi_edit|apply_patch|notebook",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "powershell -NoProfile -ExecutionPolicy Bypass -File C:/Users/<you>/.git-ai/bridge/devin/HookBridge.ps1"
+        }
+      ]
+    }
+  ]
+}
+```
+
+2. Copy the bridge into place (or run it from this repo):
+
+```powershell
+copy bridge\devin\HookBridge.ps1 "$env:USERPROFILE\.git-ai\bridge\devin\HookBridge.ps1"
+```
+
+3. Fully quit and reopen Devin Desktop so it discovers the new hooks, then make
+   an **addition** edit via the Devin agent.
+
+That's it. The bridge:
+- Maps Devin's lowercase tool names to Claude casing (`edit`→`Edit`,
+  `write`→`Write`, `multi_edit`/`apply_patch`→`MultiEdit`, `notebook`→`Edit`).
+- Adds `cwd` (from `DEVIN_PROJECT_DIR` or the current location) and a
+  `transcript_path`.
+- Looks up the session's real model in `%APPDATA%\Devin\cli\sessions.db` and
+  writes a Claude-format transcript line containing it, so the model label
+  resolves (e.g. `claude · swe-1-6-slow`).
+- Runs `git-ai checkpoint claude` so the daemon records the `Human` baseline
+  (PreToolUse) and `AiAgent` checkpoint (PostToolUse).
+
+> [!IMPORTANT]
+> Use **additions**, not pure deletions, when testing — git-ai cannot attribute a
+> commit whose only change removes lines.
+
+Verified live: a Devin Desktop edit committed in the
+[game-of-life](https://github.com/CaliMark/game-of-life) repo (commit `150f8a4`)
+shows `claude · swe-1-6-slow` attribution via session `various-alibi`.
+
+---
+
+### 7. Antigravity IDE Setup (Windows Bridge)
 
 Run in Command Prompt or PowerShell:
 
@@ -289,7 +371,7 @@ This merges the `git-ai-attribution` hook into `%USERPROFILE%\.gemini\config\hoo
 
 ---
 
-### 7. Verify Your First Attributed Edit
+### 8. Verify Your First Attributed Edit
 
 1. Open a Git repository in **Antigravity IDE** and edit any file.
 2. Ensure active OpenCode sessions are closed *(an open OpenCode session may claim attribution as `opencode`)*.
@@ -303,7 +385,7 @@ The script sweeps pending checkpoints, commits your changes, pushes attribution 
 
 ---
 
-### 8. Publish the CI Report
+### 9. Publish the CI Report
 
 Copy the workflow and report generator scripts into your repository:
 
@@ -438,6 +520,8 @@ generated `AI-AUTHORSHIP.md`.
 | :--- | :--- | :--- |
 | **`verify-attribution.cmd` shows `FAIL / opencode`** | A live OpenCode session claimed the edit. | Close OpenCode, wait ~15 seconds, and commit again. |
 | **Cline edit shows `known_human` instead of `cline`** | The git-ai VS Code extension's save-based KnownHuman listener raced the Cline hook (first-claim-wins). | Disable the git-ai extension (rename its `.vscode/extensions/...` folder to `.disabled`), reload the window, and commit again. |
+| **Devin edit shows `claude unknown` (no model)** | The checkpoint was recorded before the bridge wrote the model into the transcript. | Re-make the edit (or the next Devin edit) with the current `bridge/devin/HookBridge.ps1`, then commit. |
+| **No Devin hooks fire (`hooks=0` in the Devin log)** | Devin Local discovers hooks only when a session loads, and reads project `.devin/hooks.v1.json` (or `%APPDATA%\Devin\config.json`), not `~/.codeium/...`. | Add `.devin/hooks.v1.json` and fully quit + reopen Devin Desktop before editing. |
 | **`UNKNOWN` or missing agent in notes** | Antigravity hooks are not firing. | Check `bridge/bridge.log`. If missing `RAW` lines, re-run `bridge/install.cmd`. |
 | **Report shows `untracked`** | Edits occurred before `git-ai` was configured. | `git-ai` cannot retroactively attribute historical commits. |
 | **`git push origin refs/notes/ai` fails** | Remote ref rejection. | Push main first, then manually push note refs (`git push origin refs/notes/ai`). |
@@ -459,6 +543,8 @@ generated `AI-AUTHORSHIP.md`.
 │   └── cline/
 │       ├── PreToolUse.ps1      # Cline CLI hook bridge (apply → snapshot → restore)
 │       └── PostToolUse.ps1     # Cline extension hook (snapshot post-edit content)
+│   └── devin/
+│       └── HookBridge.ps1      # Devin Desktop hook bridge (payload adapter + model lookup)
 ├── scripts/
 │   └── authorship-report.sh    # Core bash script generating AI-AUTHORSHIP.md
 ├── workflow/
