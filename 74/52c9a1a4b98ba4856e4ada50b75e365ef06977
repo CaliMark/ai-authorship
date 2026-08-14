@@ -1,0 +1,32 @@
+README.md
+  s_52d0732141ad88::t_ed5ac85f396317 135-137
+  s_52d0732141ad88::t_e259715b00e7b4 99-100,102-104
+  s_52d0732141ad88::t_6694a00def20f5 280-358
+  s_52d0732141ad88::t_e2321254a8ba49 58
+  s_52d0732141ad88::t_8f29e7bb1172d4 37-40
+  s_52d0732141ad88::t_50be0982767694 546-547
+  s_52d0732141ad88::t_8d4bc9027021e3 523-524
+  s_52d0732141ad88::t_b2e2e57018563e 18
+  s_52d0732141ad88::t_a45399c2c7748c 374
+  s_52d0732141ad88::t_345a784e1907e2 79
+  s_52d0732141ad88::t_8320a536014697 95
+  s_52d0732141ad88::t_6d5ee992ba6936 388
+bridge/devin/HookBridge.ps1
+  s_52d0732141ad88::t_b81325351b4ece 1-84
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "7452c9a1a4b98ba4856e4ada50b75e365ef06977",
+  "prompts": {},
+  "sessions": {
+    "s_52d0732141ad88": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+        "model": "big-pickle"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
