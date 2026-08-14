@@ -14,6 +14,7 @@ This repository includes four agent integrations out-of-the-box:
 - 🛸 **Antigravity IDE** (Gemini CLI) — via a lightweight PowerShell/Windows bridge in [`bridge/`](file:///c:/Users/calim/ai-authorship/bridge).
 - ⚡ **VS Code / GitHub Copilot Chat** — via native Copilot hooks (`~/.copilot/hooks/git-ai.json`).
 - 🛠️ **Cursor** — via native Cursor agent hooks (`~/.cursor/hooks.json`).
+- 🛠️ **Cline** — via CLI PreToolUse hooks with an apply-and-restore bridge (`~/.cline/hooks/PreToolUse.ps1`).
 
 A GitHub Actions workflow automatically reads the attribution notes and generates a live [`AI-AUTHORSHIP.md`](file:///c:/Users/calim/ai-authorship/AI-AUTHORSHIP.md) report on every push to `main`.
 
@@ -31,9 +32,10 @@ A GitHub Actions workflow automatically reads the attribution notes and generate
   - [2. OpenCode Setup (Native)](#2-opencode-setup-native)
   - [3. VS Code & GitHub Copilot Chat Setup (Native)](#3-vs-code--github-copilot-chat-setup-native)
   - [4. Cursor Setup (Native Hooks)](#4-cursor-setup-native-hooks)
-  - [5. Antigravity IDE Setup (Windows Bridge)](#5-antigravity-ide-setup-windows-bridge)
-  - [6. Verify Your First Attributed Edit](#6-verify-your-first-attributed-edit)
-  - [7. Publish the CI Report](#7-publish-the-ci-report)
+  - [5. Cline Setup (CLI Hooks)](#5-cline-setup-cli-hooks)
+  - [6. Antigravity IDE Setup (Windows Bridge)](#6-antigravity-ide-setup-windows-bridge)
+  - [7. Verify Your First Attributed Edit](#7-verify-your-first-attributed-edit)
+  - [8. Publish the CI Report](#8-publish-the-ci-report)
 - [Supported Agents](#supported-agents)
 - [Workflows for Different Situations](#workflows-for-different-situations)
 - [Configuration](#%EF%B8%8F-configuration)
@@ -51,6 +53,7 @@ graph LR
     B[Antigravity IDE] -->|Bridge Hooks| C
     D[VS Code · Copilot Chat] -->|Native Hooks| C
     G[Cursor] -->|Native Hooks| C
+    H[Cline CLI] -->|CLI Hooks| C
     C -->|refs/notes/ai| E[Git Commit Notes]
     E -->|GitHub Actions| F[AI-AUTHORSHIP.md Report]
 ```
@@ -70,6 +73,7 @@ graph LR
 | **OpenCode** | v1.12+ | Native `git-ai` integration |
 | **VS Code** | 1.109.3+ | Copilot Chat hooks (`~/.copilot/hooks/git-ai.json`) + `chat.useHooks: true` |
 | **Cursor** | Agent Hooks supported | Native Cursor hooks (`~/.cursor/hooks.json`) |
+| **Cline** | CLI 3.x (Windows) | CLI PreToolUse hooks + apply/restore bridge (`~/.cline/hooks/PreToolUse.ps1`) |
 | **Antigravity IDE** | Gemini CLI hooks enabled | Supported via `bridge/install.cmd` |
 | **GitHub Actions** | Standard runner (Ubuntu) | Automated Markdown report generation |
 
@@ -84,7 +88,8 @@ graph LR
 | **VS Code** (Copilot Chat) | Native hooks (`~/.copilot/hooks/git-ai.json`) + optional extension | `git-ai install-hooks` |
 | **GitHub Copilot** | Native hooks | `git-ai install-hooks` |
 | **Cursor** | Native hooks (`~/.cursor/hooks.json`) | `git-ai install-hooks` |
-| **Claude Code · Windsurf · Cline · Codex · Continue CLI · Amp · Pi · AI Tab · Firebender** | Checkpoint presets | `git-ai checkpoint <preset>` |
+| **Cline CLI** | CLI hooks bridge (`~/.cline/hooks/PreToolUse.ps1`) | Copy from `bridge/cline/` (see §5) |
+| **Claude Code · Windsurf · Codex · Continue CLI · Amp · Pi · AI Tab · Firebender** | Checkpoint presets | `git-ai checkpoint <preset>` |
 
 > [!NOTE]
 > The OpenCode, Antigravity IDE, VS Code / Copilot Chat, and Cursor integrations
@@ -105,6 +110,18 @@ graph LR
 > (`~/.cursor/hooks.json`), which `git-ai install-hooks` writes automatically. The
 > model label comes straight from Cursor's hook payload (e.g.
 > `cursor · composer-2.5-fast`).
+>
+> Cline attribution works for both the **VS Code extension** (git-ai's official
+> Cline installer targets `~/Documents/Cline/Hooks/` with `PreToolUse` +
+> `PostToolUse`) and the **Cline CLI** (`~/.cline/hooks/`). The CLI fires *only*
+> `PreToolUse` — before the edit is applied — so a naive snapshot would capture
+> pre-edit content and produce no claim. The bundled `PreToolUse.ps1` bridge
+> applies the edit first, snapshots post-edit content, then restores the original
+> bytes so Cline's own apply still succeeds. The model label resolves from
+> `~/.cline/data/settings/providers.json` (e.g. `cline · nemotron-3.5-lightning`).
+> When using the Cline extension hooks, **disable the git-ai VS Code extension**
+> — its save-based KnownHuman listener races the Cline `PostToolUse` hook and
+> can steal the claim (first-claim-wins).
 
 ---
 
@@ -185,7 +202,78 @@ label comes straight from Cursor's hook payload (e.g.
 
 ---
 
-### 5. Antigravity IDE Setup (Windows Bridge)
+### 5. Cline Setup (CLI Hooks)
+
+Attribution in the **Cline CLI** uses a `PreToolUse` hook bridge in `~/.cline/hooks/`.
+
+> [!NOTE]
+> The **Cline VS Code extension** reads hooks from `~/Documents/Cline/Hooks/` and
+> fires **both** `PreToolUse` and `PostToolUse` — so a plain `PostToolUse` hook
+> suffices there (no apply/restore needed; the edit is already on disk). The
+> bundled `bridge/cline/PostToolUse.ps1` is that hook.
+>
+> On Windows, git-ai's built-in Cline installer **skips Cline entirely**
+> (`"Cline hooks are not supported on Windows today"`), so the extension hooks
+> must be placed manually. The steps below target the **Cline CLI**, which reads
+> hooks from `~/.cline/hooks/` and fires **only** `PreToolUse` (no
+> `PostToolUse`), so it needs the apply-and-restore bridge.
+
+1. Copy the bridge into place:
+
+```powershell
+copy bridge\cline\PreToolUse.ps1 "$env:USERPROFILE\.cline\hooks\PreToolUse.ps1"
+```
+
+2. Restart your Cline CLI session so it picks up the hook.
+
+That's it. The bridge:
+
+- **Snapshots post-edit content** — for `editor` / `edit` it replaces
+  `old_text` → `new_text` on disk before the checkpoint; for `write_to_file` /
+  `write` it writes the new content directly.
+- **Runs `git-ai checkpoint cline`** against a `PostToolUse`-shaped payload, so
+  the daemon records an `AiAgent` checkpoint with the *post-edit* blob.
+- **Restores the original bytes** after a short delay, so Cline's own editor
+  apply still succeeds on the untouched file.
+- Resolves the model label from `~/.cline/data/settings/providers.json`
+  (`lastUsedProvider` → model), e.g. `cline · nemotron-3.5-lightning`.
+
+Verified live: a Cline CLI edit committed in the
+[game-of-life](https://github.com/CaliMark/game-of-life) repo shows
+`cline · nemotron-3.5-lightning` attribution (commit `fc81dca`).
+
+**Cline VS Code extension (Windows):** install the extension, then copy the
+plain `PostToolUse` hook (no apply/restore — the edit is already applied when
+`PostToolUse` fires):
+
+```powershell
+copy bridge\cline\PostToolUse.ps1 "$env:USERPROFILE\Documents\Cline\Hooks\PostToolUse.ps1"
+```
+
+Then verify an extension-driven edit attributes to `cline` on commit (the
+model label resolves from the same `~/.cline/data/settings/providers.json`).
+Verified live: a Cline extension edit committed in the
+[game-of-life](https://github.com/CaliMark/game-of-life) repo shows
+`cline · deepseek-v4-flash` attribution (commit `48ad9b6`).
+
+> [!IMPORTANT]
+> **Disable the git-ai VS Code extension** while the Cline extension hooks are
+> active. Attribution is **first-claim-wins**: the extension's save-based
+> KnownHuman listener races the Cline `PostToolUse` hook for the same edit and
+> can win, leaving the commit attributed to `known_human` instead of `cline`.
+> Rename/uninstall it (e.g. `...\.vscode\extensions\git-ai.git-ai-vscode-0.1.21`
+> → `...\.disabled`) and reload the window before testing, then re-enable it
+> after. The Copilot Chat hooks (`~/.copilot/hooks/git-ai.json`) are unaffected —
+> they are separate from the extension.
+
+> [!NOTE]
+> If both the CLI and the extension run, keep hooks in only one location at a
+> time to avoid double-attributing a single edit (`~/.cline/hooks/` = CLI,
+> `~/Documents/Cline/Hooks/` = extension).
+
+---
+
+### 6. Antigravity IDE Setup (Windows Bridge)
 
 Run in Command Prompt or PowerShell:
 
@@ -201,7 +289,7 @@ This merges the `git-ai-attribution` hook into `%USERPROFILE%\.gemini\config\hoo
 
 ---
 
-### 6. Verify Your First Attributed Edit
+### 7. Verify Your First Attributed Edit
 
 1. Open a Git repository in **Antigravity IDE** and edit any file.
 2. Ensure active OpenCode sessions are closed *(an open OpenCode session may claim attribution as `opencode`)*.
@@ -215,7 +303,7 @@ The script sweeps pending checkpoints, commits your changes, pushes attribution 
 
 ---
 
-### 7. Publish the CI Report
+### 8. Publish the CI Report
 
 Copy the workflow and report generator scripts into your repository:
 
@@ -349,6 +437,7 @@ generated `AI-AUTHORSHIP.md`.
 | Issue | Likely Cause | Solution |
 | :--- | :--- | :--- |
 | **`verify-attribution.cmd` shows `FAIL / opencode`** | A live OpenCode session claimed the edit. | Close OpenCode, wait ~15 seconds, and commit again. |
+| **Cline edit shows `known_human` instead of `cline`** | The git-ai VS Code extension's save-based KnownHuman listener raced the Cline hook (first-claim-wins). | Disable the git-ai extension (rename its `.vscode/extensions/...` folder to `.disabled`), reload the window, and commit again. |
 | **`UNKNOWN` or missing agent in notes** | Antigravity hooks are not firing. | Check `bridge/bridge.log`. If missing `RAW` lines, re-run `bridge/install.cmd`. |
 | **Report shows `untracked`** | Edits occurred before `git-ai` was configured. | `git-ai` cannot retroactively attribute historical commits. |
 | **`git push origin refs/notes/ai` fails** | Remote ref rejection. | Push main first, then manually push note refs (`git push origin refs/notes/ai`). |
@@ -366,7 +455,10 @@ generated `AI-AUTHORSHIP.md`.
 │   ├── config.json             # Tool permission rules (allow / ask / deny)
 │   ├── install.cmd             # Registers hook in ~/.gemini/config/hooks.json
 │   ├── uninstall.cmd           # Removes hook registration
-│   └── verify-attribution.cmd  # End-to-end verification script
+│   ├── verify-attribution.cmd  # End-to-end verification script
+│   └── cline/
+│       ├── PreToolUse.ps1      # Cline CLI hook bridge (apply → snapshot → restore)
+│       └── PostToolUse.ps1     # Cline extension hook (snapshot post-edit content)
 ├── scripts/
 │   └── authorship-report.sh    # Core bash script generating AI-AUTHORSHIP.md
 ├── workflow/

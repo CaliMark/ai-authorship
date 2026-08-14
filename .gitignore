@@ -8,3 +8,6 @@ bridge/stubs/
 .ai-authorship-detail.tmp
 node_modules/
 dist/
+
+# local research notes
+docs/RESEARCH-NOTES.md
