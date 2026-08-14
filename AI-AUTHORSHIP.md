@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **23** (last 50)
-- Total lines added: **2114**
-- **AI-generated:** 1435 lines (67.9%)
+- Commits analyzed: **25** (last 50)
+- Total lines added: **2422**
+- **AI-generated:** 1683 lines (69.5%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 679 lines (32.1%)
-- **Agents:** gemini (138 lines), gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1294 lines)
+- **Untracked:** 739 lines (30.5%)
+- **Agents:** gemini (138 lines), gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1542 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -26,6 +26,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2d5c04c | 2026-08-13 | docs: document Cline CLI + extension attribution and git-ai extension conflict | 248 | 100% | 0% | opencode · big-pickle |
+| d5b1944 | 2026-08-13 | docs: regenerate AI authorship report | 60 | 0% | 0% | untracked |
 | a49e791 | 2026-08-13 | docs: document native Cursor hooks integration | 46 | 100% | 0% | opencode · big-pickle |
 | 5c2e5b9 | 2026-08-13 | docs: regenerate AI authorship report | 137 | 0% | 0% | untracked |
 | 39a4c54 | 2026-08-12 | docs: clarify untracked vs human attribution for web edits | 14 | 100% | 0% | opencode · big-pickle |
@@ -56,7 +58,72 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit a49e7918ea4fe07ea2b67247a3eb9067d43449c2 (HEAD -> main, origin/main)
+commit 2d5c04ce11f62ae18add5526b8131773fccfdbf6 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-13T20:08:16-07:00
+
+    docs: document Cline CLI + extension attribution and git-ai extension conflict
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      README.md
+        s_52d0732141ad88::t_f9fd7796f4c000 56
+        s_52d0732141ad88::t_d9ec91e1ed7cf4 210-219
+        s_52d0732141ad88::t_8d46509c5a4c7b 205-209,220-244,274-276
+        s_52d0732141ad88::t_c75e379b2770b9 306
+        s_52d0732141ad88::t_68f208e5352200 35-38
+        s_52d0732141ad88::t_ba464b3095ec01 122-124
+        s_52d0732141ad88::t_46c4a23f6dc797 113-121
+        s_52d0732141ad88::t_4a14ad199fb116 255-267
+        s_52d0732141ad88::t_a094103578ab22 440
+        s_52d0732141ad88::t_5f732a2ff4d130 458-459
+        s_52d0732141ad88::t_d515f0ebc753a7 17
+        s_52d0732141ad88::t_64902d3605afda 245-254,268-273
+        s_52d0732141ad88::t_4cf0166e310eec 460-461
+        s_52d0732141ad88::t_0e4db10923d3ad 91-92
+        s_52d0732141ad88::t_66f643a331441b 76
+        s_52d0732141ad88::t_d3331d606d5310 292
+      bridge/cline/PostToolUse.ps1
+        s_52d0732141ad88::t_7be697fadbcf45 1-38
+      .gitignore
+        s_52d0732141ad88::t_a08e83cc4c57a8 11-13
+      bridge/cline/PreToolUse.ps1
+        s_52d0732141ad88::t_4097f228bf3cdb 1-107
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "2d5c04ce11f62ae18add5526b8131773fccfdbf6",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit d5b1944e60392fdd8b9bad00c9d624d872d9cfae
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-13T22:03:42Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit a49e7918ea4fe07ea2b67247a3eb9067d43449c2
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-13T15:03:00-07:00
 
