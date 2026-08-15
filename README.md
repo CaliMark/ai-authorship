@@ -129,13 +129,20 @@ moves up to [Agent Support](#-agent-support).
 
 | What | Status | Notes |
 | :--- | :--- | :--- |
-| **Local / self-hosted models** — LM Studio (Vulkan) + `qwen2.5-coder:7b` | 🔬 In progress | Minimal setup below |
+| **Local / self-hosted models** — LM Studio (Vulkan) + `qwen2.5-7b-instruct` | ✅ Tested & verified live | Real edit attributed as `opencode · qwen2.5-7b-instruct` |
 
-### Minimal LM Studio setup (self-hosted, no cloud)
+### Local models through LM Studio (self-hosted, no cloud) — verified
+
+Verified live on a Ryzen 3 2200G (4 threads, Vega 8 iGPU, 32 GB RAM): a local
+`qwen2.5-7b-instruct` made a real file edit through OpenCode and git-ai
+attributed it as `opencode · qwen2.5-7b-instruct` — report generated locally,
+no GitHub, no cloud accounts.
 
 - **App:** [LM Studio](https://lmstudio.ai) — Windows or Linux (AppImage); pick the **Vulkan** backend so AMD/Intel iGPUs and NVIDIA GPUs can offload.
 - **Hardware floor:** any AVX2 CPU, **16 GB RAM** (8 GB runs sub-4B models), **~10 GB free disk**. GPU optional — 4 GB+ VRAM speeds it up, but CPU-only still works.
-- **Model to start with:** `qwen2.5-coder-7b-instruct` **Q4_K_M** (~4.7 GB) — the smallest that reliably makes real file edits through tool calls (smaller models emit malformed tool calls mid-task). Have 16 GB+ RAM? `qwen3:8b` (~5–6 GB) is the best small tool-caller.
+- **Model that works:** `qwen2.5-7b-instruct` **Q4_K_M** (~4.7 GB) — trained for tool use, emits proper `tool_calls`.
+- **Model that does NOT work:** `qwen2.5-coder-7b-instruct` — the Coder family was **not trained on tool tokens**; it emits tool calls as `<tools>`/```json``` text in `content` with an empty `tool_calls` array, which the agent can't execute. Verified failing here; use `qwen2.5-instruct` (non-Coder) or `qwen3:8b` (~5–6 GB, best small tool-caller) instead.
+- **Gotchas:** at ~3–6 tok/s on a 4-thread CPU each step is slow — a small, sharp prompt ("use the write tool right now") works; an open-ended prompt can get a narration instead of a tool call. Keep GPU offload low on iGPUs — they share the CPU's memory bus, so heavy offload doesn't help.
 
 Self-hosted fits right in: **models** via LM Studio/Ollama, **git** via Gitea/Forgejo/GitLab, **reports** via your own cron or CI — zero cloud accounts anywhere. Attribution is provider-agnostic by design: it tracks the agent session, not the model endpoint.
 

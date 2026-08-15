@@ -4,9 +4,15 @@
 
 Attribution is **provider-agnostic** — `git-ai` tracks the agent session, not the
 upstream model. OpenRouter, OpenAI-compatible proxies, or local models (e.g.
-Ollama) all work without changes. Only the model label in the report changes to the
+Ollama, LM Studio) all work without changes. Only the model label in the report changes to the
 provider's model id (e.g. `opencode · openrouter/anthropic/claude-sonnet-4`). For
 custom providers defined in `opencode.json`, use a short readable model `id`.
+
+**Local models (LM Studio/Ollama):** verified live with `qwen2.5-7b-instruct`
+(attributed as `opencode · qwen2.5-7b-instruct`). Use models **trained for tool
+use** — the `qwen2.5-coder` family is not, so its tool calls arrive as
+`<tools>`/```json``` text in `content` with an empty `tool_calls` array and the
+agent never executes the edit. Prefer `qwen2.5-instruct` or `qwen3:8b`.
 
 ## Multiple agents or sessions in one repo
 
