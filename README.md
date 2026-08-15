@@ -33,14 +33,12 @@ A GitHub Actions workflow automatically reads the attribution notes and generate
 - [Requirements](#-requirements)
 - [Quick Start](#-quick-start)
   - [1. Install git-ai](#1-install-git-ai)
-  - [2. OpenCode Setup (Native)](#2-opencode-setup-native)
-  - [3. VS Code & GitHub Copilot Chat Setup (Native)](#3-vs-code--github-copilot-chat-setup-native)
-  - [4. Cursor Setup (Native Hooks)](#4-cursor-setup-native-hooks)
-  - [5. Cline Setup (CLI Hooks)](#5-cline-setup-cli-hooks)
-  - [6. Devin Desktop Setup (Windows Bridge)](#6-devin-desktop-setup-windows-bridge)
-  - [7. Antigravity IDE Setup (Windows Bridge)](#7-antigravity-ide-setup-windows-bridge)
-  - [8. Verify Your First Attributed Edit](#8-verify-your-first-attributed-edit)
-  - [9. Publish the CI Report](#9-publish-the-ci-report)
+  - [2. Native Agents (OpenCode · VS Code Copilot Chat · Cursor)](#2-native-agents-setup-opencode--vs-code-copilot-chat--cursor)
+  - [3. Cline Setup (CLI Hooks)](#3-cline-setup-cli-hooks)
+  - [4. Devin Desktop Setup (Windows Bridge)](#4-devin-desktop-setup-windows-bridge)
+  - [5. Antigravity IDE Setup (Windows Bridge)](#5-antigravity-ide-setup-windows-bridge)
+  - [6. Verify Your First Attributed Edit](#6-verify-your-first-attributed-edit)
+  - [7. Publish the CI Report](#7-publish-the-ci-report)
 - [Agent Support](#-agent-support)
 - [Workflows for Different Situations](docs/workflows.md)
 - [Configuration](#%EF%B8%8F-configuration)
@@ -54,10 +52,9 @@ A GitHub Actions workflow automatically reads the attribution notes and generate
 
 ```mermaid
 graph LR
-    A[OpenCode] -->|Native Hooks| C[git-ai]
+    A[OpenCode] -->|Native Plugin| C[git-ai]
+    D[VS Code Copilot Chat · GitHub Copilot · Cursor] -->|Native Hooks| C
     B[Antigravity IDE] -->|Bridge Hooks| C
-    D[VS Code · Copilot Chat] -->|Native Hooks| C
-    G[Cursor] -->|Native Hooks| C
     H[Cline CLI] -->|CLI Hooks| C
     I[Devin Desktop] -->|Project Hooks + Bridge| C
     C -->|refs/notes/ai| E[Git Commit Notes]
@@ -75,14 +72,10 @@ graph LR
 | Tool / Environment | Version / Target | Purpose |
 | :--- | :--- | :--- |
 | **git-ai CLI** | v1.6.0+ | Tracks line-by-line attribution notes |
-| **Windows OS** | Windows 10/11 | Required for Antigravity bridge (`bridge/`) |
-| **OpenCode** | v1.12+ | Native `git-ai` integration |
-| **VS Code** | 1.109.3+ | Copilot Chat hooks (`~/.copilot/hooks/git-ai.json`) + `chat.useHooks: true` |
-| **Cursor** | Agent Hooks supported | Native Cursor hooks (`~/.cursor/hooks.json`) |
-| **Cline** | CLI 3.x (Windows) | CLI PreToolUse hooks + apply/restore bridge (`~/.cline/hooks/PreToolUse.ps1`) |
-| **Devin Desktop** | Devin Local (Windows) | Project `.devin/hooks.v1.json` + `bridge/devin/HookBridge.ps1` |
-| **Antigravity IDE** | Gemini CLI hooks enabled | Supported via `bridge/install.cmd` |
+| **Windows OS** | Windows 10/11 | Required for the Windows bridges (`bridge/`) |
 | **GitHub Actions** | Standard runner (Ubuntu) | Automated Markdown report generation |
+
+See [Agent Support](#-agent-support) below for per-agent versions and setup.
 
 ---
 
@@ -95,8 +88,8 @@ graph LR
 | **OpenCode** (TUI + IDE extension) | Native plugin (auto-installed) | `git-ai install-hooks` |
 | **Native hooks**: VS Code (Copilot Chat) · GitHub Copilot · Cursor | Auto-installed by git-ai | `git-ai install-hooks` |
 | **Antigravity IDE** (Gemini CLI) | Windows bridge (`bridge/`) | `cd bridge && install.cmd` |
-| **Cline CLI** | CLI hooks bridge (`~/.cline/hooks/PreToolUse.ps1`) | Copy from `bridge/cline/` (see §5) |
-| **Devin Desktop** (Devin Local) | Project hooks + bridge (`bridge/devin/HookBridge.ps1`) | Copy from `bridge/devin/` (see §6) |
+| **Cline CLI** | CLI hooks bridge (`~/.cline/hooks/PreToolUse.ps1`) | Copy from `bridge/cline/` (see §3) |
+| **Devin Desktop** (Devin Local) | Project hooks + bridge (`bridge/devin/HookBridge.ps1`) | Copy from `bridge/devin/` (see §4) |
 
 > [!NOTE]
 > The OpenCode, Antigravity IDE, VS Code / Copilot Chat, Cursor, Cline, and Devin
@@ -121,55 +114,21 @@ don't offer a free tier to test with:
 > open an issue or PR and we'll wire up a bridge and add it to the live examples.
 > Agents marked `*` have **no free tier** at the time of writing, so they can't
 > be tested live yet — the moment a free tier exists, we'll verify them too.
->
-> VS Code attribution comes from the `~/.copilot/hooks/git-ai.json` hooks, not the
-> extension. Enable it with `"chat.useHooks": true` in VS Code user settings. The
-> git-ai extension is useful but optional on modern VS Code (1.109.3+) — it adds
-> the in-editor blame lens (Ctrl+Shift+A) and AI-tab tracking, and is
-> auto-installed by `git-ai install-hooks`. The Copilot model is resolved from
-> session data (e.g. `github-copilot · claude-haiku-4.5`).
->
-> Cursor attribution comes from Cursor's native agent hooks
-> (`~/.cursor/hooks.json`), which `git-ai install-hooks` writes automatically. The
-> model label comes straight from Cursor's hook payload (e.g.
-> `cursor · composer-2.5-fast`).
->
-> Cline attribution works for both the **VS Code extension** (git-ai's official
-> Cline installer targets `~/Documents/Cline/Hooks/` with `PreToolUse` +
-> `PostToolUse`) and the **Cline CLI** (`~/.cline/hooks/`). The CLI fires *only*
-> `PreToolUse` — before the edit is applied — so a naive snapshot would capture
-> pre-edit content and produce no claim. The bundled `PreToolUse.ps1` bridge
-> applies the edit first, snapshots post-edit content, then restores the original
-> bytes so Cline's own apply still succeeds. The model label resolves from
-> `~/.cline/data/settings/providers.json` (e.g. `cline · nemotron-3.5-lightning`).
-> When using the Cline extension hooks, **disable the git-ai VS Code extension**
-> — its save-based KnownHuman listener races the Cline `PostToolUse` hook and
-> can steal the claim (first-claim-wins).
 
 ---
 
 ## 🚀 Quick Start
-
-> [!NOTE]
-> The Antigravity IDE Windows bridge, the VS Code / Copilot Chat hooks, the
-> Cursor agent hooks, the Cline hooks, and the Devin project hooks have all been
-> fully tested and verified directly on this repository (and the
-> [game-of-life](https://github.com/CaliMark/game-of-life) live example).
 
 ### 1. Install git-ai
 
 Download `git-ai` for your platform from [usegitai.com](https://usegitai.com) and add it to your `PATH`.
 *Note: The bridge auto-detects `~/.git-ai/bin/git-ai.exe` or the `GIT_AI_BIN` environment variable.*
 
-### 2. OpenCode Setup (Native)
+### 2. Native Agents Setup (OpenCode · VS Code Copilot Chat · Cursor)
 
-Run in your terminal:
-
-```bash
-git-ai install-hooks
-```
-
-That’s it! OpenCode sessions will automatically attribute code edits.
+Run once — `git-ai install-hooks` installs hooks for OpenCode, VS Code / Copilot
+Chat, and Cursor automatically. For Copilot Chat, also set `"chat.useHooks": true`
+in VS Code user settings.
 
 > [!NOTE]
 > Attribution is **provider-agnostic** — it tracks the OpenCode *session*, not the
@@ -179,49 +138,9 @@ That’s it! OpenCode sessions will automatically attribute code edits.
 > `opencode.json`, use a short readable model `id`, since that string appears
 > verbatim in the report.
 
----
-
-### 3. VS Code & GitHub Copilot Chat Setup (Native)
-
-Attribution in GitHub Copilot Chat uses the native Copilot hooks file, plus one
-setting in VS Code.
-
-1. Set `"chat.useHooks": true` in VS Code user settings (`settings.json`).
-2. Run in your terminal:
-
-```bash
-git-ai install-hooks
-```
-
-That’s it — `git-ai` writes `~/.copilot/hooks/git-ai.json`, and Copilot Chat
-edits are attributed automatically. Verified live: Copilot Chat commits in the
-[game-of-life](https://github.com/CaliMark/game-of-life) repo show
-`github-copilot · claude-haiku-4.5` attribution with the full session note.
-
-> [!NOTE]
-> The git-ai VS Code extension is optional (VS Code 1.109.3+) — it adds the
-> in-editor blame lens (Ctrl+Shift+A) and AI-tab tracking, and is auto-installed
-> by `git-ai install-hooks`. Attribution itself comes from the hooks file, not
-> the extension.
-
----
-
-### 4. Cursor Setup (Native Hooks)
-
-Attribution in Cursor uses its native agent hooks file.
-
-1. Run in your terminal:
-
-```bash
-git-ai install-hooks
-```
-
-That's it — `git-ai` writes `~/.cursor/hooks.json` (with `preToolUse` /
-`postToolUse` events), and Cursor edits are attributed automatically. The model
-label comes straight from Cursor's hook payload (e.g.
-`cursor · composer-2.5-fast`). Verified live: a Cursor edit committed in the
-[game-of-life](https://github.com/CaliMark/game-of-life) repo shows
-`100% AI | agent: cursor` attribution.
+Verified live: `github-copilot · claude-haiku-4.5` (Copilot Chat) and
+`cursor · composer-2.5-fast` (Cursor) commits in the
+[game-of-life](https://github.com/CaliMark/game-of-life) repo.
 
 ---
 
@@ -237,11 +156,11 @@ label comes straight from Cursor's hook payload (e.g.
 > ```
 >
 > Both produce the same `bridge\` folder, so the `copy bridge\...` and
-> `cd bridge; install.cmd` commands in §5–§7 work identically either way.
+> `cd bridge; install.cmd` commands in §3–§5 work identically either way.
 
 ---
 
-### 5. Cline Setup (CLI Hooks)
+### 3. Cline Setup (CLI Hooks)
 
 Attribution in the **Cline CLI** uses a `PreToolUse` hook bridge in `~/.cline/hooks/`.
 
@@ -312,7 +231,7 @@ Verified live: a Cline extension edit committed in the
 
 ---
 
-### 6. Devin Desktop Setup (Windows Bridge)
+### 4. Devin Desktop Setup (Windows Bridge)
 
 Attribution in **Devin Desktop** (which runs the **Devin Local** agent under the
 hood) uses project-level hooks in `.devin/hooks.v1.json` inside the repository.
@@ -390,7 +309,7 @@ preset; the current bridge records Devin edits directly as `devin`).
 
 ---
 
-### 7. Antigravity IDE Setup (Windows Bridge)
+### 5. Antigravity IDE Setup (Windows Bridge)
 
 Run in Command Prompt or PowerShell:
 
@@ -406,7 +325,7 @@ This merges the `git-ai-attribution` hook into `%USERPROFILE%\.gemini\config\hoo
 
 ---
 
-### 8. Verify Your First Attributed Edit
+### 6. Verify Your First Attributed Edit
 
 1. Open a Git repository in **Antigravity IDE** and edit any file.
 2. Ensure active OpenCode sessions are closed *(an open OpenCode session may claim attribution as `opencode`)*.
@@ -420,7 +339,7 @@ The script sweeps pending checkpoints, commits your changes, pushes attribution 
 
 ---
 
-### 9. Publish the CI Report
+### 7. Publish the CI Report
 
 Copy the workflow and report generator scripts into your repository:
 
