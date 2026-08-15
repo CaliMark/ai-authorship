@@ -93,10 +93,8 @@ graph LR
 | Agent / IDE | Integration | Setup |
 | :--- | :--- | :--- |
 | **OpenCode** (TUI + IDE extension) | Native plugin (auto-installed) | `git-ai install-hooks` |
+| **Native hooks**: VS Code (Copilot Chat) · GitHub Copilot · Cursor | Auto-installed by git-ai | `git-ai install-hooks` |
 | **Antigravity IDE** (Gemini CLI) | Windows bridge (`bridge/`) | `cd bridge && install.cmd` |
-| **VS Code** (Copilot Chat) | Native hooks (`~/.copilot/hooks/git-ai.json`) + optional extension | `git-ai install-hooks` |
-| **GitHub Copilot** | Native hooks | `git-ai install-hooks` |
-| **Cursor** | Native hooks (`~/.cursor/hooks.json`) | `git-ai install-hooks` |
 | **Cline CLI** | CLI hooks bridge (`~/.cline/hooks/PreToolUse.ps1`) | Copy from `bridge/cline/` (see §5) |
 | **Devin Desktop** (Devin Local) | Project hooks + bridge (`bridge/devin/HookBridge.ps1`) | Copy from `bridge/devin/` (see §6) |
 
