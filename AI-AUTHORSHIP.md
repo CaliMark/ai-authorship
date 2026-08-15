@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **44** (last 50)
-- Total lines added: **3414**
-- **AI-generated:** 2114 lines (61.9%)
+- Commits analyzed: **46** (last 50)
+- Total lines added: **3482**
+- **AI-generated:** 2120 lines (60.9%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 1300 lines (38.1%)
-- **Agents:** gemini (138 lines), gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1973 lines)
+- **Untracked:** 1362 lines (39.1%)
+- **Agents:** gemini (138 lines), gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1979 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -26,6 +26,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| f9fd6f2 | 2026-08-14 | docs: strengthen AI code attribution keywords in headings and intro for indexing | 6 | 100% | 0% | opencode · big-pickle |
+| dbdba5c | 2026-08-15 | docs: regenerate AI authorship report | 62 | 0% | 0% | untracked |
 | a211e22 | 2026-08-14 | docs: bundle native agents into one Quick Start section, trim duplicate notes and requirements | 26 | 100% | 0% | opencode · big-pickle |
 | 0f995ea | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 | 487cb82 | 2026-08-14 | docs: consolidate native-hook agents into one row in Agent Support table | 1 | 100% | 0% | opencode · big-pickle |
@@ -77,7 +79,56 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit a211e220846bf9a5fd9d07b9b92776650a129ebf (HEAD -> main, origin/main)
+commit f9fd6f2c6595a5e93d1b78f31e119204c620b84a (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-14T19:50:24-07:00
+
+    docs: strengthen AI code attribution keywords in headings and intro for indexing
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      README.md
+        s_52d0732141ad88::t_002693b5ad2a02 10,12
+        s_52d0732141ad88::t_0e943d255199c3 51
+        s_52d0732141ad88::t_fd5df0200ba56d 32
+        s_52d0732141ad88::t_2ab35b0f4988ec 43
+      docs/workflows.md
+        s_52d0732141ad88::t_c77e9049e3b7c0 1
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "f9fd6f2c6595a5e93d1b78f31e119204c620b84a",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit dbdba5c475f2b0024591fe4a20be2e233c6be580
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-15T02:45:18Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit a211e220846bf9a5fd9d07b9b92776650a129ebf
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-14T19:44:50-07:00
 
@@ -670,77 +721,6 @@ Date:   2026-08-13T01:09:32Z
 
     Authorship note:
       (none)
-
-commit 39a4c54765787cdeb0e41c208df181eea761baf8
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-12T18:08:29-07:00
-
-    docs: clarify untracked vs human attribution for web edits
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      README.md
-        s_52d0732141ad88::t_ff2432fe8b6e35 286-294
-      scripts/authorship-report.sh
-        s_52d0732141ad88::t_af6183ad15b763 146-150
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "39a4c54765787cdeb0e41c208df181eea761baf8",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit 69b633c88a61074a6ea6104fe21ee8fb188fb898
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-12T18:00:57-07:00
-
-    docs: document verified VS Code / Copilot Chat attribution
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      README.md
-        s_52d0732141ad88::t_be95863d2ba055 12,15,132
-        s_52d0732141ad88::t_c0dfb97f042cc6 85-88,91-95
-        s_52d0732141ad88::t_538aa1d3dc5fe9 131,133-156,172
-        s_52d0732141ad88::t_1eeb4ececebad0 186
-        s_52d0732141ad88::t_d8f5a83923799c 102-104
-        s_52d0732141ad88::t_02674b8da57275 31-34
-        s_52d0732141ad88::t_b70be4cc7f2787 50-52
-        s_52d0732141ad88::t_532dd3ee27c040 68
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "69b633c88a61074a6ea6104fe21ee8fb188fb898",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
 
 
 ```
