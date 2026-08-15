@@ -7,9 +7,9 @@
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-blue)](#-requirements)
 [![git-ai](https://img.shields.io/badge/git--ai-v1.6%2B-brightgreen)](https://usegitai.com)
 
-Every commit gets a `git note` tracking which AI agent (or human) wrote each line of code.
+**AI code attribution for every commit** — a `git note` records which AI agent (or human) wrote each line of code.
 
-This repository includes six agent integrations out-of-the-box:
+Works out-of-the-box with **six AI coding agents and IDEs**:
 - ⚡ **OpenCode** — Native integration (no bridge required).
 - 🛸 **Antigravity IDE** (Gemini CLI) — via a lightweight PowerShell/Windows bridge in [`bridge/`](https://github.com/CaliMark/ai-authorship/tree/main/bridge).
 - ⚡ **VS Code / GitHub Copilot Chat** — via native Copilot hooks (`~/.copilot/hooks/git-ai.json`).
@@ -29,7 +29,7 @@ A GitHub Actions workflow automatically reads the attribution notes and generate
 
 ## 📑 Table of Contents
 
-- [How It Works](#-how-it-works)
+- [How AI Code Attribution Works](#-how-ai-code-attribution-works)
 - [Requirements](#-requirements)
 - [Quick Start](#-quick-start)
   - [1. Install git-ai](#1-install-git-ai)
@@ -40,7 +40,7 @@ A GitHub Actions workflow automatically reads the attribution notes and generate
   - [6. Verify Your First Attributed Edit](#6-verify-your-first-attributed-edit)
   - [7. Publish the CI Report](#7-publish-the-ci-report)
 - [Agent Support](#-agent-support)
-- [Workflows for Different Situations](docs/workflows.md)
+- [Workflows for Different Situations](docs/workflows.md) — AI attribution workflows: model routing (OpenRouter, proxies, local models), multi-agent sessions, mixed human + AI commits, remotes
 - [Configuration](#%EF%B8%8F-configuration)
 - [Troubleshooting](#-troubleshooting)
 - [Project Layout](#-project-layout)
@@ -48,7 +48,7 @@ A GitHub Actions workflow automatically reads the attribution notes and generate
 
 ---
 
-## ⚙️ How It Works
+## ⚙️ How AI Code Attribution Works
 
 ```mermaid
 graph LR
