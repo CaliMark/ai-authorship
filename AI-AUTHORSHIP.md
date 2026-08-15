@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **31** (last 50)
-- Total lines added: **2877**
-- **AI-generated:** 1936 lines (67.3%)
+- Commits analyzed: **34** (last 50)
+- Total lines added: **3050**
+- **AI-generated:** 2055 lines (67.4%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 941 lines (32.7%)
-- **Agents:** gemini (138 lines), gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1795 lines)
+- **Untracked:** 995 lines (32.6%)
+- **Agents:** gemini (138 lines), gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1914 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -26,6 +26,9 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| e635355 | 2026-08-14 | docs: expand live demo note, link both public repos, fix local file:// links | 10 | 100% | 0% | opencode · big-pickle |
+| 907fb12 | 2026-08-14 | docs: move workflows reference to docs/workflows.md, link from README | 109 | 100% | 0% | opencode · big-pickle |
+| 9acc1c7 | 2026-08-15 | docs: regenerate AI authorship report | 54 | 0% | 0% | untracked |
 | ba7e6bd | 2026-08-14 | docs: add bridge.zip release download instructions, note clone option | 17 | 100% | 0% | opencode · big-pickle |
 | 4aae280 | 2026-08-15 | docs: regenerate AI authorship report | 59 | 0% | 0% | untracked |
 | 7fdaec7 | 2026-08-14 | fix(devin): attribute Devin edits as devin via agent-v1 preset instead of claude | 51 | 100% | 0% | opencode · big-pickle |
@@ -64,7 +67,91 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit ba7e6bd81c80954da896866d8542f39a6ae47800 (HEAD -> main, origin/main)
+commit e63535541334172fb4c66b529071193a0375178f (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-14T18:25:54-07:00
+
+    docs: expand live demo note, link both public repos, fix local file:// links
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      README.md
+        s_52d0732141ad88::t_7e8ff19e67f512 444
+        s_52d0732141ad88::t_a2b4291807d56c 447
+        s_52d0732141ad88::t_0cf85079176ec9 20,23-26
+        s_52d0732141ad88::t_9a54d50608d4eb 69
+        s_52d0732141ad88::t_0474635e63f196 392
+        s_52d0732141ad88::t_f2d97b3414efd9 14
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "e63535541334172fb4c66b529071193a0375178f",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 907fb1260bd3ee4966ce6cdd6ea33976a4dbdca7
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-14T18:11:14-07:00
+
+    docs: move workflows reference to docs/workflows.md, link from README
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      README.md
+        s_52d0732141ad88::t_48ae969007cb4c 40-42
+        s_52d0732141ad88::t_34322589784bd3 493-494
+        s_52d0732141ad88::t_6947e657a20c5a 450-454
+      docs/workflows.md
+        s_52d0732141ad88::t_6e9e92ca72f6b4 1-99
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "907fb1260bd3ee4966ce6cdd6ea33976a4dbdca7",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 9acc1c723dd7ddf4fad40af0b97a0b9b15db6ef1
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-15T00:40:58Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit ba7e6bd81c80954da896866d8542f39a6ae47800 (tag: v1.0.0)
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-14T17:40:25-07:00
 
@@ -662,63 +749,6 @@ Date:   2026-08-10T22:09:02-07:00
           }
         }
       }
-
-commit 012e36036742babbf0a3ee9ef817205111aafda4
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-11T05:01:54Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit 408112d62cd9f9254fb2594d4c6c17d895af2d77
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-10T22:01:07-07:00
-
-    docs: add Antigravity attribution runbook
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      docs/antigravity-commit.md
-        s_30f00a1884ee3d::t_3e6275e3df159f 1-59
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "408112d62cd9f9254fb2594d4c6c17d895af2d77",
-        "prompts": {},
-        "sessions": {
-          "s_30f00a1884ee3d": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_0251ccc8bffeRD38fJ4fosd3c2",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit e571d6213784ec1cadf62f7271d9e3f7b75c8a8b
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-11T04:37:17Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
 
 
 ```
