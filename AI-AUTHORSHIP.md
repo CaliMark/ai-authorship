@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **29** (last 50)
-- Total lines added: **2801**
-- **AI-generated:** 1919 lines (68.5%)
+- Commits analyzed: **31** (last 50)
+- Total lines added: **2877**
+- **AI-generated:** 1936 lines (67.3%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 882 lines (31.5%)
-- **Agents:** gemini (138 lines), gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1778 lines)
+- **Untracked:** 941 lines (32.7%)
+- **Agents:** gemini (138 lines), gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1795 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -26,6 +26,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| ba7e6bd | 2026-08-14 | docs: add bridge.zip release download instructions, note clone option | 17 | 100% | 0% | opencode · big-pickle |
+| 4aae280 | 2026-08-15 | docs: regenerate AI authorship report | 59 | 0% | 0% | untracked |
 | 7fdaec7 | 2026-08-14 | fix(devin): attribute Devin edits as devin via agent-v1 preset instead of claude | 51 | 100% | 0% | opencode · big-pickle |
 | 2a38a48 | 2026-08-14 | docs: regenerate AI authorship report | 70 | 0% | 0% | untracked |
 | 7452c9a | 2026-08-13 | docs: document Devin Desktop attribution via .devin hooks + bridge | 185 | 100% | 0% | opencode · big-pickle |
@@ -62,7 +64,53 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 7fdaec7065aee3fdfa1fe81bd48d3bd4a5d52e0e (HEAD -> main, origin/main)
+commit ba7e6bd81c80954da896866d8542f39a6ae47800 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-14T17:40:25-07:00
+
+    docs: add bridge.zip release download instructions, note clone option
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      README.md
+        s_52d0732141ad88::t_50568c41edce59 209-224
+      .gitignore
+        s_52d0732141ad88::t_833a4ad7d5f30d 5
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "ba7e6bd81c80954da896866d8542f39a6ae47800",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 4aae280a585791f4365294201e8ef71e362c7a3c
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-15T00:21:31Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 7fdaec7065aee3fdfa1fe81bd48d3bd4a5d52e0e
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-14T17:20:43-07:00
 
@@ -662,51 +710,6 @@ Date:   2026-08-10T22:01:07-07:00
 commit e571d6213784ec1cadf62f7271d9e3f7b75c8a8b
 Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 Date:   2026-08-11T04:37:17Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit 54748ce0de2bb0737d4cfc06f6f3d189d1202b05
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-10T21:36:28-07:00
-
-    chore: neutral troubleshooting wording in verify script
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      bridge/verify-attribution.ps1
-        s_30f00a1884ee3d::t_6682b8bcbe5125 156-157
-        s_30f00a1884ee3d::t_d1b1bbc0da813a 170
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "54748ce0de2bb0737d4cfc06f6f3d189d1202b05",
-        "prompts": {},
-        "sessions": {
-          "s_30f00a1884ee3d": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_0251ccc8bffeRD38fJ4fosd3c2",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit b3224699366d9001f58061d63cd601e87abdc2d3
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-11T03:26:35Z
 
     docs: regenerate AI authorship report
 
