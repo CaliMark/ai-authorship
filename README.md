@@ -41,7 +41,7 @@ A GitHub Actions workflow automatically reads the attribution notes and generate
   - [7. Antigravity IDE Setup (Windows Bridge)](#7-antigravity-ide-setup-windows-bridge)
   - [8. Verify Your First Attributed Edit](#8-verify-your-first-attributed-edit)
   - [9. Publish the CI Report](#9-publish-the-ci-report)
-- [Supported Agents](#supported-agents)
+- [Agent Support](#-agent-support)
 - [Workflows for Different Situations](docs/workflows.md)
 - [Configuration](#%EF%B8%8F-configuration)
 - [Troubleshooting](#-troubleshooting)
@@ -86,7 +86,9 @@ graph LR
 
 ---
 
-## 🧰 Supported Agents
+## 🧰 Agent Support
+
+### ✅ Tested & verified live
 
 | Agent / IDE | Integration | Setup |
 | :--- | :--- | :--- |
@@ -97,6 +99,22 @@ graph LR
 | **Cursor** | Native hooks (`~/.cursor/hooks.json`) | `git-ai install-hooks` |
 | **Cline CLI** | CLI hooks bridge (`~/.cline/hooks/PreToolUse.ps1`) | Copy from `bridge/cline/` (see §5) |
 | **Devin Desktop** (Devin Local) | Project hooks + bridge (`bridge/devin/HookBridge.ps1`) | Copy from `bridge/devin/` (see §6) |
+
+> [!NOTE]
+> The OpenCode, Antigravity IDE, VS Code / Copilot Chat, Cursor, Cline, and Devin
+> integrations are all documented and tested against this repository (plus the
+> [game-of-life](https://github.com/CaliMark/game-of-life) live example, which
+> shows `gemini`, `opencode`, `github-copilot`, `cursor`, `cline`, and `devin`
+> (via Devin Desktop) all attributed in one repo).
+
+### 📦 git-ai checkpoint presets (not tested here yet)
+
+These agents are supported by `git-ai` through `git-ai checkpoint <preset>`, but
+we haven't been able to verify them live in this repo yet — most because they
+don't offer a free tier to test with:
+
+| Agent | Integration | Setup |
+| :--- | :--- | :--- |
 | **Claude Code\* · Codex · Amp\* · Pi · AI Tab · Firebender** | Checkpoint presets | `git-ai checkpoint <preset>` |
 
 > [!NOTE]
@@ -105,14 +123,6 @@ graph LR
 > open an issue or PR and we'll wire up a bridge and add it to the live examples.
 > Agents marked `*` have **no free tier** at the time of writing, so they can't
 > be tested live yet — the moment a free tier exists, we'll verify them too.
-
-> [!NOTE]
-> The OpenCode, Antigravity IDE, VS Code / Copilot Chat, Cursor, Cline, and Devin
-> integrations are all documented and tested against this repository (plus the
-> [game-of-life](https://github.com/CaliMark/game-of-life) live example, which
-> shows `gemini`, `opencode`, `github-copilot`, `cursor`, `cline`, and `devin`
-> (via Devin Desktop) all attributed in one repo); the rest are supported by
-> `git-ai` and use the same `refs/notes/ai` attribution.
 >
 > VS Code attribution comes from the `~/.copilot/hooks/git-ai.json` hooks, not the
 > extension. Enable it with `"chat.useHooks": true` in VS Code user settings. The
