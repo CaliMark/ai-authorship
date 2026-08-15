@@ -99,7 +99,7 @@ graph LR
 > The OpenCode, Antigravity IDE, VS Code / Copilot Chat, Cursor, Cline, and Devin
 > integrations are all documented and tested against this repository (plus the
 > [game-of-life](https://github.com/CaliMark/game-of-life) live example, which
-> shows `gemini`, `opencode`, `github-copilot`, `cursor`, `cline`, and `claude`
+> shows `gemini`, `opencode`, `github-copilot`, `cursor`, `cline`, and `devin`
 > (via Devin Desktop) all attributed in one repo); the rest are supported by
 > `git-ai` and use the same `refs/notes/ai` attribution.
 >
@@ -292,9 +292,9 @@ hooks in `.devin/hooks.v1.json` inside the repository.
 >
 > Devin's hook payload is Claude-Code-compatible but **omits `cwd` and
 > `transcript_path`**, and its tool names are lowercase (`edit`, `write`, `exec`).
-> git-ai's `claude` preset requires `transcript_path` and matches `Edit`/`Write`/
-> `MultiEdit`, so the bundled `bridge/devin/HookBridge.ps1` adapts the payload
-> before calling `git-ai checkpoint claude`.
+> The bundled `bridge/devin/HookBridge.ps1` adapts the payload and calls
+> `git-ai checkpoint agent-v1` (the generic preset) with `agent_name: "devin"`,
+> so Devin edits are attributed to `devin` (not `claude`) in the authorship log.
 
 1. Create `.devin/hooks.v1.json` in your repository root:
 
@@ -335,15 +335,15 @@ copy bridge\devin\HookBridge.ps1 "$env:USERPROFILE\.git-ai\bridge\devin\HookBrid
    an **addition** edit via the Devin agent.
 
 That's it. The bridge:
-- Maps Devin's lowercase tool names to Claude casing (`edit`→`Edit`,
-  `write`→`Write`, `multi_edit`/`apply_patch`→`MultiEdit`, `notebook`→`Edit`).
-- Adds `cwd` (from `DEVIN_PROJECT_DIR` or the current location) and a
-  `transcript_path`.
+- Resolves the edited file path from the Devin tool input and sends it as the
+  `will_edit_filepaths` (PreToolUse) / `edited_filepaths` (PostToolUse) arrays.
+- Adds `cwd` (from `DEVIN_PROJECT_DIR` or the current location) as the
+  `repo_working_dir`.
 - Looks up the session's real model in `%APPDATA%\Devin\cli\sessions.db` and
-  writes a Claude-format transcript line containing it, so the model label
-  resolves (e.g. `claude · swe-1-6-slow`).
-- Runs `git-ai checkpoint claude` so the daemon records the `Human` baseline
-  (PreToolUse) and `AiAgent` checkpoint (PostToolUse).
+  includes it in the checkpoint, so the model label resolves
+  (e.g. `devin · swe-1-6-slow`).
+- Runs `git-ai checkpoint agent-v1` so the daemon records the `Human` baseline
+  (PreToolUse) and `AiAgent` checkpoint (PostToolUse) with `agent_name: "devin"`.
 
 > [!IMPORTANT]
 > Use **additions**, not pure deletions, when testing — git-ai cannot attribute a
@@ -351,7 +351,9 @@ That's it. The bridge:
 
 Verified live: a Devin Desktop edit committed in the
 [game-of-life](https://github.com/CaliMark/game-of-life) repo (commit `150f8a4`)
-shows `claude · swe-1-6-slow` attribution via session `various-alibi`.
+shows `devin · swe-1-6-slow` attribution via session `various-alibi` (that
+commit was recorded by an earlier bridge that attributed via the `claude`
+preset; the current bridge records Devin edits directly as `devin`).
 
 ---
 
@@ -520,7 +522,7 @@ generated `AI-AUTHORSHIP.md`.
 | :--- | :--- | :--- |
 | **`verify-attribution.cmd` shows `FAIL / opencode`** | A live OpenCode session claimed the edit. | Close OpenCode, wait ~15 seconds, and commit again. |
 | **Cline edit shows `known_human` instead of `cline`** | The git-ai VS Code extension's save-based KnownHuman listener raced the Cline hook (first-claim-wins). | Disable the git-ai extension (rename its `.vscode/extensions/...` folder to `.disabled`), reload the window, and commit again. |
-| **Devin edit shows `claude unknown` (no model)** | The checkpoint was recorded before the bridge wrote the model into the transcript. | Re-make the edit (or the next Devin edit) with the current `bridge/devin/HookBridge.ps1`, then commit. |
+| **Devin edit shows `devin unknown` (no model)** | The checkpoint was recorded before the bridge could look up the model in `sessions.db`. | Re-make the edit (or the next Devin edit) with the current `bridge/devin/HookBridge.ps1`, then commit. |
 | **No Devin hooks fire (`hooks=0` in the Devin log)** | Devin Local discovers hooks only when a session loads, and reads project `.devin/hooks.v1.json` (or `%APPDATA%\Devin\config.json`), not `~/.codeium/...`. | Add `.devin/hooks.v1.json` and fully quit + reopen Devin Desktop before editing. |
 | **`UNKNOWN` or missing agent in notes** | Antigravity hooks are not firing. | Check `bridge/bridge.log`. If missing `RAW` lines, re-run `bridge/install.cmd`. |
 | **Report shows `untracked`** | Edits occurred before `git-ai` was configured. | `git-ai` cannot retroactively attribute historical commits. |

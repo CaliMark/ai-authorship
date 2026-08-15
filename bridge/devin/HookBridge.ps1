@@ -22,16 +22,22 @@ except Exception:
     return ($out | Select-Object -First 1)
 }
 
-function New-DevinTranscriptLine([string]$sessionId, [string]$model) {
-    if ([string]::IsNullOrWhiteSpace($model)) { $model = 'unknown' }
-    $ts = [DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
-    $line = '{"type":"assistant","message":{"id":"msg_dev","type":"message","role":"assistant","model":"' + $model +
-        '","content":[{"type":"text","text":"devin edit"}],"stop_reason":null,"usage":{"input_tokens":0,"output_tokens":0}},"requestId":"req_dev","sessionId":"s_dev","parentUuid":null,"ts":"' + $ts + '","uuid":"u_dev"}' + "`n"
-    return $line
+function Get-DevinFilePath([object]$payload) {
+    $ti = $payload.tool_input
+    if ($null -eq $ti) { return $null }
+    $p = $ti.file_path
+    if (-not $p) { $p = $ti.path }
+    if (-not $p) { $p = $ti.notebook_path }
+    if ($p -and -not [System.IO.Path]::IsPathRooted($p)) {
+        $cwd = $payload.cwd
+        if (-not $cwd) { $cwd = $env:DEVIN_PROJECT_DIR }
+        if ($cwd) { $p = [System.IO.Path]::GetFullPath((Join-Path $cwd $p)) }
+    }
+    return $p
 }
 
 function Invoke-GitAiCheckpoint([string]$json) {
-    $json | & $gitAi checkpoint claude --hook-input stdin 2>&1 | Out-Null
+    $json | & $gitAi checkpoint agent-v1 --hook-input stdin 2>&1 | Out-Null
 }
 
 $payload = $null
@@ -39,42 +45,37 @@ try { $payload = $stdin | ConvertFrom-Json } catch { }
 
 try {
     if ($null -ne $payload) {
-        $toolName = $payload.tool_name
-        if ($toolName -in @('edit', 'write', 'multi_edit', 'apply_patch', 'notebook')) {
-            $toolName = switch ($toolName) {
-                'edit' { 'Edit' }
-                'write' { 'Write' }
-                'multi_edit' { 'MultiEdit' }
-                'apply_patch' { 'MultiEdit' }
-                'notebook' { 'Edit' }
-            }
-            $payload.tool_name = $toolName
+        $cwd = $payload.cwd
+        if (-not $cwd) { $cwd = $env:DEVIN_PROJECT_DIR }
+        if (-not $cwd) { $cwd = (Get-Location).Path }
+        $payload | Add-Member -MemberType NoteProperty -Name 'cwd' -Value $cwd -Force
+
+        $filePath = Get-DevinFilePath $payload
+        $filePaths = @()
+        if ($filePath) { $filePaths = @($filePath) }
+        $filePathsJson = '[]'
+        if ($filePaths.Count -gt 0) {
+            $escaped = @($filePaths | ForEach-Object { $_.Replace('\', '\\') })
+            $filePathsJson = '["' + ($escaped -join '","') + '"]'
         }
 
-        if (-not $payload.cwd) {
-            $cwd = $env:DEVIN_PROJECT_DIR
-            if (-not $cwd) { $cwd = (Get-Location).Path }
-            $payload | Add-Member -MemberType NoteProperty -Name 'cwd' -Value $cwd
-        }
-
-        if (-not $payload.transcript_path) {
+        $isPre = ($payload.hook_event_name -eq 'PreToolUse')
+        if ($isPre) {
+            $body = '{"type":"human","repo_working_dir":"' + $cwd.Replace('\','\\') + '","will_edit_filepaths":' + $filePathsJson + '}'
+        } else {
             $sessionId = $payload.session_id
             $model = $null
             try {
                 $model = Get-DevinSessionModel $sessionId
             } catch { }
-            $t = Join-Path $env:TEMP 'devin-transcript.jsonl'
-            $line = New-DevinTranscriptLine $sessionId $model
-            [System.IO.File]::WriteAllText($t, $line)
-            $payload | Add-Member -MemberType NoteProperty -Name 'transcript_path' -Value $t
+            if (-not $model) { $model = 'unknown' }
+            $ts = [DateTime]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ss.fffZ')
+            $body = '{"type":"ai_agent","repo_working_dir":"' + $cwd.Replace('\','\\') +
+                '","agent_name":"devin","model":"' + $model + '","conversation_id":"' + $sessionId +
+                '","edited_filepaths":' + $filePathsJson +
+                ',"transcript":{"messages":[{"type":"user","text":"devin edit","timestamp":"' + $ts + '"}]}}'
         }
-
-        if ($payload.hook_event_name -notin @('PreToolUse', 'PostToolUse')) {
-            $payload.hook_event_name = 'PostToolUse'
-        }
-
-        $out = $payload | ConvertTo-Json -Compress -Depth 30
-        Invoke-GitAiCheckpoint $out
+        Invoke-GitAiCheckpoint $body
     } else {
         Invoke-GitAiCheckpoint $stdin
     }
