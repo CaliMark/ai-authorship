@@ -1,0 +1,29 @@
+README.md
+  s_52d0732141ad88::t_5c54a6080dd1cc 234
+  s_52d0732141ad88::t_0bc8f8d6b345c0 127,129-131,141-143
+  s_52d0732141ad88::t_a8ae138f4e8489 328
+  s_52d0732141ad88::t_2dcf2e75b97563 342
+  s_52d0732141ad88::t_1cea591794aed9 36-41
+  s_52d0732141ad88::t_33a75e4315cb6e 312
+  s_52d0732141ad88::t_23717114685924 159
+  s_52d0732141ad88::t_409e1d7791779a 55-56,79
+  s_52d0732141ad88::t_649a4cac41d4d5 163
+  s_52d0732141ad88::t_16bd66369f78fb 91-92
+  s_52d0732141ad88::t_a42d6cecb6963b 75,78
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "a211e220846bf9a5fd9d07b9b92776650a129ebf",
+  "prompts": {},
+  "sessions": {
+    "s_52d0732141ad88": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+        "model": "big-pickle"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
