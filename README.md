@@ -9,6 +9,9 @@
 
 **AI code attribution for every commit** — a `git note` records which AI agent (or human) wrote each line of code.
 
+> [!IMPORTANT]
+> **Join the community of devs who want clear, concise, up-front AI vs. human attribution.**
+
 Works out-of-the-box with **six AI coding agents and IDEs**:
 - ⚡ **OpenCode** — Native integration (no bridge required).
 - 🛸 **Antigravity IDE** (Gemini CLI) — via a lightweight PowerShell/Windows bridge in [`bridge/`](https://github.com/CaliMark/ai-authorship/tree/main/bridge).
@@ -40,6 +43,7 @@ A GitHub Actions workflow automatically reads the attribution notes and generate
   - [6. Verify Your First Attributed Edit](#6-verify-your-first-attributed-edit)
   - [7. Publish the CI Report](#7-publish-the-ci-report)
 - [Agent Support](#-agent-support)
+- [Currently Testing](#-currently-testing)
 - [Workflows for Different Situations](docs/workflows.md) — AI attribution workflows: model routing (OpenRouter, proxies, local models), multi-agent sessions, mixed human + AI commits, remotes
 - [Configuration](#%EF%B8%8F-configuration)
 - [Troubleshooting](#-troubleshooting)
@@ -114,6 +118,28 @@ don't offer a free tier to test with:
 > open an issue or PR and we'll wire up a bridge and add it to the live examples.
 > Agents marked `*` have **no free tier** at the time of writing, so they can't
 > be tested live yet — the moment a free tier exists, we'll verify them too.
+
+---
+
+## 🧪 Currently Testing
+
+We validate new setups live and report the honest, in-progress status — no
+overclaiming. Anything here is free, open source, and tested by hand before it
+moves up to [Agent Support](#-agent-support).
+
+| What | Status | Notes |
+| :--- | :--- | :--- |
+| **Local / self-hosted models** — LM Studio (Vulkan) + `qwen2.5-coder:7b` | 🔬 In progress | Minimal setup below |
+
+### Minimal LM Studio setup (self-hosted, no cloud)
+
+- **App:** [LM Studio](https://lmstudio.ai) — Windows or Linux (AppImage); pick the **Vulkan** backend so AMD/Intel iGPUs and NVIDIA GPUs can offload.
+- **Hardware floor:** any AVX2 CPU, **16 GB RAM** (8 GB runs sub-4B models), **~10 GB free disk**. GPU optional — 4 GB+ VRAM speeds it up, but CPU-only still works.
+- **Model to start with:** `qwen2.5-coder-7b-instruct` **Q4_K_M** (~4.7 GB) — the smallest that reliably makes real file edits through tool calls (smaller models emit malformed tool calls mid-task). Have 16 GB+ RAM? `qwen3:8b` (~5–6 GB) is the best small tool-caller.
+
+Self-hosted fits right in: **models** via LM Studio/Ollama, **git** via Gitea/Forgejo/GitLab, **reports** via your own cron or CI — zero cloud accounts anywhere. Attribution is provider-agnostic by design: it tracks the agent session, not the model endpoint.
+
+> **Suggest a model, workflow, or tool** — open an issue or PR and we'll wire up a bridge and add it to the live examples.
 
 ---
 
