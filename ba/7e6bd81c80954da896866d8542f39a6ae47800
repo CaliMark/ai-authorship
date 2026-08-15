@@ -1,0 +1,21 @@
+README.md
+  s_52d0732141ad88::t_50568c41edce59 209-224
+.gitignore
+  s_52d0732141ad88::t_833a4ad7d5f30d 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "ba7e6bd81c80954da896866d8542f39a6ae47800",
+  "prompts": {},
+  "sessions": {
+    "s_52d0732141ad88": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+        "model": "big-pickle"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
