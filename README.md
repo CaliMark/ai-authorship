@@ -9,7 +9,7 @@
 
 Every commit gets a `git note` tracking which AI agent (or human) wrote each line of code.
 
-This repository includes four agent integrations out-of-the-box:
+This repository includes six agent integrations out-of-the-box:
 - ⚡ **OpenCode** — Native integration (no bridge required).
 - 🛸 **Antigravity IDE** (Gemini CLI) — via a lightweight PowerShell/Windows bridge in [`bridge/`](https://github.com/CaliMark/ai-authorship/tree/main/bridge).
 - ⚡ **VS Code / GitHub Copilot Chat** — via native Copilot hooks (`~/.copilot/hooks/git-ai.json`).
@@ -97,7 +97,14 @@ graph LR
 | **Cursor** | Native hooks (`~/.cursor/hooks.json`) | `git-ai install-hooks` |
 | **Cline CLI** | CLI hooks bridge (`~/.cline/hooks/PreToolUse.ps1`) | Copy from `bridge/cline/` (see §5) |
 | **Devin Desktop** (Devin Local) | Project hooks + bridge (`bridge/devin/HookBridge.ps1`) | Copy from `bridge/devin/` (see §6) |
-| **Claude Code · Windsurf · Codex · Continue CLI · Amp · Pi · AI Tab · Firebender** | Checkpoint presets | `git-ai checkpoint <preset>` |
+| **Claude Code\* · Codex · Amp\* · Pi · AI Tab · Firebender** | Checkpoint presets | `git-ai checkpoint <preset>` |
+
+> [!NOTE]
+> **Hobbyist-friendly** — everything here is free and open source (MIT), with no
+> accounts or dashboards to sign up for. Happy to test any free AI coding tool:
+> open an issue or PR and we'll wire up a bridge and add it to the live examples.
+> Agents marked `*` have **no free tier** at the time of writing, so they can't
+> be tested live yet — the moment a free tier exists, we'll verify them too.
 
 > [!NOTE]
 > The OpenCode, Antigravity IDE, VS Code / Copilot Chat, Cursor, Cline, and Devin
@@ -300,15 +307,13 @@ Verified live: a Cline extension edit committed in the
 ### 6. Devin Desktop Setup (Windows Bridge)
 
 Attribution in **Devin Desktop** (which runs the **Devin Local** agent under the
-hood — the rebranded successor to Windsurf's Cascade agent) uses project-level
-hooks in `.devin/hooks.v1.json` inside the repository.
+hood) uses project-level hooks in `.devin/hooks.v1.json` inside the repository.
 
 > [!NOTE]
 > Devin Local reads hooks from **project-level** `.devin/hooks.v1.json`
 > (the file's `hooks` object is the entire file) or from user-level
 > `%APPDATA%\Devin\config.json`. Hooks are discovered **when a session loads**, so
-> you must fully quit and reopen Devin Desktop after adding the file. The legacy
-> `~/.codeium/windsurf/hooks.json` paths are **not** read by Devin Local.
+> you must fully quit and reopen Devin Desktop after adding the file.
 >
 > Devin's hook payload is Claude-Code-compatible but **omits `cwd` and
 > `transcript_path`**, and its tool names are lowercase (`edit`, `write`, `exec`).
