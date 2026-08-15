@@ -1,0 +1,21 @@
+README.md
+  s_52d0732141ad88::t_ee8c91a73cc033 124-145
+  s_52d0732141ad88::t_e5d19938bc5e82 12-14
+  s_52d0732141ad88::t_bdeb461a9a5fee 46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "4a6e46176cfb9f7524ae502bd4b5654bafcd1d32",
+  "prompts": {},
+  "sessions": {
+    "s_52d0732141ad88": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+        "model": "big-pickle"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
