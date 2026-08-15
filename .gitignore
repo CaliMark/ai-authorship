@@ -2,6 +2,7 @@
 bridge.log
 attribution-result.txt
 bridge/stubs/
+bridge.zip
 *.log
 
 # git-ai / tooling temp

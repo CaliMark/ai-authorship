@@ -206,6 +206,22 @@ label comes straight from Cursor's hook payload (e.g.
 
 ---
 
+> [!NOTE]
+> **Get the bridge files — either:**
+> - **Clone/fork this repo** (recommended if you want the full template,
+>   workflows, and examples), **or**
+> - **Download the package** from the latest release (no git needed):
+>
+> ```powershell
+> Invoke-WebRequest -Uri "https://github.com/CaliMark/ai-authorship/releases/latest/download/bridge.zip" -OutFile bridge.zip
+> Expand-Archive -Path bridge.zip -DestinationPath . -Force
+> ```
+>
+> Both produce the same `bridge\` folder, so the `copy bridge\...` and
+> `cd bridge; install.cmd` commands in §5–§7 work identically either way.
+
+---
+
 ### 5. Cline Setup (CLI Hooks)
 
 Attribution in the **Cline CLI** uses a `PreToolUse` hook bridge in `~/.cline/hooks/`.
