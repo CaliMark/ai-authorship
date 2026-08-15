@@ -1,0 +1,24 @@
+README.md
+  s_52d0732141ad88::t_002693b5ad2a02 10,12
+  s_52d0732141ad88::t_0e943d255199c3 51
+  s_52d0732141ad88::t_fd5df0200ba56d 32
+  s_52d0732141ad88::t_2ab35b0f4988ec 43
+docs/workflows.md
+  s_52d0732141ad88::t_c77e9049e3b7c0 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "f9fd6f2c6595a5e93d1b78f31e119204c620b84a",
+  "prompts": {},
+  "sessions": {
+    "s_52d0732141ad88": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+        "model": "big-pickle"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
