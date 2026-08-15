@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **34** (last 50)
-- Total lines added: **3050**
-- **AI-generated:** 2055 lines (67.4%)
+- Commits analyzed: **36** (last 50)
+- Total lines added: **3144**
+- **AI-generated:** 2056 lines (65.4%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 995 lines (32.6%)
-- **Agents:** gemini (138 lines), gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1914 lines)
+- **Untracked:** 1088 lines (34.6%)
+- **Agents:** gemini (138 lines), gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1915 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -26,6 +26,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 5582168 | 2026-08-14 | chore: gitignore private competition reference notes | 1 | 100% | 0% | opencode · big-pickle |
+| 7877d8a | 2026-08-15 | docs: regenerate AI authorship report | 93 | 0% | 0% | untracked |
 | e635355 | 2026-08-14 | docs: expand live demo note, link both public repos, fix local file:// links | 10 | 100% | 0% | opencode · big-pickle |
 | 907fb12 | 2026-08-14 | docs: move workflows reference to docs/workflows.md, link from README | 109 | 100% | 0% | opencode · big-pickle |
 | 9acc1c7 | 2026-08-15 | docs: regenerate AI authorship report | 54 | 0% | 0% | untracked |
@@ -67,7 +69,51 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit e63535541334172fb4c66b529071193a0375178f (HEAD -> main, origin/main)
+commit 55821683ee5823b572e858392fb64d7ddffba522 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-14T18:38:59-07:00
+
+    chore: gitignore private competition reference notes
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      .gitignore
+        s_52d0732141ad88::t_34b706ae006e76 15
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "55821683ee5823b572e858392fb64d7ddffba522",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 7877d8adcf79aa8f96d1ef9bbd51d131ab877000
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-15T01:26:24Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit e63535541334172fb4c66b529071193a0375178f
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-14T18:25:54-07:00
 
@@ -700,50 +746,6 @@ Date:   2026-08-10T22:31:43-07:00
               "tool": "gemini",
               "id": "85c9c557-f816-49fc-8210-15f20ece868a",
               "model": "gemini-3.6-flash-medium"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit 904437aa5b69fcc1799885c280a8aaa356492f33
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-11T05:13:05Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit e35dcb2e6bbfbd32f2b01752af4bb68398affa0b
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-10T22:09:02-07:00
-
-    chore: gemini attribution on live example
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      README.md
-        s_a658dce9a473dd::t_3fe8cd80470b61 1,3,5-8,10,12-14,16,18-19,21,23-47,50-56,58-64,66,68,72-73,75,77-79,83-87,89,91,96,98-99,101,103-109,113-115,117,119,121-124,126-128,130-134,136-137,139,141,143-148,150-177,180-182,184
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "e35dcb2e6bbfbd32f2b01752af4bb68398affa0b",
-        "prompts": {},
-        "sessions": {
-          "s_a658dce9a473dd": {
-            "agent_id": {
-              "tool": "gemini",
-              "id": "85c9c557-f816-49fc-8210-15f20ece868a",
-              "model": "unknown"
             },
             "human_author": "CaliMark <mreed@needpc.net>"
           }
