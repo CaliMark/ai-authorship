@@ -1,0 +1,26 @@
+bridge/devin/HookBridge.ps1
+  s_52d0732141ad88::t_f3c656ce126f5b 56-59
+  s_52d0732141ad88::t_f366672a81f05e 25-36,40,48-51,53-55,62-65,71-76,78
+README.md
+  s_52d0732141ad88::t_694de74383bb95 295-297
+  s_52d0732141ad88::t_9f4112e940464c 102
+  s_52d0732141ad88::t_48585417ed43e7 338-341,343-346
+  s_52d0732141ad88::t_275da9bac79da1 354-356
+  s_52d0732141ad88::t_ca661fef4be56a 525
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "7fdaec7065aee3fdfa1fe81bd48d3bd4a5d52e0e",
+  "prompts": {},
+  "sessions": {
+    "s_52d0732141ad88": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+        "model": "big-pickle"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
