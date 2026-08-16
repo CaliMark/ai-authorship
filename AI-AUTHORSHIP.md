@@ -8,19 +8,21 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **3919**
+- Total lines added: **3914**
 - **AI-generated:** 2291 lines (58.5%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 1628 lines (41.5%)
+- **Bot:** 1623 lines (41.5%)
+- **Untracked:** 0 lines (0.0%)
 - **Agents:** opencode · big-pickle (2291 lines)
 
 ## Composition
 
 ```mermaid
-pie title Lines by author (AI vs Human vs Untracked)
+pie title Lines by author (AI vs Human vs Bot vs Untracked)
     "AI" : 2291
     "Human" : 0
-    "Untracked" : 1628
+    "Bot" : 1623
+    "Untracked" : 0
 ```
 
 ```mermaid
@@ -30,66 +32,68 @@ pie title AI lines by agent
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
-> session data). `untracked` = lines with no attribution data — written before
-> git-ai was set up, made in the github.com web UI, or created by CI bots
-> (cannot be retroactively attributed). `human` = written directly by a human
-> and recorded via `git-ai checkpoint human` or the git-ai extension. Note:
+> session data). `bot` = committed by an automated account (`github-actions[bot]`
+> and other `[bot]` accounts, e.g. the workflow regenerating this report) — known
+> authorship, not attributed through git-ai. `untracked` = lines with no
+> attribution data — written before git-ai was set up or made in the github.com
+> web UI (cannot be retroactively attributed). `human` = written directly by a
+> human and recorded via `git-ai checkpoint human` or the git-ai extension. Note:
 > these are line-count percentages, not commit counts.
 
 ## Per-commit breakdown
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 03c0e9e | 2026-08-16 | docs: regenerate AI authorship report | 94 | 0% | 0% | bot |
 | c8a71b4 | 2026-08-16 | docs: add 'let your coding agent install it' as a Quick Start install path | 29 | 100% | 0% | opencode · big-pickle |
-| f505760 | 2026-08-16 | docs: regenerate AI authorship report | 99 | 0% | 0% | untracked |
+| f505760 | 2026-08-16 | docs: regenerate AI authorship report | 99 | 0% | 0% | bot |
 | 36f699a | 2026-08-16 | feat: add consumer sync helper + pinned auto-update workflow variant + template-sync docs | 213 | 100% | 0% | opencode · big-pickle |
-| 2c796a6 | 2026-08-16 | docs: regenerate AI authorship report | 69 | 0% | 0% | untracked |
+| 2c796a6 | 2026-08-16 | docs: regenerate AI authorship report | 69 | 0% | 0% | bot |
 | 9c8954c | 2026-08-16 | feat: add per-agent breakdown pie chart to report composition | 59 | 100% | 0% | opencode · big-pickle |
-| a3b4f73 | 2026-08-16 | docs: regenerate AI authorship report | 69 | 0% | 0% | untracked |
+| a3b4f73 | 2026-08-16 | docs: regenerate AI authorship report | 69 | 0% | 0% | bot |
 | 4fd1f6d | 2026-08-16 | feat: add mermaid composition pie chart to AI authorship report | 58 | 100% | 0% | opencode · big-pickle |
-| dc219ff | 2026-08-16 | docs: regenerate AI authorship report | 151 | 0% | 0% | untracked |
+| dc219ff | 2026-08-16 | docs: regenerate AI authorship report | 151 | 0% | 0% | bot |
 | d95e7d3 | 2026-08-16 | docs: regenerate AI authorship report with JSON twin | 823 | 100% | 0% | opencode · big-pickle |
 | 4d898b8 | 2026-08-16 | feat: emit machine-readable AI-AUTHORSHIP.json; document manual-policy case study and human-review future idea | 115 | 100% | 0% | opencode · big-pickle |
-| 90aece2 | 2026-08-16 | docs: regenerate AI authorship report | 51 | 0% | 0% | untracked |
+| 90aece2 | 2026-08-16 | docs: regenerate AI authorship report | 51 | 0% | 0% | bot |
 | 6bb37ac | 2026-08-15 | docs: list Local models via OpenCode as first out-of-the-box option | 2 | 100% | 0% | opencode · big-pickle |
-| bc38201 | 2026-08-16 | docs: regenerate AI authorship report | 53 | 0% | 0% | untracked |
+| bc38201 | 2026-08-16 | docs: regenerate AI authorship report | 53 | 0% | 0% | bot |
 | 6cdd963 | 2026-08-15 | docs: promote LM Studio to Agent Support (tested & verified), keep Currently Testing as suggestion channel | 35 | 100% | 0% | opencode · big-pickle |
-| c7b38d5 | 2026-08-16 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
+| c7b38d5 | 2026-08-16 | docs: regenerate AI authorship report | 52 | 0% | 0% | bot |
 | 3db2752 | 2026-08-15 | docs: note game-of-life local-model (LM Studio) proof as 8th attribution source | 7 | 100% | 0% | opencode · big-pickle |
-| 22f81a9 | 2026-08-15 | docs: regenerate AI authorship report | 54 | 0% | 0% | untracked |
+| 22f81a9 | 2026-08-15 | docs: regenerate AI authorship report | 54 | 0% | 0% | bot |
 | 2f5d298 | 2026-08-15 | docs: mark local models (LM Studio + qwen2.5-7b-instruct) as verified live, document qwen2.5-coder tool-call failure | 17 | 100% | 0% | opencode · big-pickle |
-| ade987c | 2026-08-15 | docs: regenerate AI authorship report | 54 | 0% | 0% | untracked |
+| ade987c | 2026-08-15 | docs: regenerate AI authorship report | 54 | 0% | 0% | bot |
 | 4a6e461 | 2026-08-14 | docs: add community tagline callout and Currently Testing section with LM Studio self-hosted setup | 26 | 100% | 0% | opencode · big-pickle |
-| 37c930a | 2026-08-15 | docs: regenerate AI authorship report | 57 | 0% | 0% | untracked |
+| 37c930a | 2026-08-15 | docs: regenerate AI authorship report | 57 | 0% | 0% | bot |
 | f9fd6f2 | 2026-08-14 | docs: strengthen AI code attribution keywords in headings and intro for indexing | 6 | 100% | 0% | opencode · big-pickle |
-| dbdba5c | 2026-08-15 | docs: regenerate AI authorship report | 62 | 0% | 0% | untracked |
+| dbdba5c | 2026-08-15 | docs: regenerate AI authorship report | 62 | 0% | 0% | bot |
 | a211e22 | 2026-08-14 | docs: bundle native agents into one Quick Start section, trim duplicate notes and requirements | 26 | 100% | 0% | opencode · big-pickle |
-| 0f995ea | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
+| 0f995ea | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% | bot |
 | 487cb82 | 2026-08-14 | docs: consolidate native-hook agents into one row in Agent Support table | 1 | 100% | 0% | opencode · big-pickle |
-| 382ae1e | 2026-08-15 | docs: regenerate AI authorship report | 53 | 0% | 0% | untracked |
+| 382ae1e | 2026-08-15 | docs: regenerate AI authorship report | 53 | 0% | 0% | bot |
 | 9c03147 | 2026-08-14 | docs: split Agent Support into tested vs untested checkpoint presets | 20 | 100% | 0% | opencode · big-pickle |
-| a02d433 | 2026-08-15 | docs: regenerate AI authorship report | 55 | 0% | 0% | untracked |
+| a02d433 | 2026-08-15 | docs: regenerate AI authorship report | 55 | 0% | 0% | bot |
 | 118047e | 2026-08-14 | docs: fix integration count, drop Windsurf/Continue refs, add hobbyist note and free-tier asterisks | 11 | 100% | 0% | opencode · big-pickle |
-| 3be921f | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
+| 3be921f | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% | bot |
 | 5582168 | 2026-08-14 | chore: gitignore private competition reference notes | 1 | 100% | 0% | opencode · big-pickle |
-| 7877d8a | 2026-08-15 | docs: regenerate AI authorship report | 93 | 0% | 0% | untracked |
+| 7877d8a | 2026-08-15 | docs: regenerate AI authorship report | 93 | 0% | 0% | bot |
 | e635355 | 2026-08-14 | docs: expand live demo note, link both public repos, fix local file:// links | 10 | 100% | 0% | opencode · big-pickle |
 | 907fb12 | 2026-08-14 | docs: move workflows reference to docs/workflows.md, link from README | 109 | 100% | 0% | opencode · big-pickle |
-| 9acc1c7 | 2026-08-15 | docs: regenerate AI authorship report | 54 | 0% | 0% | untracked |
+| 9acc1c7 | 2026-08-15 | docs: regenerate AI authorship report | 54 | 0% | 0% | bot |
 | ba7e6bd | 2026-08-14 | docs: add bridge.zip release download instructions, note clone option | 17 | 100% | 0% | opencode · big-pickle |
-| 4aae280 | 2026-08-15 | docs: regenerate AI authorship report | 59 | 0% | 0% | untracked |
+| 4aae280 | 2026-08-15 | docs: regenerate AI authorship report | 59 | 0% | 0% | bot |
 | 7fdaec7 | 2026-08-14 | fix(devin): attribute Devin edits as devin via agent-v1 preset instead of claude | 51 | 100% | 0% | opencode · big-pickle |
-| 2a38a48 | 2026-08-14 | docs: regenerate AI authorship report | 70 | 0% | 0% | untracked |
+| 2a38a48 | 2026-08-14 | docs: regenerate AI authorship report | 70 | 0% | 0% | bot |
 | 7452c9a | 2026-08-13 | docs: document Devin Desktop attribution via .devin hooks + bridge | 185 | 100% | 0% | opencode · big-pickle |
-| 58e6850 | 2026-08-14 | docs: regenerate AI authorship report | 73 | 0% | 0% | untracked |
+| 58e6850 | 2026-08-14 | docs: regenerate AI authorship report | 73 | 0% | 0% | bot |
 | 2d5c04c | 2026-08-13 | docs: document Cline CLI + extension attribution and git-ai extension conflict | 248 | 100% | 0% | opencode · big-pickle |
-| d5b1944 | 2026-08-13 | docs: regenerate AI authorship report | 60 | 0% | 0% | untracked |
+| d5b1944 | 2026-08-13 | docs: regenerate AI authorship report | 60 | 0% | 0% | bot |
 | a49e791 | 2026-08-13 | docs: document native Cursor hooks integration | 46 | 100% | 0% | opencode · big-pickle |
-| 5c2e5b9 | 2026-08-13 | docs: regenerate AI authorship report | 137 | 0% | 0% | untracked |
+| 5c2e5b9 | 2026-08-13 | docs: regenerate AI authorship report | 137 | 0% | 0% | bot |
 | 39a4c54 | 2026-08-12 | docs: clarify untracked vs human attribution for web edits | 14 | 100% | 0% | opencode · big-pickle |
 | 69b633c | 2026-08-12 | docs: document verified VS Code / Copilot Chat attribution | 50 | 100% | 0% | opencode · big-pickle |
 | 167a351 | 2026-08-12 | docs: update README with supported agents, workflows, and troubleshooting | 112 | 100% | 0% | opencode · big-pickle |
-| f3aaedd | 2026-08-12 | docs: regenerate AI authorship report | 99 | 0% | 0% | untracked |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -97,7 +101,20 @@ pie title AI lines by agent
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit c8a71b4bb5d2b50c5d413b5b79fcf2e7230396e5 (HEAD -> main, origin/main)
+commit 03c0e9e85cdd89646c2106386b372bd3fc83b7fe (HEAD -> main, origin/main, origin/HEAD)
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-16T18:48:57Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit c8a71b4bb5d2b50c5d413b5b79fcf2e7230396e5
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-16T11:48:18-07:00
 
@@ -696,19 +713,6 @@ Date:   2026-08-14T19:44:50-07:00
           }
         }
       }
-
-commit 0f995ea8335e2f888583d8d961eeecd2a7fd26b5
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-15T01:59:35Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
 
 
 ```

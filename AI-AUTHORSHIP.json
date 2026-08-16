@@ -1,24 +1,43 @@
 {
-  "schema_version": 1,
-  "generated_at": "2026-08-16T18:48:57.636265+00:00",
+  "schema_version": 2,
+  "generated_at": "2026-08-16T19:04:55.616164+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 3919,
+    "total_lines": 3914,
     "ai_lines": 2291,
     "ai_pct": 58.5,
     "human_lines": 0,
     "human_pct": 0.0,
-    "unknown_lines": 1628,
-    "unknown_pct": 41.5,
+    "bot_lines": 1623,
+    "bot_pct": 41.5,
+    "unknown_lines": 0,
+    "unknown_pct": 0.0,
     "agents": {
       "opencode · big-pickle": 2291
     }
   },
   "commits": [
     {
+      "sha": "03c0e9e",
+      "date": "2026-08-16",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 94,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 94,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
       "sha": "c8a71b4",
       "date": "2026-08-16",
+      "author": "CaliMark",
       "subject": "docs: add 'let your coding agent install it' as a Quick Start install path",
       "lines_added": 29,
       "ai_additions": 29,
@@ -36,6 +55,7 @@
     {
       "sha": "f505760",
       "date": "2026-08-16",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 99,
       "ai_additions": 0,
@@ -44,13 +64,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "36f699a",
       "date": "2026-08-16",
+      "author": "CaliMark",
       "subject": "feat: add consumer sync helper + pinned auto-update workflow variant + template-sync docs",
       "lines_added": 213,
       "ai_additions": 213,
@@ -68,6 +89,7 @@
     {
       "sha": "2c796a6",
       "date": "2026-08-16",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 69,
       "ai_additions": 0,
@@ -76,13 +98,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "9c8954c",
       "date": "2026-08-16",
+      "author": "CaliMark",
       "subject": "feat: add per-agent breakdown pie chart to report composition",
       "lines_added": 59,
       "ai_additions": 59,
@@ -100,6 +123,7 @@
     {
       "sha": "a3b4f73",
       "date": "2026-08-16",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 69,
       "ai_additions": 0,
@@ -108,13 +132,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "4fd1f6d",
       "date": "2026-08-16",
+      "author": "CaliMark",
       "subject": "feat: add mermaid composition pie chart to AI authorship report",
       "lines_added": 58,
       "ai_additions": 58,
@@ -132,6 +157,7 @@
     {
       "sha": "dc219ff",
       "date": "2026-08-16",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 151,
       "ai_additions": 0,
@@ -140,13 +166,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "d95e7d3",
       "date": "2026-08-16",
+      "author": "CaliMark",
       "subject": "docs: regenerate AI authorship report with JSON twin",
       "lines_added": 823,
       "ai_additions": 823,
@@ -164,6 +191,7 @@
     {
       "sha": "4d898b8",
       "date": "2026-08-16",
+      "author": "CaliMark",
       "subject": "feat: emit machine-readable AI-AUTHORSHIP.json; document manual-policy case study and human-review future idea",
       "lines_added": 115,
       "ai_additions": 115,
@@ -181,6 +209,7 @@
     {
       "sha": "90aece2",
       "date": "2026-08-16",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 51,
       "ai_additions": 0,
@@ -189,13 +218,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "6bb37ac",
       "date": "2026-08-15",
+      "author": "CaliMark",
       "subject": "docs: list Local models via OpenCode as first out-of-the-box option",
       "lines_added": 2,
       "ai_additions": 2,
@@ -213,6 +243,7 @@
     {
       "sha": "bc38201",
       "date": "2026-08-16",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 53,
       "ai_additions": 0,
@@ -221,13 +252,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "6cdd963",
       "date": "2026-08-15",
+      "author": "CaliMark",
       "subject": "docs: promote LM Studio to Agent Support (tested & verified), keep Currently Testing as suggestion channel",
       "lines_added": 35,
       "ai_additions": 35,
@@ -245,6 +277,7 @@
     {
       "sha": "c7b38d5",
       "date": "2026-08-16",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 52,
       "ai_additions": 0,
@@ -253,13 +286,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "3db2752",
       "date": "2026-08-15",
+      "author": "CaliMark",
       "subject": "docs: note game-of-life local-model (LM Studio) proof as 8th attribution source",
       "lines_added": 7,
       "ai_additions": 7,
@@ -277,6 +311,7 @@
     {
       "sha": "22f81a9",
       "date": "2026-08-15",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 54,
       "ai_additions": 0,
@@ -285,13 +320,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "2f5d298",
       "date": "2026-08-15",
+      "author": "CaliMark",
       "subject": "docs: mark local models (LM Studio + qwen2.5-7b-instruct) as verified live, document qwen2.5-coder tool-call failure",
       "lines_added": 17,
       "ai_additions": 17,
@@ -309,6 +345,7 @@
     {
       "sha": "ade987c",
       "date": "2026-08-15",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 54,
       "ai_additions": 0,
@@ -317,13 +354,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "4a6e461",
       "date": "2026-08-14",
+      "author": "CaliMark",
       "subject": "docs: add community tagline callout and Currently Testing section with LM Studio self-hosted setup",
       "lines_added": 26,
       "ai_additions": 26,
@@ -341,6 +379,7 @@
     {
       "sha": "37c930a",
       "date": "2026-08-15",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 57,
       "ai_additions": 0,
@@ -349,13 +388,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "f9fd6f2",
       "date": "2026-08-14",
+      "author": "CaliMark",
       "subject": "docs: strengthen AI code attribution keywords in headings and intro for indexing",
       "lines_added": 6,
       "ai_additions": 6,
@@ -373,6 +413,7 @@
     {
       "sha": "dbdba5c",
       "date": "2026-08-15",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 62,
       "ai_additions": 0,
@@ -381,13 +422,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "a211e22",
       "date": "2026-08-14",
+      "author": "CaliMark",
       "subject": "docs: bundle native agents into one Quick Start section, trim duplicate notes and requirements",
       "lines_added": 26,
       "ai_additions": 26,
@@ -405,6 +447,7 @@
     {
       "sha": "0f995ea",
       "date": "2026-08-15",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 52,
       "ai_additions": 0,
@@ -413,13 +456,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "487cb82",
       "date": "2026-08-14",
+      "author": "CaliMark",
       "subject": "docs: consolidate native-hook agents into one row in Agent Support table",
       "lines_added": 1,
       "ai_additions": 1,
@@ -437,6 +481,7 @@
     {
       "sha": "382ae1e",
       "date": "2026-08-15",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 53,
       "ai_additions": 0,
@@ -445,13 +490,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "9c03147",
       "date": "2026-08-14",
+      "author": "CaliMark",
       "subject": "docs: split Agent Support into tested vs untested checkpoint presets",
       "lines_added": 20,
       "ai_additions": 20,
@@ -469,6 +515,7 @@
     {
       "sha": "a02d433",
       "date": "2026-08-15",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 55,
       "ai_additions": 0,
@@ -477,13 +524,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "118047e",
       "date": "2026-08-14",
+      "author": "CaliMark",
       "subject": "docs: fix integration count, drop Windsurf/Continue refs, add hobbyist note and free-tier asterisks",
       "lines_added": 11,
       "ai_additions": 11,
@@ -501,6 +549,7 @@
     {
       "sha": "3be921f",
       "date": "2026-08-15",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 52,
       "ai_additions": 0,
@@ -509,13 +558,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "5582168",
       "date": "2026-08-14",
+      "author": "CaliMark",
       "subject": "chore: gitignore private competition reference notes",
       "lines_added": 1,
       "ai_additions": 1,
@@ -533,6 +583,7 @@
     {
       "sha": "7877d8a",
       "date": "2026-08-15",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 93,
       "ai_additions": 0,
@@ -541,13 +592,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "e635355",
       "date": "2026-08-14",
+      "author": "CaliMark",
       "subject": "docs: expand live demo note, link both public repos, fix local file:// links",
       "lines_added": 10,
       "ai_additions": 10,
@@ -565,6 +617,7 @@
     {
       "sha": "907fb12",
       "date": "2026-08-14",
+      "author": "CaliMark",
       "subject": "docs: move workflows reference to docs/workflows.md, link from README",
       "lines_added": 109,
       "ai_additions": 109,
@@ -582,6 +635,7 @@
     {
       "sha": "9acc1c7",
       "date": "2026-08-15",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 54,
       "ai_additions": 0,
@@ -590,13 +644,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "ba7e6bd",
       "date": "2026-08-14",
+      "author": "CaliMark",
       "subject": "docs: add bridge.zip release download instructions, note clone option",
       "lines_added": 17,
       "ai_additions": 17,
@@ -614,6 +669,7 @@
     {
       "sha": "4aae280",
       "date": "2026-08-15",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 59,
       "ai_additions": 0,
@@ -622,13 +678,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "7fdaec7",
       "date": "2026-08-14",
+      "author": "CaliMark",
       "subject": "fix(devin): attribute Devin edits as devin via agent-v1 preset instead of claude",
       "lines_added": 51,
       "ai_additions": 51,
@@ -646,6 +703,7 @@
     {
       "sha": "2a38a48",
       "date": "2026-08-14",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 70,
       "ai_additions": 0,
@@ -654,13 +712,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "7452c9a",
       "date": "2026-08-13",
+      "author": "CaliMark",
       "subject": "docs: document Devin Desktop attribution via .devin hooks + bridge",
       "lines_added": 185,
       "ai_additions": 185,
@@ -678,6 +737,7 @@
     {
       "sha": "58e6850",
       "date": "2026-08-14",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 73,
       "ai_additions": 0,
@@ -686,13 +746,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "2d5c04c",
       "date": "2026-08-13",
+      "author": "CaliMark",
       "subject": "docs: document Cline CLI + extension attribution and git-ai extension conflict",
       "lines_added": 248,
       "ai_additions": 248,
@@ -710,6 +771,7 @@
     {
       "sha": "d5b1944",
       "date": "2026-08-13",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 60,
       "ai_additions": 0,
@@ -718,13 +780,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "a49e791",
       "date": "2026-08-13",
+      "author": "CaliMark",
       "subject": "docs: document native Cursor hooks integration",
       "lines_added": 46,
       "ai_additions": 46,
@@ -742,6 +805,7 @@
     {
       "sha": "5c2e5b9",
       "date": "2026-08-13",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 137,
       "ai_additions": 0,
@@ -750,13 +814,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "39a4c54",
       "date": "2026-08-12",
+      "author": "CaliMark",
       "subject": "docs: clarify untracked vs human attribution for web edits",
       "lines_added": 14,
       "ai_additions": 14,
@@ -774,6 +839,7 @@
     {
       "sha": "69b633c",
       "date": "2026-08-12",
+      "author": "CaliMark",
       "subject": "docs: document verified VS Code / Copilot Chat attribution",
       "lines_added": 50,
       "ai_additions": 50,
@@ -791,6 +857,7 @@
     {
       "sha": "167a351",
       "date": "2026-08-12",
+      "author": "CaliMark",
       "subject": "docs: update README with supported agents, workflows, and troubleshooting",
       "lines_added": 112,
       "ai_additions": 112,
@@ -804,21 +871,6 @@
       "agent_ai_lines": {
         "opencode · big-pickle": 112
       }
-    },
-    {
-      "sha": "f3aaedd",
-      "date": "2026-08-12",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 99,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 99,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "agents": [
-        "untracked"
-      ],
-      "agent_ai_lines": {}
     }
   ]
 }
