@@ -1,29 +1,50 @@
 {
   "schema_version": 3,
-  "generated_at": "2026-08-16T20:45:34.786215+00:00",
+  "generated_at": "2026-08-16T20:46:27.046383+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 3796,
-    "ai_lines": 2098,
-    "ai_pct": 55.3,
+    "total_lines": 4009,
+    "ai_lines": 2311,
+    "ai_pct": 57.6,
     "human_lines": 0,
     "human_pct": 0.0,
     "bot_lines": 1698,
-    "bot_pct": 44.7,
+    "bot_pct": 42.4,
     "unknown_lines": 0,
     "unknown_pct": 0.0,
-    "human_directed_ai_lines": 2098,
+    "human_directed_ai_lines": 2311,
     "human_directed_ai_pct": 100.0,
     "autonomous_ai_lines": 0,
     "direction_weight": 0.5,
-    "direction_credit_lines": 1049,
+    "direction_credit_lines": 1156,
     "co_contributed_commits": 0,
     "agents": {
-      "opencode · big-pickle": 2098
+      "opencode · big-pickle": 2311
     }
   },
   "commits": [
+    {
+      "sha": "8cb6742",
+      "date": "2026-08-16",
+      "author": "CaliMark",
+      "subject": "feat: weighted co-contribution view — human-direction credit (REPORT_HUMAN_DIRECTION_WEIGHT) + co-authored commit marker; JSON schema v3",
+      "lines_added": 398,
+      "ai_additions": 398,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "co_contributed": false,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 398
+      }
+    },
     {
       "sha": "c593e3f",
       "date": "2026-08-16",
@@ -1004,27 +1025,6 @@
         "bot"
       ],
       "agent_ai_lines": {}
-    },
-    {
-      "sha": "7452c9a",
-      "date": "2026-08-13",
-      "author": "CaliMark",
-      "subject": "docs: document Devin Desktop attribution via .devin hooks + bridge",
-      "lines_added": 185,
-      "ai_additions": 185,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "human_directed": true,
-      "session_count": 1,
-      "co_contributed": false,
-      "agents": [
-        "opencode · big-pickle"
-      ],
-      "agent_ai_lines": {
-        "opencode · big-pickle": 185
-      }
     }
   ]
 }
