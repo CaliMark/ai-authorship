@@ -1,22 +1,39 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-16T17:55:28.635167+00:00",
+  "generated_at": "2026-08-16T17:56:04.882986+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 3513,
-    "ai_lines": 1971,
-    "ai_pct": 56.1,
+    "total_lines": 3519,
+    "ai_lines": 2029,
+    "ai_pct": 57.7,
     "human_lines": 0,
     "human_pct": 0.0,
-    "unknown_lines": 1542,
-    "unknown_pct": 43.9,
+    "unknown_lines": 1490,
+    "unknown_pct": 42.3,
     "agents": {
       "gemini · gemini-3.6-flash-medium": 3,
-      "opencode · big-pickle": 1968
+      "opencode · big-pickle": 2026
     }
   },
   "commits": [
+    {
+      "sha": "4fd1f6d",
+      "date": "2026-08-16",
+      "subject": "feat: add mermaid composition pie chart to AI authorship report",
+      "lines_added": 58,
+      "ai_additions": 58,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 58
+      }
+    },
     {
       "sha": "dc219ff",
       "date": "2026-08-16",
@@ -801,21 +818,6 @@
       "agent_ai_lines": {
         "gemini · gemini-3.6-flash-medium": 3
       }
-    },
-    {
-      "sha": "904437a",
-      "date": "2026-08-11",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 52,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 52,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "agents": [
-        "untracked"
-      ],
-      "agent_ai_lines": {}
     }
   ]
 }

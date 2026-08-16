@@ -8,19 +8,19 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **3513**
-- **AI-generated:** 1971 lines (56.1%)
+- Total lines added: **3519**
+- **AI-generated:** 2029 lines (57.7%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 1542 lines (43.9%)
-- **Agents:** gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1968 lines)
+- **Untracked:** 1490 lines (42.3%)
+- **Agents:** gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (2026 lines)
 
 ## Composition
 
 ```mermaid
 pie title Lines by author (AI vs Human vs Untracked)
-    "AI" : 1971
+    "AI" : 2029
     "Human" : 0
-    "Untracked" : 1542
+    "Untracked" : 1490
 ```
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
@@ -35,6 +35,7 @@ pie title Lines by author (AI vs Human vs Untracked)
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 4fd1f6d | 2026-08-16 | feat: add mermaid composition pie chart to AI authorship report | 58 | 100% | 0% | opencode · big-pickle |
 | dc219ff | 2026-08-16 | docs: regenerate AI authorship report | 151 | 0% | 0% | untracked |
 | d95e7d3 | 2026-08-16 | docs: regenerate AI authorship report with JSON twin | 823 | 100% | 0% | opencode · big-pickle |
 | 4d898b8 | 2026-08-16 | feat: emit machine-readable AI-AUTHORSHIP.json; document manual-policy case study and human-review future idea | 115 | 100% | 0% | opencode · big-pickle |
@@ -84,7 +85,6 @@ pie title Lines by author (AI vs Human vs Untracked)
 | faad984 | 2026-08-11 | docs: regenerate AI authorship report | 66 | 0% | 0% | untracked |
 | 14d52df | 2026-08-10 | Merge branch 'main' of https://github.com/CaliMark/ai-authorship # Please enter a commit message to explain why this merge is necessary, # especially if it merges an updated upstream into a topic branch. # # Lines starting with '#' will be ignored, and an empty message aborts # the commit. | 0 | 0% | 0% | none |
 | 90be8ae | 2026-08-10 | chore : small change to the readme.md | 3 | 100% | 0% | gemini · gemini-3.6-flash-medium |
-| 904437a | 2026-08-11 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -92,7 +92,44 @@ pie title Lines by author (AI vs Human vs Untracked)
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit dc219ffac0127869e7e4ca0bcd8639e18418ca3c (HEAD -> main, origin/main, origin/HEAD)
+commit 4fd1f6d60fbe96887218a565490bdee14cad85b8 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-16T10:55:29-07:00
+
+    feat: add mermaid composition pie chart to AI authorship report
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      AI-AUTHORSHIP.md
+        s_52d0732141ad88::t_31438225eae04f 16
+        s_52d0732141ad88::t_38cba88c7213e6 11-12,14-15,17-24,38,95-108
+      AI-AUTHORSHIP.json
+        s_52d0732141ad88::t_31438225eae04f 20
+        s_52d0732141ad88::t_60b1929b9a7697 3,7-9,12-13,21-34
+      scripts/authorship-report.sh
+        s_52d0732141ad88::t_d3af74efc07e6c 175-183
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "4fd1f6d60fbe96887218a565490bdee14cad85b8",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit dc219ffac0127869e7e4ca0bcd8639e18418ca3c
 Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 Date:   2026-08-16T17:36:56Z
 
@@ -657,37 +694,6 @@ Date:   2026-08-15T01:39:28Z
 
     Authorship note:
       (none)
-
-commit 55821683ee5823b572e858392fb64d7ddffba522
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-14T18:38:59-07:00
-
-    chore: gitignore private competition reference notes
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      .gitignore
-        s_52d0732141ad88::t_34b706ae006e76 15
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "55821683ee5823b572e858392fb64d7ddffba522",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
 
 
 ```
