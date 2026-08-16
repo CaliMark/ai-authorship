@@ -30,6 +30,11 @@ env:
   # composition pie. Unset/0 = pie shows AI / Human / Untracked and leaves
   # bot commits to the summary + per-commit table.
   REPORT_SHOW_BOT_CHART: "1"
+  # Show the weighted co-contribution pie: the human who directed each session
+  # is credited with direction_weight of that session's AI lines. Set to "0"
+  # for the strict AI/Human/Untracked line-count pie.
+  REPORT_SHOW_DIRECTION: "1"
+  REPORT_HUMAN_DIRECTION_WEIGHT: "0.5"
 
 jobs:
   generate:

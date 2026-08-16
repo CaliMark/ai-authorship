@@ -8,20 +8,22 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **3774**
-- **AI-generated:** 2098 lines (55.6%)
+- Total lines added: **3796**
+- **AI-generated:** 2098 lines (55.3%)
 - **Human:** 0 lines (0.0%)
-- **Bot:** 1676 lines (44.4%)
+- **Bot:** 1698 lines (44.7%)
 - **Untracked:** 0 lines (0.0%)
+- **Human-directed AI:** 2098 lines (100.0% of AI; direction weight 0.5)
+- **Co-authored commits (human + AI lines):** 0
 - **Agents:** opencode · big-pickle (2098 lines)
 
 ## Composition
 
 ```mermaid
-pie title Lines by author (AI vs Human vs Bot vs Untracked)
-    "AI" : 2098
-    "Human" : 0
-    "Bot" : 1676
+pie title Co-contribution (weighted, human direction weight W=0.5)
+    "Human (direct)" : 0
+    "Human (direction)" : 1049
+    "AI" : 1049
     "Untracked" : 0
 ```
 
@@ -37,65 +39,71 @@ pie title AI lines by agent
 > authorship, not attributed through git-ai. `untracked` = lines with no
 > attribution data — written before git-ai was set up or made in the github.com
 > web UI (cannot be retroactively attributed). `human` = written directly by a
-> human and recorded via `git-ai checkpoint human` or the git-ai extension. Note:
-> these are line-count percentages, not commit counts. The composition pie
-> excludes the report's own `bot` commits by default; set `REPORT_SHOW_BOT_CHART=1`
-> to include them.
+> human and recorded via `git-ai checkpoint human` or the git-ai extension.
+> `Human (direct)` = human-written lines; `Human (direction)` = the credited
+> share of AI lines from sessions whose human driver git-ai recorded (weight
+> `W` = `REPORT_HUMAN_DIRECTION_WEIGHT`, default 0.5); `AI` = the AI lines not
+> credited to the human (including autonomous AI with no recorded driver). A
+> `✓` in the per-commit table marks a co-authored commit (contains both
+> human-written and AI lines). These are line-count percentages, not commit
+> counts. The composition pie excludes the report's own `bot` commits by
+> default; set `REPORT_SHOW_BOT_CHART=1` to include them, or
+> `REPORT_SHOW_DIRECTION=0` for a strict AI/Human/Untracked line-count pie.
 
 ## Per-commit breakdown
 
-| Commit | Date | Message | Lines | AI | Human | Agent(s) |
-| --- | --- | --- | --- | --- | --- | --- |
-| 6a7b53d | 2026-08-16 | fix: copy-in workflow template now commits AI-AUTHORSHIP.json alongside the .md (mirrors ai-authorship's own workflow) | 5 | 100% | 0% | opencode · big-pickle |
-| 48265cc | 2026-08-16 | docs: regenerate AI authorship report | 95 | 0% | 0% | bot |
-| 6f78064 | 2026-08-16 | fix: sync-consumers should copy the copy-in workflow template, not ai-authorship's live workflow | 4 | 100% | 0% | opencode · big-pickle |
-| 21ab4d2 | 2026-08-16 | docs: regenerate AI authorship report | 84 | 0% | 0% | bot |
-| 9548fe3 | 2026-08-16 | feat: REPORT_SHOW_BOT_CHART toggle for composition pie; default hides report's own bot commits | 88 | 100% | 0% | opencode · big-pickle |
-| 2150bb8 | 2026-08-16 | docs: regenerate AI authorship report | 71 | 0% | 0% | bot |
-| 1436e0e | 2026-08-16 | feat: label CI bot commits as a distinct 'bot' category in report (not untracked) | 180 | 100% | 0% | opencode · big-pickle |
-| 03c0e9e | 2026-08-16 | docs: regenerate AI authorship report | 94 | 0% | 0% | bot |
-| c8a71b4 | 2026-08-16 | docs: add 'let your coding agent install it' as a Quick Start install path | 29 | 100% | 0% | opencode · big-pickle |
-| f505760 | 2026-08-16 | docs: regenerate AI authorship report | 99 | 0% | 0% | bot |
-| 36f699a | 2026-08-16 | feat: add consumer sync helper + pinned auto-update workflow variant + template-sync docs | 213 | 100% | 0% | opencode · big-pickle |
-| 2c796a6 | 2026-08-16 | docs: regenerate AI authorship report | 69 | 0% | 0% | bot |
-| 9c8954c | 2026-08-16 | feat: add per-agent breakdown pie chart to report composition | 59 | 100% | 0% | opencode · big-pickle |
-| a3b4f73 | 2026-08-16 | docs: regenerate AI authorship report | 69 | 0% | 0% | bot |
-| 4fd1f6d | 2026-08-16 | feat: add mermaid composition pie chart to AI authorship report | 58 | 100% | 0% | opencode · big-pickle |
-| dc219ff | 2026-08-16 | docs: regenerate AI authorship report | 151 | 0% | 0% | bot |
-| d95e7d3 | 2026-08-16 | docs: regenerate AI authorship report with JSON twin | 823 | 100% | 0% | opencode · big-pickle |
-| 4d898b8 | 2026-08-16 | feat: emit machine-readable AI-AUTHORSHIP.json; document manual-policy case study and human-review future idea | 115 | 100% | 0% | opencode · big-pickle |
-| 90aece2 | 2026-08-16 | docs: regenerate AI authorship report | 51 | 0% | 0% | bot |
-| 6bb37ac | 2026-08-15 | docs: list Local models via OpenCode as first out-of-the-box option | 2 | 100% | 0% | opencode · big-pickle |
-| bc38201 | 2026-08-16 | docs: regenerate AI authorship report | 53 | 0% | 0% | bot |
-| 6cdd963 | 2026-08-15 | docs: promote LM Studio to Agent Support (tested & verified), keep Currently Testing as suggestion channel | 35 | 100% | 0% | opencode · big-pickle |
-| c7b38d5 | 2026-08-16 | docs: regenerate AI authorship report | 52 | 0% | 0% | bot |
-| 3db2752 | 2026-08-15 | docs: note game-of-life local-model (LM Studio) proof as 8th attribution source | 7 | 100% | 0% | opencode · big-pickle |
-| 22f81a9 | 2026-08-15 | docs: regenerate AI authorship report | 54 | 0% | 0% | bot |
-| 2f5d298 | 2026-08-15 | docs: mark local models (LM Studio + qwen2.5-7b-instruct) as verified live, document qwen2.5-coder tool-call failure | 17 | 100% | 0% | opencode · big-pickle |
-| ade987c | 2026-08-15 | docs: regenerate AI authorship report | 54 | 0% | 0% | bot |
-| 4a6e461 | 2026-08-14 | docs: add community tagline callout and Currently Testing section with LM Studio self-hosted setup | 26 | 100% | 0% | opencode · big-pickle |
-| 37c930a | 2026-08-15 | docs: regenerate AI authorship report | 57 | 0% | 0% | bot |
-| f9fd6f2 | 2026-08-14 | docs: strengthen AI code attribution keywords in headings and intro for indexing | 6 | 100% | 0% | opencode · big-pickle |
-| dbdba5c | 2026-08-15 | docs: regenerate AI authorship report | 62 | 0% | 0% | bot |
-| a211e22 | 2026-08-14 | docs: bundle native agents into one Quick Start section, trim duplicate notes and requirements | 26 | 100% | 0% | opencode · big-pickle |
-| 0f995ea | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% | bot |
-| 487cb82 | 2026-08-14 | docs: consolidate native-hook agents into one row in Agent Support table | 1 | 100% | 0% | opencode · big-pickle |
-| 382ae1e | 2026-08-15 | docs: regenerate AI authorship report | 53 | 0% | 0% | bot |
-| 9c03147 | 2026-08-14 | docs: split Agent Support into tested vs untested checkpoint presets | 20 | 100% | 0% | opencode · big-pickle |
-| a02d433 | 2026-08-15 | docs: regenerate AI authorship report | 55 | 0% | 0% | bot |
-| 118047e | 2026-08-14 | docs: fix integration count, drop Windsurf/Continue refs, add hobbyist note and free-tier asterisks | 11 | 100% | 0% | opencode · big-pickle |
-| 3be921f | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% | bot |
-| 5582168 | 2026-08-14 | chore: gitignore private competition reference notes | 1 | 100% | 0% | opencode · big-pickle |
-| 7877d8a | 2026-08-15 | docs: regenerate AI authorship report | 93 | 0% | 0% | bot |
-| e635355 | 2026-08-14 | docs: expand live demo note, link both public repos, fix local file:// links | 10 | 100% | 0% | opencode · big-pickle |
-| 907fb12 | 2026-08-14 | docs: move workflows reference to docs/workflows.md, link from README | 109 | 100% | 0% | opencode · big-pickle |
-| 9acc1c7 | 2026-08-15 | docs: regenerate AI authorship report | 54 | 0% | 0% | bot |
-| ba7e6bd | 2026-08-14 | docs: add bridge.zip release download instructions, note clone option | 17 | 100% | 0% | opencode · big-pickle |
-| 4aae280 | 2026-08-15 | docs: regenerate AI authorship report | 59 | 0% | 0% | bot |
-| 7fdaec7 | 2026-08-14 | fix(devin): attribute Devin edits as devin via agent-v1 preset instead of claude | 51 | 100% | 0% | opencode · big-pickle |
-| 2a38a48 | 2026-08-14 | docs: regenerate AI authorship report | 70 | 0% | 0% | bot |
-| 7452c9a | 2026-08-13 | docs: document Devin Desktop attribution via .devin hooks + bridge | 185 | 100% | 0% | opencode · big-pickle |
-| 58e6850 | 2026-08-14 | docs: regenerate AI authorship report | 73 | 0% | 0% | bot |
+| Commit | Date | Message | Lines | AI | Human | Co | Agent(s) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| c593e3f | 2026-08-16 | docs: regenerate AI authorship report | 95 | 0% | 0% |  | bot |
+| 6a7b53d | 2026-08-16 | fix: copy-in workflow template now commits AI-AUTHORSHIP.json alongside the .md (mirrors ai-authorship's own workflow) | 5 | 100% | 0% |  | opencode · big-pickle |
+| 48265cc | 2026-08-16 | docs: regenerate AI authorship report | 95 | 0% | 0% |  | bot |
+| 6f78064 | 2026-08-16 | fix: sync-consumers should copy the copy-in workflow template, not ai-authorship's live workflow | 4 | 100% | 0% |  | opencode · big-pickle |
+| 21ab4d2 | 2026-08-16 | docs: regenerate AI authorship report | 84 | 0% | 0% |  | bot |
+| 9548fe3 | 2026-08-16 | feat: REPORT_SHOW_BOT_CHART toggle for composition pie; default hides report's own bot commits | 88 | 100% | 0% |  | opencode · big-pickle |
+| 2150bb8 | 2026-08-16 | docs: regenerate AI authorship report | 71 | 0% | 0% |  | bot |
+| 1436e0e | 2026-08-16 | feat: label CI bot commits as a distinct 'bot' category in report (not untracked) | 180 | 100% | 0% |  | opencode · big-pickle |
+| 03c0e9e | 2026-08-16 | docs: regenerate AI authorship report | 94 | 0% | 0% |  | bot |
+| c8a71b4 | 2026-08-16 | docs: add 'let your coding agent install it' as a Quick Start install path | 29 | 100% | 0% |  | opencode · big-pickle |
+| f505760 | 2026-08-16 | docs: regenerate AI authorship report | 99 | 0% | 0% |  | bot |
+| 36f699a | 2026-08-16 | feat: add consumer sync helper + pinned auto-update workflow variant + template-sync docs | 213 | 100% | 0% |  | opencode · big-pickle |
+| 2c796a6 | 2026-08-16 | docs: regenerate AI authorship report | 69 | 0% | 0% |  | bot |
+| 9c8954c | 2026-08-16 | feat: add per-agent breakdown pie chart to report composition | 59 | 100% | 0% |  | opencode · big-pickle |
+| a3b4f73 | 2026-08-16 | docs: regenerate AI authorship report | 69 | 0% | 0% |  | bot |
+| 4fd1f6d | 2026-08-16 | feat: add mermaid composition pie chart to AI authorship report | 58 | 100% | 0% |  | opencode · big-pickle |
+| dc219ff | 2026-08-16 | docs: regenerate AI authorship report | 151 | 0% | 0% |  | bot |
+| d95e7d3 | 2026-08-16 | docs: regenerate AI authorship report with JSON twin | 823 | 100% | 0% |  | opencode · big-pickle |
+| 4d898b8 | 2026-08-16 | feat: emit machine-readable AI-AUTHORSHIP.json; document manual-policy case study and human-review future idea | 115 | 100% | 0% |  | opencode · big-pickle |
+| 90aece2 | 2026-08-16 | docs: regenerate AI authorship report | 51 | 0% | 0% |  | bot |
+| 6bb37ac | 2026-08-15 | docs: list Local models via OpenCode as first out-of-the-box option | 2 | 100% | 0% |  | opencode · big-pickle |
+| bc38201 | 2026-08-16 | docs: regenerate AI authorship report | 53 | 0% | 0% |  | bot |
+| 6cdd963 | 2026-08-15 | docs: promote LM Studio to Agent Support (tested & verified), keep Currently Testing as suggestion channel | 35 | 100% | 0% |  | opencode · big-pickle |
+| c7b38d5 | 2026-08-16 | docs: regenerate AI authorship report | 52 | 0% | 0% |  | bot |
+| 3db2752 | 2026-08-15 | docs: note game-of-life local-model (LM Studio) proof as 8th attribution source | 7 | 100% | 0% |  | opencode · big-pickle |
+| 22f81a9 | 2026-08-15 | docs: regenerate AI authorship report | 54 | 0% | 0% |  | bot |
+| 2f5d298 | 2026-08-15 | docs: mark local models (LM Studio + qwen2.5-7b-instruct) as verified live, document qwen2.5-coder tool-call failure | 17 | 100% | 0% |  | opencode · big-pickle |
+| ade987c | 2026-08-15 | docs: regenerate AI authorship report | 54 | 0% | 0% |  | bot |
+| 4a6e461 | 2026-08-14 | docs: add community tagline callout and Currently Testing section with LM Studio self-hosted setup | 26 | 100% | 0% |  | opencode · big-pickle |
+| 37c930a | 2026-08-15 | docs: regenerate AI authorship report | 57 | 0% | 0% |  | bot |
+| f9fd6f2 | 2026-08-14 | docs: strengthen AI code attribution keywords in headings and intro for indexing | 6 | 100% | 0% |  | opencode · big-pickle |
+| dbdba5c | 2026-08-15 | docs: regenerate AI authorship report | 62 | 0% | 0% |  | bot |
+| a211e22 | 2026-08-14 | docs: bundle native agents into one Quick Start section, trim duplicate notes and requirements | 26 | 100% | 0% |  | opencode · big-pickle |
+| 0f995ea | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% |  | bot |
+| 487cb82 | 2026-08-14 | docs: consolidate native-hook agents into one row in Agent Support table | 1 | 100% | 0% |  | opencode · big-pickle |
+| 382ae1e | 2026-08-15 | docs: regenerate AI authorship report | 53 | 0% | 0% |  | bot |
+| 9c03147 | 2026-08-14 | docs: split Agent Support into tested vs untested checkpoint presets | 20 | 100% | 0% |  | opencode · big-pickle |
+| a02d433 | 2026-08-15 | docs: regenerate AI authorship report | 55 | 0% | 0% |  | bot |
+| 118047e | 2026-08-14 | docs: fix integration count, drop Windsurf/Continue refs, add hobbyist note and free-tier asterisks | 11 | 100% | 0% |  | opencode · big-pickle |
+| 3be921f | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% |  | bot |
+| 5582168 | 2026-08-14 | chore: gitignore private competition reference notes | 1 | 100% | 0% |  | opencode · big-pickle |
+| 7877d8a | 2026-08-15 | docs: regenerate AI authorship report | 93 | 0% | 0% |  | bot |
+| e635355 | 2026-08-14 | docs: expand live demo note, link both public repos, fix local file:// links | 10 | 100% | 0% |  | opencode · big-pickle |
+| 907fb12 | 2026-08-14 | docs: move workflows reference to docs/workflows.md, link from README | 109 | 100% | 0% |  | opencode · big-pickle |
+| 9acc1c7 | 2026-08-15 | docs: regenerate AI authorship report | 54 | 0% | 0% |  | bot |
+| ba7e6bd | 2026-08-14 | docs: add bridge.zip release download instructions, note clone option | 17 | 100% | 0% |  | opencode · big-pickle |
+| 4aae280 | 2026-08-15 | docs: regenerate AI authorship report | 59 | 0% | 0% |  | bot |
+| 7fdaec7 | 2026-08-14 | fix(devin): attribute Devin edits as devin via agent-v1 preset instead of claude | 51 | 100% | 0% |  | opencode · big-pickle |
+| 2a38a48 | 2026-08-14 | docs: regenerate AI authorship report | 70 | 0% | 0% |  | bot |
+| 7452c9a | 2026-08-13 | docs: document Devin Desktop attribution via .devin hooks + bridge | 185 | 100% | 0% |  | opencode · big-pickle |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -103,7 +111,20 @@ pie title AI lines by agent
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 6a7b53d18fcbdb923e4a1e5646332fff003d78dc (HEAD -> main, origin/main)
+commit c593e3f8e76108a3a3d39710651f4a53416f1cf4 (HEAD -> main, origin/main, origin/HEAD)
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-16T19:59:46Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 6a7b53d18fcbdb923e4a1e5646332fff003d78dc
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-16T12:59:03-07:00
 
@@ -712,19 +733,6 @@ Date:   2026-08-15T19:43:32-07:00
           }
         }
       }
-
-commit 22f81a9308c4676958ce19dafddbbad5acd31bac
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-15T07:27:09Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
 
 
 ```
