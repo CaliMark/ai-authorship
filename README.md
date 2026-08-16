@@ -21,7 +21,7 @@ Works out-of-the-box with **seven AI coding agents and IDEs**:
 - 🛠️ **Cline** — via CLI PreToolUse hooks with an apply-and-restore bridge (`~/.cline/hooks/PreToolUse.ps1`).
 - 🛠️ **Devin Desktop** (Devin Local) — via project `.devin/hooks.v1.json` hooks calling the `bridge/devin/HookBridge.ps1` adapter.
 
-A GitHub Actions workflow automatically reads the attribution notes and generates a live [`AI-AUTHORSHIP.md`](https://github.com/CaliMark/ai-authorship/blob/main/AI-AUTHORSHIP.md) report on every push to `main`.
+A GitHub Actions workflow automatically reads the attribution notes and generates a live [`AI-AUTHORSHIP.md`](https://github.com/CaliMark/ai-authorship/blob/main/AI-AUTHORSHIP.md) report — plus a machine-readable [`AI-AUTHORSHIP.json`](https://github.com/CaliMark/ai-authorship/blob/main/AI-AUTHORSHIP.json) twin — on every push to `main`.
 
 > [!NOTE]
 > **This project is a running demo — no screenshots needed.**

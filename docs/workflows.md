@@ -102,4 +102,51 @@ git push origin main
 
 The GitHub Actions workflow is GitHub-specific. For other remotes, run
 `scripts/authorship-report.sh` in your own CI pipeline (or locally) and commit the
-generated `AI-AUTHORSHIP.md`.
+generated `AI-AUTHORSHIP.md` and `AI-AUTHORSHIP.json`.
+
+## Machine-readable report (AI-AUTHORSHIP.json)
+
+Alongside the human-readable `AI-AUTHORSHIP.md`, `scripts/authorship-report.sh`
+writes `AI-AUTHORSHIP.json` — a structured export for tools and downstream
+automation, always in sync with the Markdown report (the workflow commits both):
+
+- `schema_version`, `generated_at` (UTC ISO-8601)
+- `summary`: `commits_analyzed`, line totals, percentages, and an `agents` map
+  (label → AI lines)
+- `commits[]`: per commit, `sha`, `date`, `subject`, line counts, `ai_pct` /
+  `human_pct`, `agents`, and `agent_ai_lines` (label → AI lines)
+
+## Related approach: manual policy disclosure (academic publishing)
+
+[`claude-code-for-social-scientists`](https://github.com/OnourImpram/claude-code-for-social-scientists)
+attaches AI disclosure through **manual policy** rather than git notes: every
+booklet carries a YAML frontmatter block declaring `ai_contribution_level` (a
+5-level scale from `editing-only` to `full-draft`), a `human_review` state
+(`complete`/`partial`/`pending`), verified vs fabricated citation counts, and
+dated model identifiers (`model_alias` + `model_dated`). CI refuses any booklet
+on `main` whose `human_review` is `pending`.
+
+| Concern | Manual frontmatter (that repo) | git-ai notes (this repo) |
+| --- | --- | --- |
+| Where the data lives | YAML blocks inside each content file | `refs/notes/ai` notes, attached per commit |
+| Granularity | Per document / booklet | Per line (`git ai blame`) |
+| Model recorded | `model_alias` + `model_dated` (may be `null`) | Exact model string from the agent session, per commit |
+| Human contribution | `human_review` field (author reviewed AI output) | Line-level `human` via `git-ai checkpoint human` |
+| Enforcement | CI blocks `human_review: pending` on `main` | Report surfaces `untracked` lines, no block |
+
+Lessons worth borrowing: their `human_review` states distinguish "AI wrote it"
+from "AI wrote it **and a human reviewed it**" (see the future idea below). Their
+`model_dated` worry — an alias like `claude-opus-4-7` may later point at a
+different checkpoint — is already handled here: the note records the concrete
+model id the session used, so report labels don't drift.
+
+## Human-review states — future idea
+
+git-ai captures **who wrote** each line (agent, or `human` via
+`git-ai checkpoint human`), but not whether a human has **reviewed** an
+AI-authored commit. A natural extension: an optional per-commit review
+attestation (e.g. a note field or `git-ai checkpoint review`) recording
+`human_review: complete | partial | pending`, so `AI-AUTHORSHIP.json` consumers
+can filter for "reviewed AI" vs "unreviewed AI" and CI can block `pending` on
+`main` — mirroring the policy-repo's release blocker above. Not implemented
+here; offered as a spec for the upstream git-ai project.
