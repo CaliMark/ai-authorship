@@ -8,11 +8,11 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **2677**
-- **AI-generated:** 1231 lines (46.0%)
+- Total lines added: **2675**
+- **AI-generated:** 1230 lines (46.0%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 1446 lines (54.0%)
-- **Agents:** gemini (138 lines), gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1090 lines)
+- **Untracked:** 1445 lines (54.0%)
+- **Agents:** gemini (138 lines), gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1089 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -26,6 +26,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 6bb37ac | 2026-08-15 | docs: list Local models via OpenCode as first out-of-the-box option | 2 | 100% | 0% | opencode · big-pickle |
+| bc38201 | 2026-08-16 | docs: regenerate AI authorship report | 53 | 0% | 0% | untracked |
 | 6cdd963 | 2026-08-15 | docs: promote LM Studio to Agent Support (tested & verified), keep Currently Testing as suggestion channel | 35 | 100% | 0% | opencode · big-pickle |
 | c7b38d5 | 2026-08-16 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 | 3db2752 | 2026-08-15 | docs: note game-of-life local-model (LM Studio) proof as 8th attribution source | 7 | 100% | 0% | opencode · big-pickle |
@@ -74,8 +76,6 @@ push to `main`.
 | 012e360 | 2026-08-11 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 | 408112d | 2026-08-10 | docs: add Antigravity attribution runbook | 59 | 100% | 0% | opencode · big-pickle |
 | e571d62 | 2026-08-11 | docs: regenerate AI authorship report | 53 | 0% | 0% | untracked |
-| 54748ce | 2026-08-10 | chore: neutral troubleshooting wording in verify script | 3 | 100% | 0% | opencode · big-pickle |
-| b322469 | 2026-08-11 | docs: regenerate AI authorship report | 54 | 0% | 0% | untracked |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -83,7 +83,51 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 6cdd963cdcc335ff02158fa312e8b7cfccfdbe85 (HEAD -> main, origin/main)
+commit 6bb37ac140fcd97a1dced1ed8964956bfe267081 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-15T22:04:46-07:00
+
+    docs: list Local models via OpenCode as first out-of-the-box option
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      README.md
+        s_52d0732141ad88::t_530a79120557e6 15-16
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "6bb37ac140fcd97a1dced1ed8964956bfe267081",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit bc382016751084286da0fa3df4b56a01e14752a0
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-16T02:49:40Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 6cdd963cdcc335ff02158fa312e8b7cfccfdbe85
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-15T19:49:06-07:00
 
@@ -623,52 +667,6 @@ Date:   2026-08-14T18:11:14-07:00
 commit 9acc1c723dd7ddf4fad40af0b97a0b9b15db6ef1
 Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 Date:   2026-08-15T00:40:58Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit ba7e6bd81c80954da896866d8542f39a6ae47800 (tag: v1.0.0)
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-14T17:40:25-07:00
-
-    docs: add bridge.zip release download instructions, note clone option
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      README.md
-        s_52d0732141ad88::t_50568c41edce59 209-224
-      .gitignore
-        s_52d0732141ad88::t_833a4ad7d5f30d 5
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "ba7e6bd81c80954da896866d8542f39a6ae47800",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit 4aae280a585791f4365294201e8ef71e362c7a3c
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-15T00:21:31Z
 
     docs: regenerate AI authorship report
 
