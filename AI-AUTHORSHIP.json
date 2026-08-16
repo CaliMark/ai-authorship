@@ -1,23 +1,57 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-16T19:42:54.694563+00:00",
+  "generated_at": "2026-08-16T19:44:28.719461+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 4077,
-    "ai_lines": 2383,
-    "ai_pct": 58.4,
+    "total_lines": 3982,
+    "ai_lines": 2341,
+    "ai_pct": 58.8,
     "human_lines": 0,
     "human_pct": 0.0,
-    "bot_lines": 1694,
-    "bot_pct": 41.6,
+    "bot_lines": 1641,
+    "bot_pct": 41.2,
     "unknown_lines": 0,
     "unknown_pct": 0.0,
     "agents": {
-      "opencode · big-pickle": 2383
+      "opencode · big-pickle": 2341
     }
   },
   "commits": [
+    {
+      "sha": "6f78064",
+      "date": "2026-08-16",
+      "author": "CaliMark",
+      "subject": "fix: sync-consumers should copy the copy-in workflow template, not ai-authorship's live workflow",
+      "lines_added": 4,
+      "ai_additions": 4,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 4
+      }
+    },
+    {
+      "sha": "21ab4d2",
+      "date": "2026-08-16",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 84,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 84,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {}
+    },
     {
       "sha": "9548fe3",
       "date": "2026-08-16",
@@ -829,40 +863,6 @@
       "ai_additions": 0,
       "human_additions": 0,
       "unknown_additions": 60,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "agents": [
-        "bot"
-      ],
-      "agent_ai_lines": {}
-    },
-    {
-      "sha": "a49e791",
-      "date": "2026-08-13",
-      "author": "CaliMark",
-      "subject": "docs: document native Cursor hooks integration",
-      "lines_added": 46,
-      "ai_additions": 46,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "agents": [
-        "opencode · big-pickle"
-      ],
-      "agent_ai_lines": {
-        "opencode · big-pickle": 46
-      }
-    },
-    {
-      "sha": "5c2e5b9",
-      "date": "2026-08-13",
-      "author": "github-actions[bot]",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 137,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 137,
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [

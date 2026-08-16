@@ -8,26 +8,26 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **4077**
-- **AI-generated:** 2383 lines (58.4%)
+- Total lines added: **3982**
+- **AI-generated:** 2341 lines (58.8%)
 - **Human:** 0 lines (0.0%)
-- **Bot:** 1694 lines (41.6%)
+- **Bot:** 1641 lines (41.2%)
 - **Untracked:** 0 lines (0.0%)
-- **Agents:** opencode · big-pickle (2383 lines)
+- **Agents:** opencode · big-pickle (2341 lines)
 
 ## Composition
 
 ```mermaid
 pie title Lines by author (AI vs Human vs Bot vs Untracked)
-    "AI" : 2383
+    "AI" : 2341
     "Human" : 0
-    "Bot" : 1694
+    "Bot" : 1641
     "Untracked" : 0
 ```
 
 ```mermaid
 pie title AI lines by agent
-    "opencode · big-pickle" : 2383
+    "opencode · big-pickle" : 2341
 ```
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
@@ -46,6 +46,8 @@ pie title AI lines by agent
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 6f78064 | 2026-08-16 | fix: sync-consumers should copy the copy-in workflow template, not ai-authorship's live workflow | 4 | 100% | 0% | opencode · big-pickle |
+| 21ab4d2 | 2026-08-16 | docs: regenerate AI authorship report | 84 | 0% | 0% | bot |
 | 9548fe3 | 2026-08-16 | feat: REPORT_SHOW_BOT_CHART toggle for composition pie; default hides report's own bot commits | 88 | 100% | 0% | opencode · big-pickle |
 | 2150bb8 | 2026-08-16 | docs: regenerate AI authorship report | 71 | 0% | 0% | bot |
 | 1436e0e | 2026-08-16 | feat: label CI bot commits as a distinct 'bot' category in report (not untracked) | 180 | 100% | 0% | opencode · big-pickle |
@@ -94,8 +96,6 @@ pie title AI lines by agent
 | 58e6850 | 2026-08-14 | docs: regenerate AI authorship report | 73 | 0% | 0% | bot |
 | 2d5c04c | 2026-08-13 | docs: document Cline CLI + extension attribution and git-ai extension conflict | 248 | 100% | 0% | opencode · big-pickle |
 | d5b1944 | 2026-08-13 | docs: regenerate AI authorship report | 60 | 0% | 0% | bot |
-| a49e791 | 2026-08-13 | docs: document native Cursor hooks integration | 46 | 100% | 0% | opencode · big-pickle |
-| 5c2e5b9 | 2026-08-13 | docs: regenerate AI authorship report | 137 | 0% | 0% | bot |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -103,7 +103,51 @@ pie title AI lines by agent
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 9548fe34d189691cca4633fcd81290d3afedd0b2 (HEAD -> main, origin/main)
+commit 6f78064fb925d951509582b34018d1685debcef4 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-16T12:43:57-07:00
+
+    fix: sync-consumers should copy the copy-in workflow template, not ai-authorship's live workflow
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      scripts/sync-consumers.sh
+        s_52d0732141ad88::t_0b06e974f57d15 30-33
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "6f78064fb925d951509582b34018d1685debcef4",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 21ab4d2358dac8486a419f941efd58fef20db0d8
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-16T19:42:54Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 9548fe34d189691cca4633fcd81290d3afedd0b2
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-16T12:42:25-07:00
 
@@ -674,52 +718,6 @@ Date:   2026-08-15T00:26:36-07:00
 commit ade987c20769ec0b6587317e00cdf920324814f0
 Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 Date:   2026-08-15T03:48:07Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit 4a6e46176cfb9f7524ae502bd4b5654bafcd1d32 (tag: v1.0.1)
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-14T20:47:38-07:00
-
-    docs: add community tagline callout and Currently Testing section with LM Studio self-hosted setup
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      README.md
-        s_52d0732141ad88::t_ee8c91a73cc033 124-145
-        s_52d0732141ad88::t_e5d19938bc5e82 12-14
-        s_52d0732141ad88::t_bdeb461a9a5fee 46
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "4a6e46176cfb9f7524ae502bd4b5654bafcd1d32",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit 37c930afad24328f1e248f984167b4c6f18e94a6
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-15T02:50:52Z
 
     docs: regenerate AI authorship report
 
