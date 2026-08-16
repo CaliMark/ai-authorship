@@ -36,6 +36,7 @@ A GitHub Actions workflow automatically reads the attribution notes and generate
 - [How AI Code Attribution Works](#-how-ai-code-attribution-works)
 - [Requirements](#-requirements)
 - [Quick Start](#-quick-start)
+  - [Let your coding agent install it](#let-your-coding-agent-install-it-fastest)
   - [1. Install git-ai](#1-install-git-ai)
   - [2. Native Agents (OpenCode · VS Code Copilot Chat · Cursor)](#2-native-agents-setup-opencode--vs-code-copilot-chat--cursor)
   - [3. Cline Setup (CLI Hooks)](#3-cline-setup-cli-hooks)
@@ -161,6 +162,34 @@ to [Agent Support](#-agent-support).
 ---
 
 ## 🚀 Quick Start
+
+### ✨ Let your coding agent install it (fastest)
+
+Want the report running without clicking through the setup? Just tell your
+coding agent to install it. Every step is an ordinary shell/git operation the
+agent can perform, so this is a fully supported install path — not a shortcut
+that misses config. Paste this into your agent (OpenCode, Cline, Cursor, etc.):
+
+> Please set up AI authorship attribution for this repo:
+> 1. Install the `git-ai` CLI (download from usegitai.com) and run
+>    `git-ai install-hooks` in this repo.
+> 2. Copy `scripts/authorship-report.sh` and
+>    `.github/workflows/authorship-report.yml` from the
+>    `CaliMark/ai-authorship` repo (or download both at the latest release tag,
+>    e.g. `v1.1.0`).
+> 3. Make a small commit and push to GitHub, then confirm `AI-AUTHORSHIP.md`
+>    (and `AI-AUTHORSHIP.json`) appear at the repo root.
+
+The agent installs the hooks, drops in the template, and the workflow
+generates the report on push — you get the same result as the manual steps
+below, including the composition charts and JSON twin.
+
+> [!IMPORTANT]
+> Keep `GIT_AI_VERSION` inside `.github/workflows/authorship-report.yml`
+> aligned with the installed `git-ai` CLI version, or CI may fail to parse
+> notes written by a newer/older local CLI. Also note: attribution is only
+> captured for the [supported agents](#-agent-support); an unsupported agent's
+> commits still generate the report but show as `untracked`.
 
 ### 1. Install git-ai
 
