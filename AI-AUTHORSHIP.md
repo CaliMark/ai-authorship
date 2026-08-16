@@ -8,24 +8,24 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **3585**
-- **AI-generated:** 2026 lines (56.5%)
+- Total lines added: **3644**
+- **AI-generated:** 2085 lines (57.2%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 1559 lines (43.5%)
-- **Agents:** opencode · big-pickle (2026 lines)
+- **Untracked:** 1559 lines (42.8%)
+- **Agents:** opencode · big-pickle (2085 lines)
 
 ## Composition
 
 ```mermaid
 pie title Lines by author (AI vs Human vs Untracked)
-    "AI" : 2026
+    "AI" : 2085
     "Human" : 0
     "Untracked" : 1559
 ```
 
 ```mermaid
 pie title AI lines by agent
-    "opencode · big-pickle" : 2026
+    "opencode · big-pickle" : 2085
 ```
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
@@ -40,6 +40,7 @@ pie title AI lines by agent
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 9c8954c | 2026-08-16 | feat: add per-agent breakdown pie chart to report composition | 59 | 100% | 0% | opencode · big-pickle |
 | a3b4f73 | 2026-08-16 | docs: regenerate AI authorship report | 69 | 0% | 0% | untracked |
 | 4fd1f6d | 2026-08-16 | feat: add mermaid composition pie chart to AI authorship report | 58 | 100% | 0% | opencode · big-pickle |
 | dc219ff | 2026-08-16 | docs: regenerate AI authorship report | 151 | 0% | 0% | untracked |
@@ -89,7 +90,6 @@ pie title AI lines by agent
 | a85e0e4 | 2026-08-11 | docs: regenerate AI authorship report | 33 | 0% | 0% | untracked |
 | 89f38c3 | 2026-08-10 | fix(bridge): write turn record with model for PostToolUse-only sessions | 16 | 100% | 0% | opencode · big-pickle |
 | faad984 | 2026-08-11 | docs: regenerate AI authorship report | 66 | 0% | 0% | untracked |
-| 14d52df | 2026-08-10 | Merge branch 'main' of https://github.com/CaliMark/ai-authorship # Please enter a commit message to explain why this merge is necessary, # especially if it merges an updated upstream into a topic branch. # # Lines starting with '#' will be ignored, and an empty message aborts # the commit. | 0 | 0% | 0% | none |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -97,7 +97,45 @@ pie title AI lines by agent
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit a3b4f7303b08edf47efec2a5b6b5a8966f451d23 (HEAD -> main, origin/main, origin/HEAD)
+commit 9c8954c57c0a496cef7114cc864947fdd402b02e (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-16T11:16:09-07:00
+
+    feat: add per-agent breakdown pie chart to report composition
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      AI-AUTHORSHIP.json
+        s_52d0732141ad88::t_7ac3d8c7bd5b03 19
+        s_52d0732141ad88::t_7e984148355d5c 3,7-9,12-13,20-33
+      AI-AUTHORSHIP.md
+        s_52d0732141ad88::t_7ac3d8c7bd5b03 24-25
+        s_52d0732141ad88::t_f5762da4b7f2f8 11-12,14-15,21,23,26-28,43,100-113
+      scripts/authorship-report.sh
+        s_52d0732141ad88::t_cb805b42a40e18 194-195
+        s_52d0732141ad88::t_80d85ab8739085 105-114
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "9c8954c57c0a496cef7114cc864947fdd402b02e",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit a3b4f7303b08edf47efec2a5b6b5a8966f451d23
 Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 Date:   2026-08-16T17:56:04Z
 
@@ -665,40 +703,6 @@ Date:   2026-08-15T01:48:11Z
 
     Authorship note:
       (none)
-
-commit 118047e20a4b84e3c66c108376eb1f83523f48c0
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-14T18:47:45-07:00
-
-    docs: fix integration count, drop Windsurf/Continue refs, add hobbyist note and free-tier asterisks
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      README.md
-        s_52d0732141ad88::t_53b993ab5bf49e 310,316
-        s_52d0732141ad88::t_7dc6795108164b 12
-        s_52d0732141ad88::t_0941afabf8a9ab 106
-        s_52d0732141ad88::t_54fe5aac70e30b 100-105,107
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "118047e20a4b84e3c66c108376eb1f83523f48c0",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
 
 
 ```

@@ -1,21 +1,38 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-16T18:16:08.755337+00:00",
+  "generated_at": "2026-08-16T18:16:45.124227+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 3585,
-    "ai_lines": 2026,
-    "ai_pct": 56.5,
+    "total_lines": 3644,
+    "ai_lines": 2085,
+    "ai_pct": 57.2,
     "human_lines": 0,
     "human_pct": 0.0,
     "unknown_lines": 1559,
-    "unknown_pct": 43.5,
+    "unknown_pct": 42.8,
     "agents": {
-      "opencode · big-pickle": 2026
+      "opencode · big-pickle": 2085
     }
   },
   "commits": [
+    {
+      "sha": "9c8954c",
+      "date": "2026-08-16",
+      "subject": "feat: add per-agent breakdown pie chart to report composition",
+      "lines_added": 59,
+      "ai_additions": 59,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 59
+      }
+    },
     {
       "sha": "a3b4f73",
       "date": "2026-08-16",
@@ -801,19 +818,6 @@
       "agents": [
         "untracked"
       ],
-      "agent_ai_lines": {}
-    },
-    {
-      "sha": "14d52df",
-      "date": "2026-08-10",
-      "subject": "Merge branch 'main' of https://github.com/CaliMark/ai-authorship # Please enter a commit message to explain why this merge is necessary, # especially if it merges an updated upstream into a topic branch. # # Lines starting with '#' will be ignored, and an empty message aborts # the commit.",
-      "lines_added": 0,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "agents": [],
       "agent_ai_lines": {}
     }
   ]
