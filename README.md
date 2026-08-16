@@ -46,7 +46,7 @@ A GitHub Actions workflow automatically reads the attribution notes and generate
 - [Agent Support](#-agent-support)
   - [Local models through LM Studio](#-local-models-through-lm-studio-self-hosted-no-cloud--verified)
 - [Currently Testing](#-currently-testing)
-- [Workflows for Different Situations](docs/workflows.md) — AI attribution workflows: model routing (OpenRouter, proxies, local models), multi-agent sessions, mixed human + AI commits, remotes
+- [Workflows for Different Situations](docs/workflows.md) — AI attribution workflows: model routing (OpenRouter, proxies, local models), multi-agent sessions, mixed human + AI commits, remotes, and [keeping the report template in sync](docs/workflows.md#keeping-the-template-in-sync)
 - [Configuration](#%EF%B8%8F-configuration)
 - [Troubleshooting](#-troubleshooting)
 - [Project Layout](#-project-layout)

@@ -1,0 +1,94 @@
+# TEMPLATE (pinned / auto-update variant): copy this file into your repo at
+# .github/workflows/authorship-report.yml — you do NOT need to copy
+# scripts/authorship-report.sh, because this workflow downloads it from the
+# pinned ai-authorship tag at run time.
+#
+# To update the report generator, bump AUTHORSHIP_SCRIPT_VERSION below (or set
+# it to "main" to always track the latest). Dependabot can automate this.
+#
+# Trade-off vs the plain template: your report depends on ai-authorship at
+# run time, but you get updates by bumping one version instead of re-copying
+# files. See docs/workflows.md → "Keeping the template in sync".
+#
+# Then push:
+#   git-ai await --timeout 30
+#   git pull --rebase origin main
+#   git push origin refs/notes/ai
+#   git push origin main
+# (push to main triggers the workflow; AI-AUTHORSHIP.md appears at your repo root.
+#  Pull with --rebase before pushing: the workflow auto-commits regenerated
+#  reports to main, so a plain push will be rejected as non-fast-forward.)
+name: AI Authorship Report
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ai-authorship-report
+  cancel-in-progress: true
+
+env:
+  # Keep this in sync with your local `git-ai --version` when you upgrade
+  # git-ai, so CI's note-reading version stays compatible with the notes
+  # git-ai writes on your machine. Verify against the release's SHA256SUMS.
+  GIT_AI_VERSION: "1.6.22"
+  # Which ai-authorship tag (or "main") to download the report script from.
+  AUTHORSHIP_SCRIPT_VERSION: "v1.1.0"
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (full history)
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Install git-ai (pinned + checksum verified)
+        run: |
+          set -euo pipefail
+          curl -fsSL -o /tmp/git-ai-linux-x64 \
+            "https://github.com/git-ai-project/git-ai/releases/download/v${GIT_AI_VERSION}/git-ai-linux-x64"
+          expected="$(curl -fsSL "https://github.com/git-ai-project/git-ai/releases/download/v${GIT_AI_VERSION}/SHA256SUMS" | awk '$2 ~ /git-ai-linux-x64$/ {print $1}')"
+          [ -n "$expected" ] || { echo "SHA256SUMS did not list git-ai-linux-x64"; exit 1; }
+          actual="$(sha256sum /tmp/git-ai-linux-x64 | awk '{print $1}')"
+          [ "$expected" = "$actual" ] || { echo "git-ai checksum mismatch"; exit 1; }
+          mkdir -p "$HOME/.local/bin"
+          mv /tmp/git-ai-linux-x64 "$HOME/.local/bin/git-ai"
+          chmod +x "$HOME/.local/bin/git-ai"
+          "$HOME/.local/bin/git-ai" version
+
+      - name: Fetch AI authorship notes
+        run: |
+          git fetch origin refs/notes/ai:refs/notes/ai
+
+      - name: Download report script from pinned ai-authorship tag
+        run: |
+          curl -fsSL -o /tmp/authorship-report.sh \
+            "https://raw.githubusercontent.com/CaliMark/ai-authorship/${AUTHORSHIP_SCRIPT_VERSION}/scripts/authorship-report.sh"
+          bash -n /tmp/authorship-report.sh
+
+      - name: Generate AI-AUTHORSHIP.md + AI-AUTHORSHIP.json
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          bash /tmp/authorship-report.sh
+          echo "--- preview ---"
+          head -40 AI-AUTHORSHIP.md
+
+      - name: Commit report back if changed
+        run: |
+          if [ -z "$(git status --porcelain -- AI-AUTHORSHIP.md AI-AUTHORSHIP.json)" ]; then
+            echo "AI-AUTHORSHIP reports unchanged — nothing to do"
+          else
+            git add AI-AUTHORSHIP.md AI-AUTHORSHIP.json
+            git -c user.name="github-actions[bot]" \
+                -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+                commit -m "docs: regenerate AI authorship report"
+            git push
+            echo "Pushed updated AI-AUTHORSHIP reports"
+          fi

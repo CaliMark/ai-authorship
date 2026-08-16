@@ -150,3 +150,38 @@ attestation (e.g. a note field or `git-ai checkpoint review`) recording
 can filter for "reviewed AI" vs "unreviewed AI" and CI can block `pending` on
 `main` — mirroring the policy-repo's release blocker above. Not implemented
 here; offered as a spec for the upstream git-ai project.
+
+## Keeping the template in sync
+
+The report generator ships as a **copy-in template**, not an installed package.
+A consumer repo (`game-of-life`, `yrhapp`, or anyone else's) owns its own copy
+of `scripts/authorship-report.sh` and `.github/workflows/authorship-report.yml`,
+committed at the version they installed. Nothing pushes updates to their copy —
+that's by design: it means the consumer behaves like a real install, and it's
+why this repo's demo repos stay faithful to what a user actually experiences.
+
+There are **two version tracks** that update independently:
+
+| Track | Lives where | How it updates |
+| --- | --- | --- |
+| git-ai CLI (the engine) | installed globally + `GIT_AI_VERSION` in the workflow | user upgrades their CLI and bumps the env var |
+| report-generator script + workflow | copied into the consumer repo | re-copy on a new release, or switch to the pinned variant below |
+
+A real user has three ways to pick up changes (new graphs, JSON export, etc.):
+
+1. **Re-copy on release** (default). Grab the two files from the latest
+   ai-authorship release and commit them into the repo. Full ownership of the
+   copy, zero coupling, but manual.
+2. **Fork ai-authorship + pull upstream.** Fork the repo, add it as `upstream`,
+   and `git pull upstream main` to get updates — a familiar fork-based flow.
+3. **Pinned auto-update variant.** Copy
+   `workflow/authorship-report-pinned.yml` instead of the plain template. The
+   workflow downloads the script from a pinned ai-authorship tag at run time, so
+   updating is just bumping `AUTHORSHIP_SCRIPT_VERSION` (Dependabot can even do
+   it). Trade-off: the report depends on ai-authorship at run time.
+
+**Maintainer helper:** `scripts/sync-consumers.sh` re-copies the two files into
+this repo's own demo consumers (`game-of-life`, `yrhapp`) and commits + pushes
+each — one command instead of hand-syncing. Override the targets with
+`CONSUMER_REPOS="path1 path2"`. It is idempotent (skips repos already in sync)
+and never changes how consumers are wired, so they keep simulating real installs.
