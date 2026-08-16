@@ -1,21 +1,53 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-16T18:16:45.124227+00:00",
+  "generated_at": "2026-08-16T18:37:56.989215+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 3644,
-    "ai_lines": 2085,
-    "ai_pct": 57.2,
+    "total_lines": 3844,
+    "ai_lines": 2282,
+    "ai_pct": 59.4,
     "human_lines": 0,
     "human_pct": 0.0,
-    "unknown_lines": 1559,
-    "unknown_pct": 42.8,
+    "unknown_lines": 1562,
+    "unknown_pct": 40.6,
     "agents": {
-      "opencode · big-pickle": 2085
+      "opencode · big-pickle": 2282
     }
   },
   "commits": [
+    {
+      "sha": "36f699a",
+      "date": "2026-08-16",
+      "subject": "feat: add consumer sync helper + pinned auto-update workflow variant + template-sync docs",
+      "lines_added": 213,
+      "ai_additions": 213,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 213
+      }
+    },
+    {
+      "sha": "2c796a6",
+      "date": "2026-08-16",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 69,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 69,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
     {
       "sha": "9c8954c",
       "date": "2026-08-16",
@@ -781,38 +813,6 @@
       "ai_additions": 0,
       "human_additions": 0,
       "unknown_additions": 33,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "agents": [
-        "untracked"
-      ],
-      "agent_ai_lines": {}
-    },
-    {
-      "sha": "89f38c3",
-      "date": "2026-08-10",
-      "subject": "fix(bridge): write turn record with model for PostToolUse-only sessions",
-      "lines_added": 16,
-      "ai_additions": 16,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "agents": [
-        "opencode · big-pickle"
-      ],
-      "agent_ai_lines": {
-        "opencode · big-pickle": 16
-      }
-    },
-    {
-      "sha": "faad984",
-      "date": "2026-08-11",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 66,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 66,
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
