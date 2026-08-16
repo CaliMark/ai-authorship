@@ -1,0 +1,25 @@
+scripts/sync-consumers.sh
+  s_52d0732141ad88::t_f41cbe580b5fa2 1-83
+workflow/authorship-report-pinned.yml
+  s_52d0732141ad88::t_4eaee8647ecb77 1-94
+README.md
+  s_52d0732141ad88::t_605adb97b5019a 49
+docs/workflows.md
+  s_52d0732141ad88::t_665b517694c377 153-187
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "5f4456dd9c0d02662effd483a08d699566d9a12b",
+  "prompts": {},
+  "sessions": {
+    "s_52d0732141ad88": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+        "model": "big-pickle"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
