@@ -1,23 +1,72 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-16T17:35:16.528469+00:00",
+  "generated_at": "2026-08-16T17:36:56.360898+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 2675,
-    "ai_lines": 1230,
-    "ai_pct": 46.0,
+    "total_lines": 3500,
+    "ai_lines": 2109,
+    "ai_pct": 60.3,
     "human_lines": 0,
     "human_pct": 0.0,
-    "unknown_lines": 1445,
-    "unknown_pct": 54.0,
+    "unknown_lines": 1391,
+    "unknown_pct": 39.7,
     "agents": {
       "gemini": 138,
       "gemini · gemini-3.6-flash-medium": 3,
-      "opencode · big-pickle": 1089
+      "opencode · big-pickle": 1968
     }
   },
   "commits": [
+    {
+      "sha": "d95e7d3",
+      "date": "2026-08-16",
+      "subject": "docs: regenerate AI authorship report with JSON twin",
+      "lines_added": 823,
+      "ai_additions": 823,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 823
+      }
+    },
+    {
+      "sha": "4d898b8",
+      "date": "2026-08-16",
+      "subject": "feat: emit machine-readable AI-AUTHORSHIP.json; document manual-policy case study and human-review future idea",
+      "lines_added": 115,
+      "ai_additions": 115,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 115
+      }
+    },
+    {
+      "sha": "90aece2",
+      "date": "2026-08-16",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 51,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 51,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
     {
       "sha": "6bb37ac",
       "date": "2026-08-15",
@@ -770,53 +819,6 @@
       "agent_ai_lines": {
         "gemini": 138
       }
-    },
-    {
-      "sha": "012e360",
-      "date": "2026-08-11",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 52,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 52,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "agents": [
-        "untracked"
-      ],
-      "agent_ai_lines": {}
-    },
-    {
-      "sha": "408112d",
-      "date": "2026-08-10",
-      "subject": "docs: add Antigravity attribution runbook",
-      "lines_added": 59,
-      "ai_additions": 59,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "agents": [
-        "opencode · big-pickle"
-      ],
-      "agent_ai_lines": {
-        "opencode · big-pickle": 59
-      }
-    },
-    {
-      "sha": "e571d62",
-      "date": "2026-08-11",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 53,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 53,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "agents": [
-        "untracked"
-      ],
-      "agent_ai_lines": {}
     }
   ]
 }
