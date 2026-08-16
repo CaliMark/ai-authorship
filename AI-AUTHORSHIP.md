@@ -8,18 +8,18 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **3914**
-- **AI-generated:** 2291 lines (58.5%)
+- Total lines added: **3982**
+- **AI-generated:** 2359 lines (59.2%)
 - **Human:** 0 lines (0.0%)
-- **Bot:** 1623 lines (41.5%)
+- **Bot:** 1623 lines (40.8%)
 - **Untracked:** 0 lines (0.0%)
-- **Agents:** opencode · big-pickle (2291 lines)
+- **Agents:** opencode · big-pickle (2359 lines)
 
 ## Composition
 
 ```mermaid
 pie title Lines by author (AI vs Human vs Bot vs Untracked)
-    "AI" : 2291
+    "AI" : 2359
     "Human" : 0
     "Bot" : 1623
     "Untracked" : 0
@@ -27,7 +27,7 @@ pie title Lines by author (AI vs Human vs Bot vs Untracked)
 
 ```mermaid
 pie title AI lines by agent
-    "opencode · big-pickle" : 2291
+    "opencode · big-pickle" : 2359
 ```
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
@@ -44,6 +44,7 @@ pie title AI lines by agent
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 1436e0e | 2026-08-16 | feat: label CI bot commits as a distinct 'bot' category in report (not untracked) | 180 | 100% | 0% | opencode · big-pickle |
 | 03c0e9e | 2026-08-16 | docs: regenerate AI authorship report | 94 | 0% | 0% | bot |
 | c8a71b4 | 2026-08-16 | docs: add 'let your coding agent install it' as a Quick Start install path | 29 | 100% | 0% | opencode · big-pickle |
 | f505760 | 2026-08-16 | docs: regenerate AI authorship report | 99 | 0% | 0% | bot |
@@ -93,7 +94,6 @@ pie title AI lines by agent
 | 5c2e5b9 | 2026-08-13 | docs: regenerate AI authorship report | 137 | 0% | 0% | bot |
 | 39a4c54 | 2026-08-12 | docs: clarify untracked vs human attribution for web edits | 14 | 100% | 0% | opencode · big-pickle |
 | 69b633c | 2026-08-12 | docs: document verified VS Code / Copilot Chat attribution | 50 | 100% | 0% | opencode · big-pickle |
-| 167a351 | 2026-08-12 | docs: update README with supported agents, workflows, and troubleshooting | 112 | 100% | 0% | opencode · big-pickle |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -101,7 +101,46 @@ pie title AI lines by agent
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 03c0e9e85cdd89646c2106386b372bd3fc83b7fe (HEAD -> main, origin/main, origin/HEAD)
+commit 1436e0ea33117948a7262c4a145b71d17b2c2995 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-16T12:05:02-07:00
+
+    feat: label CI bot commits as a distinct 'bot' category in report (not untracked)
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      AI-AUTHORSHIP.md
+        s_52d0732141ad88::t_9d8f25f6083ccf 11,14-15,21,24-25,35-40,47,49,51,53,55,58,60,62,64,66,68,70,72,74,76,78,80,83,85,87,89,91,93,104-117
+      AI-AUTHORSHIP.json
+        s_52d0732141ad88::t_9d8f25f6083ccf 2-3,7,12-15,21-36,40,58,67,74,92,101,108,126,135,142,160,169,176,194,212,221,228,246,255,262,280,289,296,314,323,330,348,357,364,382,391,398,416,425,432,450,459,466,484,493,500,518,527,534,552,561,568,586,595,602,620,638,647,654,672,681,688,706,715,722,740,749,756,774,783,790,808,817,824,842,860
+      scripts/authorship-report.sh
+        s_52d0732141ad88::t_79cab1c6273893 166
+        s_52d0732141ad88::t_bd370fb89b77a5 54,62-63,65,73-76,81-87,90-91,93,95-96
+        s_52d0732141ad88::t_501298cd551f98 130-131,142-143
+        s_52d0732141ad88::t_ec6fd89d26e247 198,205,208,216-221
+        s_52d0732141ad88::t_d0fdc653555f0b 250,260-261
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "1436e0ea33117948a7262c4a145b71d17b2c2995",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 03c0e9e85cdd89646c2106386b372bd3fc83b7fe
 Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 Date:   2026-08-16T18:48:57Z
 
@@ -672,47 +711,6 @@ Date:   2026-08-15T02:45:18Z
 
     Authorship note:
       (none)
-
-commit a211e220846bf9a5fd9d07b9b92776650a129ebf
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-14T19:44:50-07:00
-
-    docs: bundle native agents into one Quick Start section, trim duplicate notes and requirements
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      README.md
-        s_52d0732141ad88::t_5c54a6080dd1cc 234
-        s_52d0732141ad88::t_0bc8f8d6b345c0 127,129-131,141-143
-        s_52d0732141ad88::t_a8ae138f4e8489 328
-        s_52d0732141ad88::t_2dcf2e75b97563 342
-        s_52d0732141ad88::t_1cea591794aed9 36-41
-        s_52d0732141ad88::t_33a75e4315cb6e 312
-        s_52d0732141ad88::t_23717114685924 159
-        s_52d0732141ad88::t_409e1d7791779a 55-56,79
-        s_52d0732141ad88::t_649a4cac41d4d5 163
-        s_52d0732141ad88::t_16bd66369f78fb 91-92
-        s_52d0732141ad88::t_a42d6cecb6963b 75,78
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "a211e220846bf9a5fd9d07b9b92776650a129ebf",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
 
 
 ```
