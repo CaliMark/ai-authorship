@@ -8,26 +8,26 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **3982**
-- **AI-generated:** 2359 lines (59.2%)
+- Total lines added: **4003**
+- **AI-generated:** 2309 lines (57.7%)
 - **Human:** 0 lines (0.0%)
-- **Bot:** 1623 lines (40.8%)
+- **Bot:** 1694 lines (42.3%)
 - **Untracked:** 0 lines (0.0%)
-- **Agents:** opencode · big-pickle (2359 lines)
+- **Agents:** opencode · big-pickle (2309 lines)
 
 ## Composition
 
 ```mermaid
 pie title Lines by author (AI vs Human vs Bot vs Untracked)
-    "AI" : 2359
+    "AI" : 2309
     "Human" : 0
-    "Bot" : 1623
+    "Bot" : 1694
     "Untracked" : 0
 ```
 
 ```mermaid
 pie title AI lines by agent
-    "opencode · big-pickle" : 2359
+    "opencode · big-pickle" : 2309
 ```
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
@@ -38,12 +38,15 @@ pie title AI lines by agent
 > attribution data — written before git-ai was set up or made in the github.com
 > web UI (cannot be retroactively attributed). `human` = written directly by a
 > human and recorded via `git-ai checkpoint human` or the git-ai extension. Note:
-> these are line-count percentages, not commit counts.
+> these are line-count percentages, not commit counts. The composition pie
+> excludes the report's own `bot` commits by default; set `REPORT_SHOW_BOT_CHART=1`
+> to include them.
 
 ## Per-commit breakdown
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 2150bb8 | 2026-08-16 | docs: regenerate AI authorship report | 71 | 0% | 0% | bot |
 | 1436e0e | 2026-08-16 | feat: label CI bot commits as a distinct 'bot' category in report (not untracked) | 180 | 100% | 0% | opencode · big-pickle |
 | 03c0e9e | 2026-08-16 | docs: regenerate AI authorship report | 94 | 0% | 0% | bot |
 | c8a71b4 | 2026-08-16 | docs: add 'let your coding agent install it' as a Quick Start install path | 29 | 100% | 0% | opencode · big-pickle |
@@ -93,7 +96,6 @@ pie title AI lines by agent
 | a49e791 | 2026-08-13 | docs: document native Cursor hooks integration | 46 | 100% | 0% | opencode · big-pickle |
 | 5c2e5b9 | 2026-08-13 | docs: regenerate AI authorship report | 137 | 0% | 0% | bot |
 | 39a4c54 | 2026-08-12 | docs: clarify untracked vs human attribution for web edits | 14 | 100% | 0% | opencode · big-pickle |
-| 69b633c | 2026-08-12 | docs: document verified VS Code / Copilot Chat attribution | 50 | 100% | 0% | opencode · big-pickle |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -101,7 +103,20 @@ pie title AI lines by agent
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 1436e0ea33117948a7262c4a145b71d17b2c2995 (HEAD -> main, origin/main)
+commit 2150bb86cc8ab4b8f66d5d967f7d7f4113dd2f9f (HEAD -> main, origin/main, origin/HEAD)
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-16T19:05:34Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 1436e0ea33117948a7262c4a145b71d17b2c2995
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-16T12:05:02-07:00
 
@@ -698,19 +713,6 @@ Date:   2026-08-14T19:50:24-07:00
           }
         }
       }
-
-commit dbdba5c475f2b0024591fe4a20be2e233c6be580
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-15T02:45:18Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
 
 
 ```

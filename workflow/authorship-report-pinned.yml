@@ -37,6 +37,9 @@ env:
   # git-ai, so CI's note-reading version stays compatible with the notes
   # git-ai writes on your machine. Verify against the release's SHA256SUMS.
   GIT_AI_VERSION: "1.6.22"
+  # The composition pie hides the workflow's own bot commits by default.
+  # Uncomment to show the "Bot" slice in the pie:
+  # REPORT_SHOW_BOT_CHART: "1"
   # Which ai-authorship tag (or "main") to download the report script from.
   AUTHORSHIP_SCRIPT_VERSION: "v1.1.0"
 

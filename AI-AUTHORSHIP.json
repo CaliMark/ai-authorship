@@ -1,23 +1,39 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-16T19:05:34.101516+00:00",
+  "generated_at": "2026-08-16T19:42:17.800992+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 3982,
-    "ai_lines": 2359,
-    "ai_pct": 59.2,
+    "total_lines": 4003,
+    "ai_lines": 2309,
+    "ai_pct": 57.7,
     "human_lines": 0,
     "human_pct": 0.0,
-    "bot_lines": 1623,
-    "bot_pct": 40.8,
+    "bot_lines": 1694,
+    "bot_pct": 42.3,
     "unknown_lines": 0,
     "unknown_pct": 0.0,
     "agents": {
-      "opencode · big-pickle": 2359
+      "opencode · big-pickle": 2309
     }
   },
   "commits": [
+    {
+      "sha": "2150bb8",
+      "date": "2026-08-16",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 71,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 71,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {}
+    },
     {
       "sha": "1436e0e",
       "date": "2026-08-16",
@@ -852,24 +868,6 @@
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 14
-      }
-    },
-    {
-      "sha": "69b633c",
-      "date": "2026-08-12",
-      "author": "CaliMark",
-      "subject": "docs: document verified VS Code / Copilot Chat attribution",
-      "lines_added": 50,
-      "ai_additions": 50,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "agents": [
-        "opencode · big-pickle"
-      ],
-      "agent_ai_lines": {
-        "opencode · big-pickle": 50
       }
     }
   ]
