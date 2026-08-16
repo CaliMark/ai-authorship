@@ -172,6 +172,15 @@ push to `main`.
 - **Untracked:** {total_unknown} lines ({pct(total_unknown)}%)
 - **Agents:** {tool_summary}
 
+## Composition
+
+```mermaid
+pie title Lines by author (AI vs Human vs Untracked)
+    "AI" : {total_ai}
+    "Human" : {total_human}
+    "Untracked" : {total_unknown}
+```
+
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
 > session data). `untracked` = lines with no attribution data — written before

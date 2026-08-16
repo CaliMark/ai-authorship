@@ -1,23 +1,37 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-16T17:36:56.360898+00:00",
+  "generated_at": "2026-08-16T17:55:28.635167+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 3500,
-    "ai_lines": 2109,
-    "ai_pct": 60.3,
+    "total_lines": 3513,
+    "ai_lines": 1971,
+    "ai_pct": 56.1,
     "human_lines": 0,
     "human_pct": 0.0,
-    "unknown_lines": 1391,
-    "unknown_pct": 39.7,
+    "unknown_lines": 1542,
+    "unknown_pct": 43.9,
     "agents": {
-      "gemini": 138,
       "gemini · gemini-3.6-flash-medium": 3,
       "opencode · big-pickle": 1968
     }
   },
   "commits": [
+    {
+      "sha": "dc219ff",
+      "date": "2026-08-16",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 151,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 151,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
     {
       "sha": "d95e7d3",
       "date": "2026-08-16",
@@ -802,23 +816,6 @@
         "untracked"
       ],
       "agent_ai_lines": {}
-    },
-    {
-      "sha": "e35dcb2",
-      "date": "2026-08-10",
-      "subject": "chore: gemini attribution on live example",
-      "lines_added": 138,
-      "ai_additions": 138,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "agents": [
-        "gemini"
-      ],
-      "agent_ai_lines": {
-        "gemini": 138
-      }
     }
   ]
 }

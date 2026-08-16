@@ -8,11 +8,20 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **3500**
-- **AI-generated:** 2109 lines (60.3%)
+- Total lines added: **3513**
+- **AI-generated:** 1971 lines (56.1%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 1391 lines (39.7%)
-- **Agents:** gemini (138 lines), gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1968 lines)
+- **Untracked:** 1542 lines (43.9%)
+- **Agents:** gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1968 lines)
+
+## Composition
+
+```mermaid
+pie title Lines by author (AI vs Human vs Untracked)
+    "AI" : 1971
+    "Human" : 0
+    "Untracked" : 1542
+```
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -26,6 +35,7 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| dc219ff | 2026-08-16 | docs: regenerate AI authorship report | 151 | 0% | 0% | untracked |
 | d95e7d3 | 2026-08-16 | docs: regenerate AI authorship report with JSON twin | 823 | 100% | 0% | opencode · big-pickle |
 | 4d898b8 | 2026-08-16 | feat: emit machine-readable AI-AUTHORSHIP.json; document manual-policy case study and human-review future idea | 115 | 100% | 0% | opencode · big-pickle |
 | 90aece2 | 2026-08-16 | docs: regenerate AI authorship report | 51 | 0% | 0% | untracked |
@@ -75,7 +85,6 @@ push to `main`.
 | 14d52df | 2026-08-10 | Merge branch 'main' of https://github.com/CaliMark/ai-authorship # Please enter a commit message to explain why this merge is necessary, # especially if it merges an updated upstream into a topic branch. # # Lines starting with '#' will be ignored, and an empty message aborts # the commit. | 0 | 0% | 0% | none |
 | 90be8ae | 2026-08-10 | chore : small change to the readme.md | 3 | 100% | 0% | gemini · gemini-3.6-flash-medium |
 | 904437a | 2026-08-11 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
-| e35dcb2 | 2026-08-10 | chore: gemini attribution on live example | 138 | 100% | 0% | gemini |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -83,7 +92,20 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit d95e7d3528c3b548fb6150a87b632f11406d0d00 (HEAD -> main, origin/main)
+commit dc219ffac0127869e7e4ca0bcd8639e18418ca3c (HEAD -> main, origin/main, origin/HEAD)
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-16T17:36:56Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit d95e7d3528c3b548fb6150a87b632f11406d0d00
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-16T10:35:44-07:00
 
@@ -666,19 +688,6 @@ Date:   2026-08-14T18:38:59-07:00
           }
         }
       }
-
-commit 7877d8adcf79aa8f96d1ef9bbd51d131ab877000
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-15T01:26:24Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
 
 
 ```
