@@ -27,7 +27,10 @@ HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SRC_REPO="$(dirname "$HERE")"
 
 SCRIPT_SRC="$SRC_REPO/scripts/authorship-report.sh"
-WORKFLOW_SRC="$SRC_REPO/.github/workflows/authorship-report.yml"
+# Copy-in template (NOT ai-authorship's own live workflow, which may set
+# repo-specific env like REPORT_SHOW_BOT_CHART) — consumers simulate real
+# copy-in users, so they should get the same template a user installs.
+WORKFLOW_SRC="$SRC_REPO/workflow/authorship-report.yml"
 
 DEFAULT_CONSUMERS=(
   "C:/Users/calim/Coding Projects/game-of-life"
