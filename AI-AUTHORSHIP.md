@@ -83,7 +83,7 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 6bb37ac140fcd97a1dced1ed8964956bfe267081 (HEAD -> main, origin/main)
+commit 6bb37ac140fcd97a1dced1ed8964956bfe267081 (HEAD -> main, origin/main, origin/HEAD)
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-15T22:04:46-07:00
 
