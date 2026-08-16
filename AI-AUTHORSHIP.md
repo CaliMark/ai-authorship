@@ -8,11 +8,11 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **2732**
-- **AI-generated:** 1205 lines (44.1%)
+- Total lines added: **2677**
+- **AI-generated:** 1231 lines (46.0%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 1527 lines (55.9%)
-- **Agents:** gemini (138 lines), gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1064 lines)
+- **Untracked:** 1446 lines (54.0%)
+- **Agents:** gemini (138 lines), gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (1090 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -26,6 +26,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 6cdd963 | 2026-08-15 | docs: promote LM Studio to Agent Support (tested & verified), keep Currently Testing as suggestion channel | 35 | 100% | 0% | opencode · big-pickle |
+| c7b38d5 | 2026-08-16 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 | 3db2752 | 2026-08-15 | docs: note game-of-life local-model (LM Studio) proof as 8th attribution source | 7 | 100% | 0% | opencode · big-pickle |
 | 22f81a9 | 2026-08-15 | docs: regenerate AI authorship report | 54 | 0% | 0% | untracked |
 | 2f5d298 | 2026-08-15 | docs: mark local models (LM Studio + qwen2.5-7b-instruct) as verified live, document qwen2.5-coder tool-call failure | 17 | 100% | 0% | opencode · big-pickle |
@@ -74,8 +76,6 @@ push to `main`.
 | e571d62 | 2026-08-11 | docs: regenerate AI authorship report | 53 | 0% | 0% | untracked |
 | 54748ce | 2026-08-10 | chore: neutral troubleshooting wording in verify script | 3 | 100% | 0% | opencode · big-pickle |
 | b322469 | 2026-08-11 | docs: regenerate AI authorship report | 54 | 0% | 0% | untracked |
-| ba77809 | 2026-08-10 | docs: note this repo is a live example of the report | 9 | 100% | 0% | opencode · big-pickle |
-| 729689b | 2026-08-11 | docs: regenerate AI authorship report | 133 | 0% | 0% | untracked |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -83,7 +83,53 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 3db27527cc20006893e1fd957e0139cbe57ee0a8 (HEAD -> main, origin/main)
+commit 6cdd963cdcc335ff02158fa312e8b7cfccfdbe85 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-15T19:49:06-07:00
+
+    docs: promote LM Studio to Agent Support (tested & verified), keep Currently Testing as suggestion channel
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      README.md
+        s_52d0732141ad88::t_82bb52c70cbdb9 98,101-103,105-130
+        s_52d0732141ad88::t_e1e4ce56104965 154-155,157-158
+        s_52d0732141ad88::t_0f3245ae91dae2 46
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "6cdd963cdcc335ff02158fa312e8b7cfccfdbe85",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit c7b38d581258978c437e6f27e9f9fc5b2fab4a1e
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-16T02:44:07Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 3db27527cc20006893e1fd957e0139cbe57ee0a8
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-15T19:43:32-07:00
 
@@ -623,57 +669,6 @@ Date:   2026-08-14T17:40:25-07:00
 commit 4aae280a585791f4365294201e8ef71e362c7a3c
 Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 Date:   2026-08-15T00:21:31Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit 7fdaec7065aee3fdfa1fe81bd48d3bd4a5d52e0e
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-14T17:20:43-07:00
-
-    fix(devin): attribute Devin edits as devin via agent-v1 preset instead of claude
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      bridge/devin/HookBridge.ps1
-        s_52d0732141ad88::t_f3c656ce126f5b 56-59
-        s_52d0732141ad88::t_f366672a81f05e 25-36,40,48-51,53-55,62-65,71-76,78
-      README.md
-        s_52d0732141ad88::t_694de74383bb95 295-297
-        s_52d0732141ad88::t_9f4112e940464c 102
-        s_52d0732141ad88::t_48585417ed43e7 338-341,343-346
-        s_52d0732141ad88::t_275da9bac79da1 354-356
-        s_52d0732141ad88::t_ca661fef4be56a 525
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "7fdaec7065aee3fdfa1fe81bd48d3bd4a5d52e0e",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit 2a38a4801c6ba7447ba10bf9c03babf36859df18
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-14T05:16:22Z
 
     docs: regenerate AI authorship report
 
