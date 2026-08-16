@@ -1,23 +1,57 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-16T19:44:28.719461+00:00",
+  "generated_at": "2026-08-16T19:59:46.878269+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 3982,
-    "ai_lines": 2341,
-    "ai_pct": 58.8,
+    "total_lines": 3774,
+    "ai_lines": 2098,
+    "ai_pct": 55.6,
     "human_lines": 0,
     "human_pct": 0.0,
-    "bot_lines": 1641,
-    "bot_pct": 41.2,
+    "bot_lines": 1676,
+    "bot_pct": 44.4,
     "unknown_lines": 0,
     "unknown_pct": 0.0,
     "agents": {
-      "opencode · big-pickle": 2341
+      "opencode · big-pickle": 2098
     }
   },
   "commits": [
+    {
+      "sha": "6a7b53d",
+      "date": "2026-08-16",
+      "author": "CaliMark",
+      "subject": "fix: copy-in workflow template now commits AI-AUTHORSHIP.json alongside the .md (mirrors ai-authorship's own workflow)",
+      "lines_added": 5,
+      "ai_additions": 5,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 5
+      }
+    },
+    {
+      "sha": "48265cc",
+      "date": "2026-08-16",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 95,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 95,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {}
+    },
     {
       "sha": "6f78064",
       "date": "2026-08-16",
@@ -829,40 +863,6 @@
       "ai_additions": 0,
       "human_additions": 0,
       "unknown_additions": 73,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "agents": [
-        "bot"
-      ],
-      "agent_ai_lines": {}
-    },
-    {
-      "sha": "2d5c04c",
-      "date": "2026-08-13",
-      "author": "CaliMark",
-      "subject": "docs: document Cline CLI + extension attribution and git-ai extension conflict",
-      "lines_added": 248,
-      "ai_additions": 248,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "agents": [
-        "opencode · big-pickle"
-      ],
-      "agent_ai_lines": {
-        "opencode · big-pickle": 248
-      }
-    },
-    {
-      "sha": "d5b1944",
-      "date": "2026-08-13",
-      "author": "github-actions[bot]",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 60,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 60,
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
