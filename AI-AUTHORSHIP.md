@@ -8,24 +8,24 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **3844**
-- **AI-generated:** 2282 lines (59.4%)
+- Total lines added: **3919**
+- **AI-generated:** 2291 lines (58.5%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 1562 lines (40.6%)
-- **Agents:** opencode · big-pickle (2282 lines)
+- **Untracked:** 1628 lines (41.5%)
+- **Agents:** opencode · big-pickle (2291 lines)
 
 ## Composition
 
 ```mermaid
 pie title Lines by author (AI vs Human vs Untracked)
-    "AI" : 2282
+    "AI" : 2291
     "Human" : 0
-    "Untracked" : 1562
+    "Untracked" : 1628
 ```
 
 ```mermaid
 pie title AI lines by agent
-    "opencode · big-pickle" : 2282
+    "opencode · big-pickle" : 2291
 ```
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
@@ -40,6 +40,8 @@ pie title AI lines by agent
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| c8a71b4 | 2026-08-16 | docs: add 'let your coding agent install it' as a Quick Start install path | 29 | 100% | 0% | opencode · big-pickle |
+| f505760 | 2026-08-16 | docs: regenerate AI authorship report | 99 | 0% | 0% | untracked |
 | 36f699a | 2026-08-16 | feat: add consumer sync helper + pinned auto-update workflow variant + template-sync docs | 213 | 100% | 0% | opencode · big-pickle |
 | 2c796a6 | 2026-08-16 | docs: regenerate AI authorship report | 69 | 0% | 0% | untracked |
 | 9c8954c | 2026-08-16 | feat: add per-agent breakdown pie chart to report composition | 59 | 100% | 0% | opencode · big-pickle |
@@ -88,8 +90,6 @@ pie title AI lines by agent
 | 69b633c | 2026-08-12 | docs: document verified VS Code / Copilot Chat attribution | 50 | 100% | 0% | opencode · big-pickle |
 | 167a351 | 2026-08-12 | docs: update README with supported agents, workflows, and troubleshooting | 112 | 100% | 0% | opencode · big-pickle |
 | f3aaedd | 2026-08-12 | docs: regenerate AI authorship report | 99 | 0% | 0% | untracked |
-| 8d6dd5d | 2026-08-11 | docs: document git pull --rebase before pushing to avoid fetch-first rejections | 20 | 100% | 0% | opencode · big-pickle |
-| a85e0e4 | 2026-08-11 | docs: regenerate AI authorship report | 33 | 0% | 0% | untracked |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -97,7 +97,52 @@ pie title AI lines by agent
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 36f699a4fe9d00168b1d7276cf0830e669a7e9a4 (HEAD -> main, origin/main)
+commit c8a71b4bb5d2b50c5d413b5b79fcf2e7230396e5 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-16T11:48:18-07:00
+
+    docs: add 'let your coding agent install it' as a Quick Start install path
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      README.md
+        s_52d0732141ad88::t_66856e8d1da714 39
+        s_52d0732141ad88::t_b15a2b2eae995c 166-193
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "c8a71b4bb5d2b50c5d413b5b79fcf2e7230396e5",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit f5057604ae0a6af6d6b8cfb0b2089252b26b4295
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-16T18:37:57Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 36f699a4fe9d00168b1d7276cf0830e669a7e9a4 (tag: v1.1.0)
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-16T11:37:17-07:00
 
@@ -655,50 +700,6 @@ Date:   2026-08-14T19:44:50-07:00
 commit 0f995ea8335e2f888583d8d961eeecd2a7fd26b5
 Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 Date:   2026-08-15T01:59:35Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit 487cb82974c2f63e96e002c8701f486cadd2f0db
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-14T18:59:08-07:00
-
-    docs: consolidate native-hook agents into one row in Agent Support table
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      README.md
-        s_52d0732141ad88::t_62c06b609d8afc 96
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "487cb82974c2f63e96e002c8701f486cadd2f0db",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit 382ae1e20ae554b3c0260dd827427cfbe34c55a8
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-15T01:55:38Z
 
     docs: regenerate AI authorship report
 

@@ -1,21 +1,53 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-16T18:37:56.989215+00:00",
+  "generated_at": "2026-08-16T18:48:57.636265+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 3844,
-    "ai_lines": 2282,
-    "ai_pct": 59.4,
+    "total_lines": 3919,
+    "ai_lines": 2291,
+    "ai_pct": 58.5,
     "human_lines": 0,
     "human_pct": 0.0,
-    "unknown_lines": 1562,
-    "unknown_pct": 40.6,
+    "unknown_lines": 1628,
+    "unknown_pct": 41.5,
     "agents": {
-      "opencode · big-pickle": 2282
+      "opencode · big-pickle": 2291
     }
   },
   "commits": [
+    {
+      "sha": "c8a71b4",
+      "date": "2026-08-16",
+      "subject": "docs: add 'let your coding agent install it' as a Quick Start install path",
+      "lines_added": 29,
+      "ai_additions": 29,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 29
+      }
+    },
+    {
+      "sha": "f505760",
+      "date": "2026-08-16",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 99,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 99,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
     {
       "sha": "36f699a",
       "date": "2026-08-16",
@@ -781,38 +813,6 @@
       "ai_additions": 0,
       "human_additions": 0,
       "unknown_additions": 99,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "agents": [
-        "untracked"
-      ],
-      "agent_ai_lines": {}
-    },
-    {
-      "sha": "8d6dd5d",
-      "date": "2026-08-11",
-      "subject": "docs: document git pull --rebase before pushing to avoid fetch-first rejections",
-      "lines_added": 20,
-      "ai_additions": 20,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "agents": [
-        "opencode · big-pickle"
-      ],
-      "agent_ai_lines": {
-        "opencode · big-pickle": 20
-      }
-    },
-    {
-      "sha": "a85e0e4",
-      "date": "2026-08-11",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 33,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 33,
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
