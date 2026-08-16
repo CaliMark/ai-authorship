@@ -12,7 +12,8 @@
 > [!IMPORTANT]
 > **Join the community of devs who want clear, concise, up-front AI vs. human attribution.**
 
-Works out-of-the-box with **six AI coding agents and IDEs**:
+Works out-of-the-box with **seven AI coding agents and IDEs**:
+- 🖥️ **Local models via OpenCode** (LM Studio / Ollama) — no cloud; point OpenCode at LM Studio's OpenAI-compatible server (`opencode run -m lmstudio/…`). See [Local models through LM Studio](#-local-models-through-lm-studio-self-hosted-no-cloud--verified).
 - ⚡ **OpenCode** — Native integration (no bridge required).
 - 🛸 **Antigravity IDE** (Gemini CLI) — via a lightweight PowerShell/Windows bridge in [`bridge/`](https://github.com/CaliMark/ai-authorship/tree/main/bridge).
 - ⚡ **VS Code / GitHub Copilot Chat** — via native Copilot hooks (`~/.copilot/hooks/git-ai.json`).
