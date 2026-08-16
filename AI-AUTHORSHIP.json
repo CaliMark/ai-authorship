@@ -1,23 +1,41 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-16T19:42:17.800992+00:00",
+  "generated_at": "2026-08-16T19:42:54.694563+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 4003,
-    "ai_lines": 2309,
-    "ai_pct": 57.7,
+    "total_lines": 4077,
+    "ai_lines": 2383,
+    "ai_pct": 58.4,
     "human_lines": 0,
     "human_pct": 0.0,
     "bot_lines": 1694,
-    "bot_pct": 42.3,
+    "bot_pct": 41.6,
     "unknown_lines": 0,
     "unknown_pct": 0.0,
     "agents": {
-      "opencode · big-pickle": 2309
+      "opencode · big-pickle": 2383
     }
   },
   "commits": [
+    {
+      "sha": "9548fe3",
+      "date": "2026-08-16",
+      "author": "CaliMark",
+      "subject": "feat: REPORT_SHOW_BOT_CHART toggle for composition pie; default hides report's own bot commits",
+      "lines_added": 88,
+      "ai_additions": 88,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 88
+      }
+    },
     {
       "sha": "2150bb8",
       "date": "2026-08-16",
@@ -851,24 +869,6 @@
         "bot"
       ],
       "agent_ai_lines": {}
-    },
-    {
-      "sha": "39a4c54",
-      "date": "2026-08-12",
-      "author": "CaliMark",
-      "subject": "docs: clarify untracked vs human attribution for web edits",
-      "lines_added": 14,
-      "ai_additions": 14,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "agents": [
-        "opencode · big-pickle"
-      ],
-      "agent_ai_lines": {
-        "opencode · big-pickle": 14
-      }
     }
   ]
 }
