@@ -8,19 +8,24 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **3519**
-- **AI-generated:** 2029 lines (57.7%)
+- Total lines added: **3585**
+- **AI-generated:** 2026 lines (56.5%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 1490 lines (42.3%)
-- **Agents:** gemini · gemini-3.6-flash-medium (3 lines), opencode · big-pickle (2026 lines)
+- **Untracked:** 1559 lines (43.5%)
+- **Agents:** opencode · big-pickle (2026 lines)
 
 ## Composition
 
 ```mermaid
 pie title Lines by author (AI vs Human vs Untracked)
-    "AI" : 2029
+    "AI" : 2026
     "Human" : 0
-    "Untracked" : 1490
+    "Untracked" : 1559
+```
+
+```mermaid
+pie title AI lines by agent
+    "opencode · big-pickle" : 2026
 ```
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
@@ -35,6 +40,7 @@ pie title Lines by author (AI vs Human vs Untracked)
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| a3b4f73 | 2026-08-16 | docs: regenerate AI authorship report | 69 | 0% | 0% | untracked |
 | 4fd1f6d | 2026-08-16 | feat: add mermaid composition pie chart to AI authorship report | 58 | 100% | 0% | opencode · big-pickle |
 | dc219ff | 2026-08-16 | docs: regenerate AI authorship report | 151 | 0% | 0% | untracked |
 | d95e7d3 | 2026-08-16 | docs: regenerate AI authorship report with JSON twin | 823 | 100% | 0% | opencode · big-pickle |
@@ -84,7 +90,6 @@ pie title Lines by author (AI vs Human vs Untracked)
 | 89f38c3 | 2026-08-10 | fix(bridge): write turn record with model for PostToolUse-only sessions | 16 | 100% | 0% | opencode · big-pickle |
 | faad984 | 2026-08-11 | docs: regenerate AI authorship report | 66 | 0% | 0% | untracked |
 | 14d52df | 2026-08-10 | Merge branch 'main' of https://github.com/CaliMark/ai-authorship # Please enter a commit message to explain why this merge is necessary, # especially if it merges an updated upstream into a topic branch. # # Lines starting with '#' will be ignored, and an empty message aborts # the commit. | 0 | 0% | 0% | none |
-| 90be8ae | 2026-08-10 | chore : small change to the readme.md | 3 | 100% | 0% | gemini · gemini-3.6-flash-medium |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -92,7 +97,20 @@ pie title Lines by author (AI vs Human vs Untracked)
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 4fd1f6d60fbe96887218a565490bdee14cad85b8 (HEAD -> main, origin/main)
+commit a3b4f7303b08edf47efec2a5b6b5a8966f451d23 (HEAD -> main, origin/main, origin/HEAD)
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-16T17:56:04Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 4fd1f6d60fbe96887218a565490bdee14cad85b8
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-16T10:55:29-07:00
 
@@ -681,19 +699,6 @@ Date:   2026-08-14T18:47:45-07:00
           }
         }
       }
-
-commit 3be921f2abc64f612eb6b0b3687de589b70d4a7e
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-15T01:39:28Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
 
 
 ```

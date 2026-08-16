@@ -1,22 +1,36 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-16T17:56:04.882986+00:00",
+  "generated_at": "2026-08-16T18:16:08.755337+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 3519,
-    "ai_lines": 2029,
-    "ai_pct": 57.7,
+    "total_lines": 3585,
+    "ai_lines": 2026,
+    "ai_pct": 56.5,
     "human_lines": 0,
     "human_pct": 0.0,
-    "unknown_lines": 1490,
-    "unknown_pct": 42.3,
+    "unknown_lines": 1559,
+    "unknown_pct": 43.5,
     "agents": {
-      "gemini · gemini-3.6-flash-medium": 3,
       "opencode · big-pickle": 2026
     }
   },
   "commits": [
+    {
+      "sha": "a3b4f73",
+      "date": "2026-08-16",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 69,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 69,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
     {
       "sha": "4fd1f6d",
       "date": "2026-08-16",
@@ -801,23 +815,6 @@
       "human_pct": 0,
       "agents": [],
       "agent_ai_lines": {}
-    },
-    {
-      "sha": "90be8ae",
-      "date": "2026-08-10",
-      "subject": "chore : small change to the readme.md",
-      "lines_added": 3,
-      "ai_additions": 3,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "agents": [
-        "gemini · gemini-3.6-flash-medium"
-      ],
-      "agent_ai_lines": {
-        "gemini · gemini-3.6-flash-medium": 3
-      }
     }
   ]
 }
