@@ -1,0 +1,41 @@
+scripts/authorship-report.sh
+  s_52d0732141ad88::t_0b41b8b5e3be94 44,54-59
+  s_52d0732141ad88::t_6e1b49a3c7c9ee 230,242-244
+  s_52d0732141ad88::t_d56d3b5b57d88f 193-210
+  s_30f00a1884ee3d::t_c9df28d996e3e7 60
+AI-AUTHORSHIP.md
+  s_52d0732141ad88::t_44cd75bd794a57 11-12,14,16,22,30,41-43,49,106-145
+workflow/authorship-report-pinned.yml
+  s_52d0732141ad88::t_7ed3e491c760f2 40-42
+.github/workflows/authorship-report.yml
+  s_52d0732141ad88::t_86f6631f401d3e 29-32
+workflow/authorship-report.yml
+  s_52d0732141ad88::t_b787e881da4bd0 29-31
+AI-AUTHORSHIP.json
+  s_52d0732141ad88::t_393cf17db4b7e2 3
+  s_52d0732141ad88::t_44cd75bd794a57 7-9,13,17,21-38
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "27259ac1a393c2cbc0ae480c87ba838bd1bbd214",
+  "prompts": {},
+  "sessions": {
+    "s_30f00a1884ee3d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_0251ccc8bffeRD38fJ4fosd3c2",
+        "model": "big-pickle"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    },
+    "s_52d0732141ad88": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+        "model": "big-pickle"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
