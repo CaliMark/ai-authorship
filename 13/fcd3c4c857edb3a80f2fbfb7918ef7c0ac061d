@@ -1,0 +1,27 @@
+AI-AUTHORSHIP.md
+  s_52d0732141ad88::t_72be24fdf7f9e4 11-12,14,16-17,19,26-27,33,38,43,46-47,70-71,77-78,81,134-180
+scripts/authorship-report.sh
+  s_52d0732141ad88::t_25456e2b5d69e8 260-266
+  s_52d0732141ad88::t_cd0eea6d2298d5 363
+  s_52d0732141ad88::t_16fd8f7dd2a44f 445-446
+  s_52d0732141ad88::t_87d2573bc95b1a 469-470
+AI-AUTHORSHIP.json
+  s_52d0732141ad88::t_72be24fdf7f9e4 7-9,12-13,16,20-21,28,31,34,38-87,142
+  s_52d0732141ad88::t_67546638aa2074 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "13fcd3c4c857edb3a80f2fbfb7918ef7c0ac061d",
+  "prompts": {},
+  "sessions": {
+    "s_52d0732141ad88": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+        "model": "big-pickle"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
