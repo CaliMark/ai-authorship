@@ -12,8 +12,44 @@
 > [!IMPORTANT]
 > **Join the community of devs who want clear, concise, up-front AI vs. human attribution.**
 
+---
+
+## 🚀 Quick Start
+
+### ✨ Let your coding agent install it (fastest)
+
+Want the report running without clicking through the setup? Just tell your
+coding agent to install it. Every step is an ordinary shell/git operation the
+agent can perform, so this is a fully supported install path — not a shortcut
+that misses config. Paste this into your agent (OpenCode, Cline, Cursor, etc.):
+
+> Please set up AI authorship attribution for this repo:
+> 1. Install the `git-ai` CLI (download from usegitai.com) and run
+>    `git-ai install-hooks` in this repo.
+> 2. Copy `scripts/authorship-report.sh` and
+>    `.github/workflows/authorship-report.yml` from the
+>    `CaliMark/ai-authorship` repo (or download both at the latest release tag,
+>    e.g. `v1.1.0`).
+> 3. Make a small commit and push to GitHub, then confirm `AI-AUTHORSHIP.md`
+>    (and `AI-AUTHORSHIP.json`) appear at the repo root.
+
+The agent installs the hooks, drops in the template, and the workflow
+generates the report on push — you get the same result as the manual steps
+below, including the composition charts and JSON twin.
+
+> [!IMPORTANT]
+> Keep `GIT_AI_VERSION` inside `.github/workflows/authorship-report.yml`
+> aligned with the installed `git-ai` CLI version, or CI may fail to parse
+> notes written by a newer/older local CLI. Also note: attribution is only
+> captured for the [supported agents](#-agent-support); an unsupported agent's
+> commits still generate the report but show as `untracked`.
+
+> **[Full install details (manual steps 1–7) →](#-full-install-details)**
+
+---
+
 Works out-of-the-box with **seven AI coding agents and IDEs**:
-- 🖥️ **Local models via OpenCode** (LM Studio / Ollama) — no cloud; point OpenCode at LM Studio's OpenAI-compatible server (`opencode run -m lmstudio/…`). See [Local models through LM Studio](#-local-models-through-lm-studio-self-hosted-no-cloud--verified).
+- 🖥️ **Local models via OpenCode** (LM Studio / Ollama) — no cloud; point OpenCode at LM Studio's OpenAI-compatible server (`opencode run -m lmstudio/…`). See [Local models through LM Studio](docs/lm-studio.md) (verified) or [Ollama](#-ollama-untested) (untested).
 - ⚡ **OpenCode** — Native integration (no bridge required).
 - 🛸 **Antigravity IDE** (Gemini CLI) — via a lightweight PowerShell/Windows bridge in [`bridge/`](https://github.com/CaliMark/ai-authorship/tree/main/bridge).
 - ⚡ **VS Code / GitHub Copilot Chat** — via native Copilot hooks (`~/.copilot/hooks/git-ai.json`).
@@ -33,10 +69,15 @@ A GitHub Actions workflow automatically reads the attribution notes and generate
 
 ## 📑 Table of Contents
 
+- [Quick Start](#-quick-start)
+  - [Let your coding agent install it](#-let-your-coding-agent-install-it-fastest)
 - [How AI Code Attribution Works](#-how-ai-code-attribution-works)
 - [Requirements](#-requirements)
-- [Quick Start](#-quick-start)
-  - [Let your coding agent install it](#let-your-coding-agent-install-it-fastest)
+- [Agent Support](#-agent-support)
+  - [Local models through LM Studio](docs/lm-studio.md)
+  - [Ollama](#-ollama-untested)
+- [Currently Testing](#-currently-testing)
+- [Full Install Details](#-full-install-details)
   - [1. Install git-ai](#1-install-git-ai)
   - [2. Native Agents (OpenCode · VS Code Copilot Chat · Cursor)](#2-native-agents-setup-opencode--vs-code-copilot-chat--cursor)
   - [3. Cline Setup (CLI Hooks)](#3-cline-setup-cli-hooks)
@@ -44,11 +85,8 @@ A GitHub Actions workflow automatically reads the attribution notes and generate
   - [5. Antigravity IDE Setup (Windows Bridge)](#5-antigravity-ide-setup-windows-bridge)
   - [6. Verify Your First Attributed Edit](#6-verify-your-first-attributed-edit)
   - [7. Publish the CI Report](#7-publish-the-ci-report)
-- [Agent Support](#-agent-support)
-  - [Local models through LM Studio](#-local-models-through-lm-studio-self-hosted-no-cloud--verified)
-- [Currently Testing](#-currently-testing)
-- [Workflows for Different Situations](docs/workflows.md) — AI attribution workflows: model routing (OpenRouter, proxies, local models), multi-agent sessions, mixed human + AI commits, remotes, and [keeping the report template in sync](docs/workflows.md#keeping-the-template-in-sync)
 - [Configuration](#%EF%B8%8F-configuration)
+- [Workflows for Different Situations](docs/workflows.md) — model routing, multi-agent sessions, mixed commits, remotes, and [keeping the report template in sync](docs/workflows.md#keeping-the-template-in-sync)
 - [Troubleshooting](#-troubleshooting)
 - [Project Layout](#-project-layout)
 - [License](#-license)
@@ -97,7 +135,8 @@ See [Agent Support](#-agent-support) below for per-agent versions and setup.
 | **Antigravity IDE** (Gemini CLI) | Windows bridge (`bridge/`) | `cd bridge && install.cmd` |
 | **Cline CLI** | CLI hooks bridge (`~/.cline/hooks/PreToolUse.ps1`) | Copy from `bridge/cline/` (see §3) |
 | **Devin Desktop** (Devin Local) | Project hooks + bridge (`bridge/devin/HookBridge.ps1`) | Copy from `bridge/devin/` (see §4) |
-| **Local models** (LM Studio / Ollama) | OpenAI-compatible server; point OpenCode at it | See below — verified |
+| **Local models via LM Studio** | OpenAI-compatible server; point OpenCode at it | [See docs/lm-studio.md](docs/lm-studio.md) — verified |
+| **Local models via Ollama** | OpenAI-compatible server; point OpenCode at it | Same approach as LM Studio — untested |
 
 > [!NOTE]
 > The OpenCode, Antigravity IDE, VS Code / Copilot Chat, Cursor, Cline, Devin,
@@ -110,26 +149,16 @@ See [Agent Support](#-agent-support) below for per-agent versions and setup.
 
 ### 🤖 Local models through LM Studio (self-hosted, no cloud) — verified
 
-Verified live on a Ryzen 3 2200G (4 threads, Vega 8 iGPU, 32 GB RAM): a local
-`qwen2.5-7b-instruct` made a real file edit through OpenCode and git-ai
-attributed it as `opencode · qwen2.5-7b-instruct` — report generated locally,
-no GitHub, no cloud accounts. **Public proof:** the
-[`game-of-life`](https://github.com/CaliMark/game-of-life) live example now
-includes this exact setup — commit `7b79bd1` was written offline by
-`qwen2.5-7b-instruct` through LM Studio and shows as `opencode ·
-qwen2.5-7b-instruct` (100% AI) in its
-[`AI-AUTHORSHIP.md`](https://github.com/CaliMark/game-of-life/blob/main/AI-AUTHORSHIP.md).
+Full setup guide: [docs/lm-studio.md](docs/lm-studio.md) — hardware requirements, model recommendations, config, and gotchas.
 
-- **App:** [LM Studio](https://lmstudio.ai) — Windows or Linux (AppImage); pick the **Vulkan** backend so AMD/Intel iGPUs and NVIDIA GPUs can offload.
-- **Hardware floor:** any AVX2 CPU, **16 GB RAM** (8 GB runs sub-4B models), **~10 GB free disk**. GPU optional — 4 GB+ VRAM speeds it up, but CPU-only still works.
-- **Model that works:** `qwen2.5-7b-instruct` **Q4_K_M** (~4.7 GB) — trained for tool use, emits proper `tool_calls`.
-- **Model that does NOT work:** `qwen2.5-coder-7b-instruct` — the Coder family was **not trained on tool tokens**; it emits tool calls as `<tools>`/```json``` text in `content` with an empty `tool_calls` array, which the agent can't execute. Verified failing here; use `qwen2.5-instruct` (non-Coder) or `qwen3:8b` (~5–6 GB, best small tool-caller) instead.
-- **Gotchas:** at ~3–6 tok/s on a 4-thread CPU each step is slow — a small, sharp prompt ("use the write tool right now") works; an open-ended prompt can get a narration instead of a tool call. Keep GPU offload low on iGPUs — they share the CPU's memory bus, so heavy offload doesn't help.
-- **Config:** add an `lmstudio` provider in `~/.config/opencode/opencode.jsonc` (`baseURL: http://127.0.0.1:1234/v1`, model `qwen2.5-7b-instruct`), then `opencode run -m lmstudio/qwen2.5-7b-instruct`. Attribution is provider-agnostic by design: it tracks the agent session, not the model endpoint.
+Verified live: commit `7b79bd1` in [game-of-life](https://github.com/CaliMark/game-of-life) was written offline by `qwen2.5-7b-instruct` through LM Studio and shows as `opencode · qwen2.5-7b-instruct` (100% AI).
 
-> Self-hosted fits right in: **models** via LM Studio/Ollama, **git** via
-> Gitea/Forgejo/GitLab, **reports** via your own cron or CI — zero cloud
-> accounts anywhere.
+### 🤖 Ollama (self-hosted, no cloud) — untested
+
+Ollama exposes the same OpenAI-compatible server as LM Studio, so the same
+OpenCode config approach works — just point at Ollama's endpoint instead. We
+haven't verified this live yet; if you try it, open an issue or PR and we'll
+add it to the live examples.
 
 ### 📦 git-ai checkpoint presets (not tested here yet)
 
@@ -161,35 +190,7 @@ to [Agent Support](#-agent-support).
 
 ---
 
-## 🚀 Quick Start
-
-### ✨ Let your coding agent install it (fastest)
-
-Want the report running without clicking through the setup? Just tell your
-coding agent to install it. Every step is an ordinary shell/git operation the
-agent can perform, so this is a fully supported install path — not a shortcut
-that misses config. Paste this into your agent (OpenCode, Cline, Cursor, etc.):
-
-> Please set up AI authorship attribution for this repo:
-> 1. Install the `git-ai` CLI (download from usegitai.com) and run
->    `git-ai install-hooks` in this repo.
-> 2. Copy `scripts/authorship-report.sh` and
->    `.github/workflows/authorship-report.yml` from the
->    `CaliMark/ai-authorship` repo (or download both at the latest release tag,
->    e.g. `v1.1.0`).
-> 3. Make a small commit and push to GitHub, then confirm `AI-AUTHORSHIP.md`
->    (and `AI-AUTHORSHIP.json`) appear at the repo root.
-
-The agent installs the hooks, drops in the template, and the workflow
-generates the report on push — you get the same result as the manual steps
-below, including the composition charts and JSON twin.
-
-> [!IMPORTANT]
-> Keep `GIT_AI_VERSION` inside `.github/workflows/authorship-report.yml`
-> aligned with the installed `git-ai` CLI version, or CI may fail to parse
-> notes written by a newer/older local CLI. Also note: attribution is only
-> captured for the [supported agents](#-agent-support); an unsupported agent's
-> commits still generate the report but show as `untracked`.
+## 🔧 Full Install Details
 
 ### 1. Install git-ai
 
