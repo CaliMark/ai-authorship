@@ -1,40 +1,68 @@
 {
   "schema_version": 4,
-  "generated_at": "2026-08-17T01:10:02.109312+00:00",
+  "generated_at": "2026-08-17T01:10:43.743213+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 4020,
-    "ai_lines": 2311,
-    "ai_pct": 57.5,
+    "total_lines": 4547,
+    "ai_lines": 2838,
+    "ai_pct": 62.4,
     "human_lines": 0,
     "human_pct": 0.0,
     "bot_lines": 1709,
-    "bot_pct": 42.5,
+    "bot_pct": 37.6,
     "unknown_lines": 0,
     "unknown_pct": 0.0,
-    "human_directed_ai_lines": 2311,
+    "human_directed_ai_lines": 2838,
     "human_directed_ai_pct": 100.0,
     "autonomous_ai_lines": 0,
     "direction_weight": 0.5,
-    "direction_credit_lines": 1156,
-    "human_direction_credit_lines": 1156,
+    "direction_credit_lines": 1419,
+    "human_direction_credit_lines": 1419,
     "agent_idea_ai_lines": 0,
     "agent_idea_ai_pct": 0.0,
     "idea_weight": 0.3,
     "agent_idea_credit_lines": 0,
     "co_contributed_commits": 0,
     "agents": {
-      "opencode · big-pickle": 2311
+      "opencode · big-pickle": 2838
     },
     "tools": {
-      "opencode": 2311
+      "opencode": 2838
     },
     "models": {
-      "big-pickle": 2311
+      "big-pickle": 2838
     }
   },
   "commits": [
+    {
+      "sha": "cf52f15",
+      "date": "2026-08-16",
+      "author": "CaliMark",
+      "subject": "feat: tool/model breakdown pies, agent-idea provenance (Idea-By trailer), JSON schema v4",
+      "lines_added": 578,
+      "ai_additions": 578,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 578
+      },
+      "tool_ai_lines": {
+        "opencode": 578
+      },
+      "model_ai_lines": {
+        "big-pickle": 578
+      }
+    },
     {
       "sha": "2ea42ab",
       "date": "2026-08-16",
@@ -61,7 +89,7 @@
       "sha": "8cb6742",
       "date": "2026-08-16",
       "author": "CaliMark",
-      "subject": "feat: weighted co-contribution view â€” human-direction credit (REPORT_HUMAN_DIRECTION_WEIGHT) + co-authored commit marker; JSON schema v3",
+      "subject": "feat: weighted co-contribution view — human-direction credit (REPORT_HUMAN_DIRECTION_WEIGHT) + co-authored commit marker; JSON schema v3",
       "lines_added": 398,
       "ai_additions": 398,
       "human_additions": 0,
@@ -1262,34 +1290,6 @@
       "agent_ai_lines": {},
       "tool_ai_lines": {},
       "model_ai_lines": {}
-    },
-    {
-      "sha": "7fdaec7",
-      "date": "2026-08-14",
-      "author": "CaliMark",
-      "subject": "fix(devin): attribute Devin edits as devin via agent-v1 preset instead of claude",
-      "lines_added": 51,
-      "ai_additions": 51,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "human_directed": true,
-      "session_count": 1,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "opencode · big-pickle"
-      ],
-      "agent_ai_lines": {
-        "opencode · big-pickle": 51
-      },
-      "tool_ai_lines": {
-        "opencode": 51
-      },
-      "model_ai_lines": {
-        "big-pickle": 51
-      }
     }
   ]
 }

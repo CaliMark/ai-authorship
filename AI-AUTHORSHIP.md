@@ -8,39 +8,40 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **4020**
-- **AI-generated:** 2311 lines (57.5%)
+- Total lines added: **4547**
+- **AI-generated:** 2838 lines (62.4%)
 - **Human:** 0 lines (0.0%)
-- **Bot:** 1709 lines (42.5%)
+- **Bot:** 1709 lines (37.6%)
 - **Untracked:** 0 lines (0.0%)
-- **Human-directed AI:** 2311 lines (100.0% of AI; direction weight 0.5)
-- **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 1156 lines; credit to agent: 0 lines
+- **Human-directed AI:** 2838 lines (100.0% of AI; direction weight 0.5)
+- **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 1419 lines; credit to agent: 0 lines
 - **Co-authored commits (human + AI lines):** 0
-- **Agents:** opencode · big-pickle (2311 lines)
+- **Agents:** opencode · big-pickle (2838 lines)
 
 ## Composition
 
 ```mermaid
 pie title Co-contribution (weighted, human direction weight W=0.5)
     "Human (direct)" : 0
-    "Human (direction)" : 1156
-    "AI" : 1155
+    "Human (direction)" : 1419
+    "AI" : 1419
+    "Bot" : 1709
     "Untracked" : 0
 ```
 
 ```mermaid
 pie title AI lines by agent
-    "opencode · big-pickle" : 2311
+    "opencode · big-pickle" : 2838
 ```
 
 ```mermaid
 pie title AI lines by tool
-    "opencode" : 2311
+    "opencode" : 2838
 ```
 
 ```mermaid
 pie title AI lines by model
-    "big-pickle" : 2311
+    "big-pickle" : 2838
 ```
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
@@ -71,8 +72,9 @@ pie title AI lines by model
 
 | Commit | Date | Message | Lines | AI | Human | Co | Idea | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cf52f15 | 2026-08-16 | feat: tool/model breakdown pies, agent-idea provenance (Idea-By trailer), JSON schema v4 | 578 | 100% | 0% |  |  | opencode · big-pickle |
 | 2ea42ab | 2026-08-16 | docs: regenerate AI authorship report | 81 | 0% | 0% |  |  | bot |
-| 8cb6742 | 2026-08-16 | feat: weighted co-contribution view â€” human-direction credit (REPORT_HUMAN_DIRECTION_WEIGHT) + co-authored commit marker; JSON schema v3 | 398 | 100% | 0% |  |  | opencode · big-pickle |
+| 8cb6742 | 2026-08-16 | feat: weighted co-contribution view — human-direction credit (REPORT_HUMAN_DIRECTION_WEIGHT) + co-authored commit marker; JSON schema v3 | 398 | 100% | 0% |  |  | opencode · big-pickle |
 | c593e3f | 2026-08-16 | docs: regenerate AI authorship report | 95 | 0% | 0% |  |  | bot |
 | 6a7b53d | 2026-08-16 | fix: copy-in workflow template now commits AI-AUTHORSHIP.json alongside the .md (mirrors ai-authorship's own workflow) | 5 | 100% | 0% |  |  | opencode · big-pickle |
 | 48265cc | 2026-08-16 | docs: regenerate AI authorship report | 95 | 0% | 0% |  |  | bot |
@@ -120,7 +122,6 @@ pie title AI lines by model
 | 9acc1c7 | 2026-08-15 | docs: regenerate AI authorship report | 54 | 0% | 0% |  |  | bot |
 | ba7e6bd | 2026-08-14 | docs: add bridge.zip release download instructions, note clone option | 17 | 100% | 0% |  |  | opencode · big-pickle |
 | 4aae280 | 2026-08-15 | docs: regenerate AI authorship report | 59 | 0% | 0% |  |  | bot |
-| 7fdaec7 | 2026-08-14 | fix(devin): attribute Devin edits as devin via agent-v1 preset instead of claude | 51 | 100% | 0% |  |  | opencode · big-pickle |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -128,7 +129,48 @@ pie title AI lines by model
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 2ea42abf5b5e496397018a26b9685dd2f4d9a474 (HEAD -> main, origin/main, origin/HEAD)
+commit cf52f15169a39e6998d8fd3b9662e410e6bb526a (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-16T18:10:12-07:00
+
+    feat: tool/model breakdown pies, agent-idea provenance (Idea-By trailer), JSON schema v4
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      workflow/authorship-report.yml
+        s_52d0732141ad88::t_ecb8d277c8be77 37-42
+      AI-AUTHORSHIP.json
+        s_52d0732141ad88::t_6905c216abb5aa 2-3,7,9,12-13,21-25,29-34,38-59,64,73,80-85,101,106-108,123,130-135,151,156-158,173,180-185,201,206-208,223,230-235,251,256-258,273,280-285,301,306-308,323,330-335,351,356-358,373,380-385,401,406-408,423,430-435,451,456-458,473,480-485,501,506-508,523,530-535,551,558-563,579,584-586,601,608-613,629,634-636,651,658-663,679,684-686,701,708-713,729,734-736,751,758-763,779,784-786,801,808-813,829,834-836,851,858-863,879,884-886,901,908-913,929,934-936,951,958-963,979,984-986,1001,1008-1013,1029,1034-1036,1051,1058-1063,1079,1084-1086,1101,1108-1113,1129,1134-1136,1151,1158-1163,1179,1186-1191,1207,1212-1214,1229,1236-1241,1257,1262-1264,1279,1286-1291
+      scripts/authorship-report.sh
+        s_52d0732141ad88::t_ecb8d277c8be77 80-97,99,107-108,110-111,122,188-224,226-228,242-244,246,249,251-258,261-262,265,270-272,307,309-319,323,338,345-346,349,353-356,364-367,370,372-386,423,431-435,447-459,463-464,487,506-510,512-514
+      .github/workflows/authorship-report.yml
+        s_52d0732141ad88::t_ecb8d277c8be77 38-42
+      AI-AUTHORSHIP.md
+        s_52d0732141ad88::t_6905c216abb5aa 11-12,14,17,36-45,56-68,72-123,131-144
+      workflow/authorship-report-pinned.yml
+        s_52d0732141ad88::t_ecb8d277c8be77 48-53
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "cf52f15169a39e6998d8fd3b9662e410e6bb526a",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 2ea42abf5b5e496397018a26b9685dd2f4d9a474
 Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 Date:   2026-08-16T20:46:27Z
 
@@ -726,39 +768,6 @@ Date:   2026-08-16T02:49:40Z
 
     Authorship note:
       (none)
-
-commit 6cdd963cdcc335ff02158fa312e8b7cfccfdbe85
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-15T19:49:06-07:00
-
-    docs: promote LM Studio to Agent Support (tested & verified), keep Currently Testing as suggestion channel
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      README.md
-        s_52d0732141ad88::t_82bb52c70cbdb9 98,101-103,105-130
-        s_52d0732141ad88::t_e1e4ce56104965 154-155,157-158
-        s_52d0732141ad88::t_0f3245ae91dae2 46
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "6cdd963cdcc335ff02158fa312e8b7cfccfdbe85",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
 
 
 ```
