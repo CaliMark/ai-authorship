@@ -8,40 +8,40 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **4814**
-- **AI-generated:** 2107 lines (43.8%)
+- Total lines added: **4731**
+- **AI-generated:** 2054 lines (43.4%)
 - **Human:** 0 lines (0.0% of project)
-- **Bot:** 2707 lines (56.2%)
+- **Bot:** 2677 lines (56.6%)
 - **Untracked:** 0 lines (0.0%)
-- **Human-directed AI:** 2107 lines (weighted credit: 1054 lines at W=0.5, 50.0% of project)
-- **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 1054 lines; credit to agent: 0 lines
+- **Human-directed AI:** 2054 lines (weighted credit: 1027 lines at W=0.5, 50.0% of project)
+- **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 1027 lines; credit to agent: 0 lines
 - **Co-authored commits (human + AI lines):** 0
-- **Agents:** opencode · big-pickle (2107 lines)
+- **Agents:** opencode · big-pickle (2054 lines)
 
 ## Composition
 
 ```mermaid
 pie title Co-contribution (weighted, human direction weight W=0.5)
     "Human (direct)" : 0
-    "Human (direction)" : 1054
-    "AI" : 1053
-    "Bot" : 2707
+    "Human (direction)" : 1027
+    "AI" : 1027
+    "Bot" : 2677
     "Untracked" : 0
 ```
 
 ```mermaid
 pie title AI lines by agent
-    "opencode · big-pickle" : 2107
+    "opencode · big-pickle" : 2054
 ```
 
 ```mermaid
 pie title AI lines by tool
-    "opencode" : 2107
+    "opencode" : 2054
 ```
 
 ```mermaid
 pie title AI lines by model
-    "big-pickle" : 2107
+    "big-pickle" : 2054
 ```
 
 
@@ -75,6 +75,8 @@ pie title AI lines by model
 
 | Commit | Date | Message | Lines | AI | Human | Co | Idea | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ea4994c | 2026-08-17 | docs: move Ollama to Future Testing section | 5 | 100% | 0% |  |  | opencode · big-pickle |
+| 8160c36 | 2026-08-17 | docs: regenerate AI authorship report | 121 | 0% | 0% |  |  | bot |
 | 92ad9b8 | 2026-08-17 | docs: move badges under title | 2 | 100% | 0% |  |  | opencode · big-pickle |
 | 6b690b4 | 2026-08-17 | docs: regenerate AI authorship report | 106 | 0% | 0% |  |  | bot |
 | d12d21b | 2026-08-17 | docs: move local models to bottom of agent list | 2 | 100% | 0% |  |  | opencode · big-pickle |
@@ -123,8 +125,6 @@ pie title AI lines by model
 | 2c796a6 | 2026-08-16 | docs: regenerate AI authorship report | 69 | 0% | 0% |  |  | bot |
 | 9c8954c | 2026-08-16 | feat: add per-agent breakdown pie chart to report composition | 59 | 100% | 0% |  |  | opencode · big-pickle |
 | a3b4f73 | 2026-08-16 | docs: regenerate AI authorship report | 69 | 0% | 0% |  |  | bot |
-| 4fd1f6d | 2026-08-16 | feat: add mermaid composition pie chart to AI authorship report | 58 | 100% | 0% |  |  | opencode · big-pickle |
-| dc219ff | 2026-08-16 | docs: regenerate AI authorship report | 151 | 0% | 0% |  |  | bot |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -132,7 +132,52 @@ pie title AI lines by model
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 92ad9b8c4b8bbeb5d2c3b9c9ea2787a97180f896 (HEAD -> main, origin/main)
+commit ea4994c282d0179b356cedb6e558f5260a23bc3e (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-17T13:59:42-07:00
+
+    docs: move Ollama to Future Testing section
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      README.md
+        s_52d0732141ad88::t_01ed7e49098cea 180-183
+        s_52d0732141ad88::t_187c84cfee2d60 79
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "ea4994c282d0179b356cedb6e558f5260a23bc3e",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 8160c36c6e5ecaacd7ab5b2c00a4b1f4e9edbe83
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-17T20:55:13Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 92ad9b8c4b8bbeb5d2c3b9c9ea2787a97180f896
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-17T13:54:33-07:00
 
@@ -646,50 +691,6 @@ Date:   2026-08-16T22:07:20-07:00
         "schema_version": "authorship/3.0.0",
         "git_ai_version": "1.6.22",
         "base_commit_sha": "2e6ae123477095e958b0568113559c2eaa5811be",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit afeba20288c913fe0fbd4eaae2b1747414c0914c
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-17T04:57:40Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit 28155af0333e54c40f73d56f9669bb0d7cdb9951
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-16T21:56:56-07:00
-
-    fix: clarify human-directed AI text to show weighted credit matching pie chart
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      scripts/authorship-report.sh
-        s_52d0732141ad88::t_5a868467ccfebd 430
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "28155af0333e54c40f73d56f9669bb0d7cdb9951",
         "prompts": {},
         "sessions": {
           "s_52d0732141ad88": {
