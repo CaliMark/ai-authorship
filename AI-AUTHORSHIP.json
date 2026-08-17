@@ -1,16 +1,16 @@
 {
   "schema_version": 4,
-  "generated_at": "2026-08-17T20:32:24.553106+00:00",
+  "generated_at": "2026-08-17T20:33:55.904980+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 5574,
+    "total_lines": 5644,
     "ai_lines": 3043,
-    "ai_pct": 54.6,
+    "ai_pct": 53.9,
     "human_lines": 0,
     "human_pct": 0.0,
-    "bot_lines": 2531,
-    "bot_pct": 45.4,
+    "bot_lines": 2601,
+    "bot_pct": 46.1,
     "unknown_lines": 0,
     "unknown_pct": 0.0,
     "human_directed_ai_lines": 3043,
@@ -35,6 +35,56 @@
     }
   },
   "commits": [
+    {
+      "sha": "d12d21b",
+      "date": "2026-08-17",
+      "author": "CaliMark",
+      "subject": "docs: move local models to bottom of agent list",
+      "lines_added": 2,
+      "ai_additions": 2,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 2
+      },
+      "tool_ai_lines": {
+        "opencode": 2
+      },
+      "model_ai_lines": {
+        "big-pickle": 2
+      }
+    },
+    {
+      "sha": "93b6973",
+      "date": "2026-08-17",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 121,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 121,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
+    },
     {
       "sha": "531b635",
       "date": "2026-08-17",
@@ -1239,56 +1289,6 @@
       },
       "model_ai_lines": {
         "big-pickle": 115
-      }
-    },
-    {
-      "sha": "90aece2",
-      "date": "2026-08-16",
-      "author": "github-actions[bot]",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 51,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 51,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "human_directed": false,
-      "session_count": 0,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "bot"
-      ],
-      "agent_ai_lines": {},
-      "tool_ai_lines": {},
-      "model_ai_lines": {}
-    },
-    {
-      "sha": "6bb37ac",
-      "date": "2026-08-15",
-      "author": "CaliMark",
-      "subject": "docs: list Local models via OpenCode as first out-of-the-box option",
-      "lines_added": 2,
-      "ai_additions": 2,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "human_directed": true,
-      "session_count": 1,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "opencode · big-pickle"
-      ],
-      "agent_ai_lines": {
-        "opencode · big-pickle": 2
-      },
-      "tool_ai_lines": {
-        "opencode": 2
-      },
-      "model_ai_lines": {
-        "big-pickle": 2
       }
     }
   ]

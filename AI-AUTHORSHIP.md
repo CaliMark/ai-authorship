@@ -8,10 +8,10 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **5574**
-- **AI-generated:** 3043 lines (54.6%)
+- Total lines added: **5644**
+- **AI-generated:** 3043 lines (53.9%)
 - **Human:** 0 lines (0.0% of project)
-- **Bot:** 2531 lines (45.4%)
+- **Bot:** 2601 lines (46.1%)
 - **Untracked:** 0 lines (0.0%)
 - **Human-directed AI:** 3043 lines (weighted credit: 1522 lines at W=0.5, 50.0% of project)
 - **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 1522 lines; credit to agent: 0 lines
@@ -25,7 +25,7 @@ pie title Co-contribution (weighted, human direction weight W=0.5)
     "Human (direct)" : 0
     "Human (direction)" : 1522
     "AI" : 1521
-    "Bot" : 2531
+    "Bot" : 2601
     "Untracked" : 0
 ```
 
@@ -75,6 +75,8 @@ pie title AI lines by model
 
 | Commit | Date | Message | Lines | AI | Human | Co | Idea | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| d12d21b | 2026-08-17 | docs: move local models to bottom of agent list | 2 | 100% | 0% |  |  | opencode · big-pickle |
+| 93b6973 | 2026-08-17 | docs: regenerate AI authorship report | 121 | 0% | 0% |  |  | bot |
 | 531b635 | 2026-08-17 | docs: split LM Studio and Ollama in agent list | 2 | 100% | 0% |  |  | opencode · big-pickle |
 | c5c90fa | 2026-08-17 | docs: regenerate AI authorship report | 163 | 0% | 0% |  |  | bot |
 | 4134116 | 2026-08-17 | docs: restructure README — quick start at top, LM Studio/Ollama split | 114 | 100% | 0% |  |  | opencode · big-pickle |
@@ -123,8 +125,6 @@ pie title AI lines by model
 | dc219ff | 2026-08-16 | docs: regenerate AI authorship report | 151 | 0% | 0% |  |  | bot |
 | d95e7d3 | 2026-08-16 | docs: regenerate AI authorship report with JSON twin | 823 | 100% | 0% |  |  | opencode · big-pickle |
 | 4d898b8 | 2026-08-16 | feat: emit machine-readable AI-AUTHORSHIP.json; document manual-policy case study and human-review future idea | 115 | 100% | 0% |  |  | opencode · big-pickle |
-| 90aece2 | 2026-08-16 | docs: regenerate AI authorship report | 51 | 0% | 0% |  |  | bot |
-| 6bb37ac | 2026-08-15 | docs: list Local models via OpenCode as first out-of-the-box option | 2 | 100% | 0% |  |  | opencode · big-pickle |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -132,7 +132,51 @@ pie title AI lines by model
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 531b635c274dd529509b607fd19b90133805bdf2 (HEAD -> main, origin/main)
+commit d12d21b671ef906226735fe193e83464783c8c65 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-17T13:33:23-07:00
+
+    docs: move local models to bottom of agent list
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      README.md
+        s_52d0732141ad88::t_b982dcd733671d 58-59
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "d12d21b671ef906226735fe193e83464783c8c65",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 93b69732312e3302396e3186cffab09dd03bd4fb
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-17T20:32:24Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 531b635c274dd529509b607fd19b90133805bdf2
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-17T13:31:57-07:00
 
@@ -650,52 +694,6 @@ Date:   2026-08-16T18:56:39-07:00
         "schema_version": "authorship/3.0.0",
         "git_ai_version": "1.6.22",
         "base_commit_sha": "6d609e2f6cfbe8f78bafcb1c9071eca8c937eabe",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit 3910014af4074890bb7ad80a17fccf13efe2055a
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-17T01:27:10Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit fbb8ab702a3aa8afcc2a6f7e961f5058182cc6d5
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-16T18:25:22-07:00
-
-    docs: add workflows.md with mixed-commit guide, update README env-var table
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      docs/workflows.md
-        s_52d0732141ad88::t_8f8b30649e0de8 1-69,71,73-78,80,82-85,87-89,91,93,95-115,118,121,123,125,127-131,134-136,138-139,141,143,145-146,148-150,152-153,155-156,158,160,162-164,166-176,178-179
-      README.md
-        s_52d0732141ad88::t_e6f822e6c75dbe 451-455
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "fbb8ab702a3aa8afcc2a6f7e961f5058182cc6d5",
         "prompts": {},
         "sessions": {
           "s_52d0732141ad88": {
