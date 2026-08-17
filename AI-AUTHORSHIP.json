@@ -1,40 +1,90 @@
 {
   "schema_version": 4,
-  "generated_at": "2026-08-17T20:27:09.852679+00:00",
+  "generated_at": "2026-08-17T20:32:24.553106+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 5497,
-    "ai_lines": 3076,
-    "ai_pct": 56.0,
+    "total_lines": 5574,
+    "ai_lines": 3043,
+    "ai_pct": 54.6,
     "human_lines": 0,
     "human_pct": 0.0,
-    "bot_lines": 2421,
-    "bot_pct": 44.0,
+    "bot_lines": 2531,
+    "bot_pct": 45.4,
     "unknown_lines": 0,
     "unknown_pct": 0.0,
-    "human_directed_ai_lines": 3076,
+    "human_directed_ai_lines": 3043,
     "human_directed_ai_pct": 100.0,
     "autonomous_ai_lines": 0,
     "direction_weight": 0.5,
-    "direction_credit_lines": 1538,
-    "human_direction_credit_lines": 1538,
+    "direction_credit_lines": 1522,
+    "human_direction_credit_lines": 1522,
     "agent_idea_ai_lines": 0,
     "agent_idea_ai_pct": 0.0,
     "idea_weight": 0.3,
     "agent_idea_credit_lines": 0,
     "co_contributed_commits": 0,
     "agents": {
-      "opencode · big-pickle": 3076
+      "opencode · big-pickle": 3043
     },
     "tools": {
-      "opencode": 3076
+      "opencode": 3043
     },
     "models": {
-      "big-pickle": 3076
+      "big-pickle": 3043
     }
   },
   "commits": [
+    {
+      "sha": "531b635",
+      "date": "2026-08-17",
+      "author": "CaliMark",
+      "subject": "docs: split LM Studio and Ollama in agent list",
+      "lines_added": 2,
+      "ai_additions": 2,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 2
+      },
+      "tool_ai_lines": {
+        "opencode": 2
+      },
+      "model_ai_lines": {
+        "big-pickle": 2
+      }
+    },
+    {
+      "sha": "c5c90fa",
+      "date": "2026-08-17",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 163,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 163,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
+    },
     {
       "sha": "4134116",
       "date": "2026-08-17",
@@ -1239,56 +1289,6 @@
       },
       "model_ai_lines": {
         "big-pickle": 2
-      }
-    },
-    {
-      "sha": "bc38201",
-      "date": "2026-08-16",
-      "author": "github-actions[bot]",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 53,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 53,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "human_directed": false,
-      "session_count": 0,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "bot"
-      ],
-      "agent_ai_lines": {},
-      "tool_ai_lines": {},
-      "model_ai_lines": {}
-    },
-    {
-      "sha": "6cdd963",
-      "date": "2026-08-15",
-      "author": "CaliMark",
-      "subject": "docs: promote LM Studio to Agent Support (tested & verified), keep Currently Testing as suggestion channel",
-      "lines_added": 35,
-      "ai_additions": 35,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "human_directed": true,
-      "session_count": 1,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "opencode · big-pickle"
-      ],
-      "agent_ai_lines": {
-        "opencode · big-pickle": 35
-      },
-      "tool_ai_lines": {
-        "opencode": 35
-      },
-      "model_ai_lines": {
-        "big-pickle": 35
       }
     }
   ]
