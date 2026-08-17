@@ -49,14 +49,14 @@ below, including the composition charts and JSON twin.
 ---
 
 Works out-of-the-box with **seven AI coding agents and IDEs**:
-- 🖥️ **Local models via OpenCode** (LM Studio) — [see setup guide](docs/lm-studio.md) (verified).
-- 🖥️ **Local models via OpenCode** (Ollama) — [see setup notes](#-ollama-untested) (untested).
 - ⚡ **OpenCode** — Native integration (no bridge required).
 - 🛸 **Antigravity IDE** (Gemini CLI) — via a lightweight PowerShell/Windows bridge in [`bridge/`](https://github.com/CaliMark/ai-authorship/tree/main/bridge).
 - ⚡ **VS Code / GitHub Copilot Chat** — via native Copilot hooks (`~/.copilot/hooks/git-ai.json`).
 - 🛠️ **Cursor** — via native Cursor agent hooks (`~/.cursor/hooks.json`).
 - 🛠️ **Cline** — via CLI PreToolUse hooks with an apply-and-restore bridge (`~/.cline/hooks/PreToolUse.ps1`).
 - 🛠️ **Devin Desktop** (Devin Local) — via project `.devin/hooks.v1.json` hooks calling the `bridge/devin/HookBridge.ps1` adapter.
+- 🖥️ **Local models via OpenCode** (LM Studio) — [see setup guide](docs/lm-studio.md) (verified).
+- 🖥️ **Local models via OpenCode** (Ollama) — [see setup notes](#-ollama-untested) (untested).
 
 A GitHub Actions workflow automatically reads the attribution notes and generates a live [`AI-AUTHORSHIP.md`](https://github.com/CaliMark/ai-authorship/blob/main/AI-AUTHORSHIP.md) report — plus a machine-readable [`AI-AUTHORSHIP.json`](https://github.com/CaliMark/ai-authorship/blob/main/AI-AUTHORSHIP.json) twin — on every push to `main`.
 
