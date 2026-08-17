@@ -181,7 +181,7 @@ to [Agent Support](#-agent-support).
 
 - **Local models via Ollama** — same OpenAI-compatible server approach as LM Studio; just point at Ollama's endpoint instead. Not verified live yet.
 
-> **Suggest a model, workflow, or tool** — open an issue or PR and we'll wire
+> **Suggest a model, workflow, or tool** — [open an issue](https://github.com/CaliMark/ai-authorship/issues) or [PR](https://github.com/CaliMark/ai-authorship/pulls) and we'll wire
 > up a bridge and add it to the live examples.
 
 ---
