@@ -1,40 +1,90 @@
 {
   "schema_version": 4,
-  "generated_at": "2026-08-17T21:18:56.083465+00:00",
+  "generated_at": "2026-08-17T21:21:27.516922+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 4601,
-    "ai_lines": 1819,
-    "ai_pct": 39.5,
+    "total_lines": 4631,
+    "ai_lines": 1791,
+    "ai_pct": 38.7,
     "human_lines": 0,
     "human_pct": 0.0,
-    "bot_lines": 2782,
-    "bot_pct": 60.5,
+    "bot_lines": 2840,
+    "bot_pct": 61.3,
     "unknown_lines": 0,
     "unknown_pct": 0.0,
-    "human_directed_ai_lines": 1819,
+    "human_directed_ai_lines": 1791,
     "human_directed_ai_pct": 100.0,
     "autonomous_ai_lines": 0,
     "direction_weight": 0.5,
-    "direction_credit_lines": 910,
-    "human_direction_credit_lines": 910,
+    "direction_credit_lines": 896,
+    "human_direction_credit_lines": 896,
     "agent_idea_ai_lines": 0,
     "agent_idea_ai_pct": 0.0,
     "idea_weight": 0.3,
     "agent_idea_credit_lines": 0,
     "co_contributed_commits": 0,
     "agents": {
-      "opencode · big-pickle": 1819
+      "opencode · big-pickle": 1791
     },
     "tools": {
-      "opencode": 1819
+      "opencode": 1791
     },
     "models": {
-      "big-pickle": 1819
+      "big-pickle": 1791
     }
   },
   "commits": [
+    {
+      "sha": "5b14f52",
+      "date": "2026-08-17",
+      "author": "CaliMark",
+      "subject": "chore: add Mahjong_Testing to sync-consumers",
+      "lines_added": 1,
+      "ai_additions": 1,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 1
+      },
+      "tool_ai_lines": {
+        "opencode": 1
+      },
+      "model_ai_lines": {
+        "big-pickle": 1
+      }
+    },
+    {
+      "sha": "a9fc3b1",
+      "date": "2026-08-17",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 157,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 157,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
+    },
     {
       "sha": "763ed32",
       "date": "2026-08-17",
@@ -1222,56 +1272,6 @@
       "ai_additions": 0,
       "human_additions": 0,
       "unknown_additions": 94,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "human_directed": false,
-      "session_count": 0,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "bot"
-      ],
-      "agent_ai_lines": {},
-      "tool_ai_lines": {},
-      "model_ai_lines": {}
-    },
-    {
-      "sha": "c8a71b4",
-      "date": "2026-08-16",
-      "author": "CaliMark",
-      "subject": "docs: add 'let your coding agent install it' as a Quick Start install path",
-      "lines_added": 29,
-      "ai_additions": 29,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "human_directed": true,
-      "session_count": 1,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "opencode · big-pickle"
-      ],
-      "agent_ai_lines": {
-        "opencode · big-pickle": 29
-      },
-      "tool_ai_lines": {
-        "opencode": 29
-      },
-      "model_ai_lines": {
-        "big-pickle": 29
-      }
-    },
-    {
-      "sha": "f505760",
-      "date": "2026-08-16",
-      "author": "github-actions[bot]",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 99,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 99,
       "ai_pct": 0,
       "human_pct": 0,
       "human_directed": false,
