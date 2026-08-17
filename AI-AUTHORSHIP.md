@@ -8,15 +8,15 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **4441**
-- **AI-generated:** 1525 lines (34.3%)
+- Total lines added: **4475**
+- **AI-generated:** 1523 lines (34.0%)
 - **Human:** 0 lines (0.0% of project)
-- **Bot:** 2916 lines (65.7%) — excluded from pie
+- **Bot:** 2952 lines (66.0%) — excluded from pie
 - **Untracked:** 0 lines (0.0%)
-- **Human-directed AI:** 1525 lines (weighted credit: 762 lines at W=0.5, 50.0% of project)
+- **Human-directed AI:** 1523 lines (weighted credit: 762 lines at W=0.5, 50.0% of project)
 - **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 762 lines; credit to agent: 0 lines
 - **Co-authored commits (human + AI lines):** 0
-- **Agents:** opencode · big-pickle (1525 lines)
+- **Agents:** opencode · big-pickle (1523 lines)
 
 ## Composition
 
@@ -24,23 +24,23 @@ push to `main`.
 pie title Co-contribution (weighted, human direction weight W=0.5)
     "Human (direct)" : 0
     "Human (direction)" : 762
-    "AI" : 763
+    "AI" : 761
     "Untracked" : 0
 ```
 
 ```mermaid
 pie title AI lines by agent
-    "opencode · big-pickle" : 1525
+    "opencode · big-pickle" : 1523
 ```
 
 ```mermaid
 pie title AI lines by tool
-    "opencode" : 1525
+    "opencode" : 1523
 ```
 
 ```mermaid
 pie title AI lines by model
-    "big-pickle" : 1525
+    "big-pickle" : 1523
 ```
 
 
@@ -86,6 +86,8 @@ pie title AI lines by model
 
 | Commit | Date | Message | Lines | AI | Human | Co | Idea | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 7275fa0 | 2026-08-17 | feat: note 'not shown in strict pie' when direction is off | 2 | 100% | 0% |  |  | opencode · big-pickle |
+| 2c4ee3b | 2026-08-17 | docs: regenerate AI authorship report | 120 | 0% | 0% |  |  | bot |
 | 86120c0 | 2026-08-17 | feat: note 'excluded from pie' on bot line when hidden | 1 | 100% | 0% |  |  | opencode · big-pickle |
 | e55510f | 2026-08-17 | docs: regenerate AI authorship report | 120 | 0% | 0% |  |  | bot |
 | edbffab | 2026-08-17 | chore: hide bot chart on ai-authorship (match consumers) | 1 | 100% | 0% |  |  | opencode · big-pickle |
@@ -134,8 +136,6 @@ pie title AI lines by model
 | c593e3f | 2026-08-16 | docs: regenerate AI authorship report | 95 | 0% | 0% |  |  | bot |
 | 6a7b53d | 2026-08-16 | fix: copy-in workflow template now commits AI-AUTHORSHIP.json alongside the .md (mirrors ai-authorship's own workflow) | 5 | 100% | 0% |  |  | opencode · big-pickle |
 | 48265cc | 2026-08-16 | docs: regenerate AI authorship report | 95 | 0% | 0% |  |  | bot |
-| 6f78064 | 2026-08-16 | fix: sync-consumers should copy the copy-in workflow template, not ai-authorship's live workflow | 4 | 100% | 0% |  |  | opencode · big-pickle |
-| 21ab4d2 | 2026-08-16 | docs: regenerate AI authorship report | 84 | 0% | 0% |  |  | bot |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -143,7 +143,51 @@ pie title AI lines by model
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 86120c0ab47c1a118d3cc68f2cf3d37c2c679e20 (HEAD -> main, origin/main)
+commit 7275fa05fbb6953458df5b4b655668b3fa80eab3 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-17T14:41:29-07:00
+
+    feat: note 'not shown in strict pie' when direction is off
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      scripts/authorship-report.sh
+        s_52d0732141ad88::t_5a629af901e2fc 434-435
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "7275fa05fbb6953458df5b4b655668b3fa80eab3",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 2c4ee3b6ad8e33e07761dc033b0cbdd1b5c433d9
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-17T21:29:05Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 86120c0ab47c1a118d3cc68f2cf3d37c2c679e20
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-17T14:28:36-07:00
 
@@ -653,50 +697,6 @@ Date:   2026-08-17T00:08:11-07:00
         "schema_version": "authorship/3.0.0",
         "git_ai_version": "1.6.22",
         "base_commit_sha": "6582e483b1f2f33cadaeabd70ac74411cb422781",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit e8ee5297c22b95fd48d6d04b493572ce23e9a8f9
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-17T06:55:24Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit 46937b5d8a228a5001d269a0e36cf505349d565a
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-16T23:54:23-07:00
-
-    docs: add value proposition internal doc
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      docs/VALUE-PROPOSITION.md
-        s_52d0732141ad88::t_2f699921ae8e62 1-50
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "46937b5d8a228a5001d269a0e36cf505349d565a",
         "prompts": {},
         "sessions": {
           "s_52d0732141ad88": {
