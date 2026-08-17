@@ -8,40 +8,40 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **5247**
-- **AI-generated:** 2905 lines (55.4%)
+- Total lines added: **5310**
+- **AI-generated:** 2968 lines (55.9%)
 - **Human:** 0 lines (0.0% of project)
-- **Bot:** 2262 lines (43.1%)
-- **Untracked:** 80 lines (1.5%)
-- **Human-directed AI:** 2905 lines (weighted credit: 1452 lines at W=0.5, 50.0% of project)
-- **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 1452 lines; credit to agent: 0 lines
+- **Bot:** 2341 lines (44.1%)
+- **Untracked:** 1 lines (0.0%)
+- **Human-directed AI:** 2968 lines (weighted credit: 1484 lines at W=0.5, 50.0% of project)
+- **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 1484 lines; credit to agent: 0 lines
 - **Co-authored commits (human + AI lines):** 0
-- **Agents:** opencode · big-pickle (2905 lines)
+- **Agents:** opencode · big-pickle (2968 lines)
 
 ## Composition
 
 ```mermaid
 pie title Co-contribution (weighted, human direction weight W=0.5)
     "Human (direct)" : 0
-    "Human (direction)" : 1452
-    "AI" : 1453
-    "Bot" : 2262
-    "Untracked" : 80
+    "Human (direction)" : 1484
+    "AI" : 1484
+    "Bot" : 2341
+    "Untracked" : 1
 ```
 
 ```mermaid
 pie title AI lines by agent
-    "opencode · big-pickle" : 2905
+    "opencode · big-pickle" : 2968
 ```
 
 ```mermaid
 pie title AI lines by tool
-    "opencode" : 2905
+    "opencode" : 2968
 ```
 
 ```mermaid
 pie title AI lines by model
-    "big-pickle" : 2905
+    "big-pickle" : 2968
 ```
 
 
@@ -75,7 +75,9 @@ pie title AI lines by model
 
 | Commit | Date | Message | Lines | AI | Human | Co | Idea | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 6582e48 | 2026-08-17 | docs: merge research + competition insights into value proposition | 80 | 0% | 0% |  |  | untracked |
+| 8e73951 | 2026-08-17 | chore: move VALUE-PROPOSITION.md to local-only (gitignored) | 1 | 0% | 0% |  |  | untracked |
+| feab192 | 2026-08-17 | docs: regenerate AI authorship report | 133 | 0% | 0% |  |  | bot |
+| 6582e48 | 2026-08-17 | docs: merge research + competition insights into value proposition | 80 | 100% | 0% |  |  | opencode · big-pickle |
 | e8ee529 | 2026-08-17 | docs: regenerate AI authorship report | 132 | 0% | 0% |  |  | bot |
 | 46937b5 | 2026-08-16 | docs: add value proposition internal doc | 50 | 100% | 0% |  |  | opencode · big-pickle |
 | 1f2e00b | 2026-08-17 | docs: regenerate AI authorship report | 137 | 0% | 0% |  |  | bot |
@@ -123,8 +125,6 @@ pie title AI lines by model
 | 6cdd963 | 2026-08-15 | docs: promote LM Studio to Agent Support (tested & verified), keep Currently Testing as suggestion channel | 35 | 100% | 0% |  |  | opencode · big-pickle |
 | c7b38d5 | 2026-08-16 | docs: regenerate AI authorship report | 52 | 0% | 0% |  |  | bot |
 | 3db2752 | 2026-08-15 | docs: note game-of-life local-model (LM Studio) proof as 8th attribution source | 7 | 100% | 0% |  |  | opencode · big-pickle |
-| 22f81a9 | 2026-08-15 | docs: regenerate AI authorship report | 54 | 0% | 0% |  |  | bot |
-| 2f5d298 | 2026-08-15 | docs: mark local models (LM Studio + qwen2.5-7b-instruct) as verified live, document qwen2.5-coder tool-call failure | 17 | 100% | 0% |  |  | opencode · big-pickle |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -132,11 +132,11 @@ pie title AI lines by model
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 6582e483b1f2f33cadaeabd70ac74411cb422781 (HEAD -> main, origin/main)
+commit 8e739517160a426e92d9417e75ca6d91fbcbebd0 (HEAD -> main, origin/main)
 Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-17T00:08:11-07:00
+Date:   2026-08-17T00:12:34-07:00
 
-    docs: merge research + competition insights into value proposition
+    chore: move VALUE-PROPOSITION.md to local-only (gitignored)
 
     Git AI stats:
       you  ········································ ai
@@ -144,6 +144,50 @@ Date:   2026-08-17T00:08:11-07:00
 
     Authorship note:
       (none)
+
+commit feab1920eccae1aefb83833f9993cc221b7d73d7
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-17T07:09:24Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 6582e483b1f2f33cadaeabd70ac74411cb422781
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-17T00:08:11-07:00
+
+    docs: merge research + competition insights into value proposition
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      docs/VALUE-PROPOSITION.md
+        s_52d0732141ad88::t_89d4fbb11d2d4a 44-121,129-130
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "6582e483b1f2f33cadaeabd70ac74411cb422781",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
 
 commit e8ee5297c22b95fd48d6d04b493572ce23e9a8f9
 Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
@@ -647,50 +691,6 @@ Date:   2026-08-16T13:45:42-07:00
         "schema_version": "authorship/3.0.0",
         "git_ai_version": "1.6.22",
         "base_commit_sha": "8cb6742cb2b8c0fc688812f0738eccd4289281cd",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit c593e3f8e76108a3a3d39710651f4a53416f1cf4
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-16T19:59:46Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit 6a7b53d18fcbdb923e4a1e5646332fff003d78dc
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-16T12:59:03-07:00
-
-    fix: copy-in workflow template now commits AI-AUTHORSHIP.json alongside the .md (mirrors ai-authorship's own workflow)
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      workflow/authorship-report.yml
-        s_52d0732141ad88::t_6150215fe02826 60,69-70,72,77
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "6a7b53d18fcbdb923e4a1e5646332fff003d78dc",
         "prompts": {},
         "sessions": {
           "s_52d0732141ad88": {
