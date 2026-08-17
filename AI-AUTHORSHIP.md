@@ -8,73 +8,87 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **4726**
-- **AI-generated:** 1996 lines (42.2%)
+- Total lines added: **4601**
+- **AI-generated:** 1819 lines (39.5%)
 - **Human:** 0 lines (0.0% of project)
-- **Bot:** 2730 lines (57.8%)
+- **Bot:** 2782 lines (60.5%)
 - **Untracked:** 0 lines (0.0%)
-- **Human-directed AI:** 1996 lines (weighted credit: 998 lines at W=0.5, 50.0% of project)
-- **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 998 lines; credit to agent: 0 lines
+- **Human-directed AI:** 1819 lines (weighted credit: 910 lines at W=0.5, 50.0% of project)
+- **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 910 lines; credit to agent: 0 lines
 - **Co-authored commits (human + AI lines):** 0
-- **Agents:** opencode · big-pickle (1996 lines)
+- **Agents:** opencode · big-pickle (1819 lines)
 
 ## Composition
 
 ```mermaid
 pie title Co-contribution (weighted, human direction weight W=0.5)
     "Human (direct)" : 0
-    "Human (direction)" : 998
-    "AI" : 998
-    "Bot" : 2730
+    "Human (direction)" : 910
+    "AI" : 909
+    "Bot" : 2782
     "Untracked" : 0
 ```
 
 ```mermaid
 pie title AI lines by agent
-    "opencode · big-pickle" : 1996
+    "opencode · big-pickle" : 1819
 ```
 
 ```mermaid
 pie title AI lines by tool
-    "opencode" : 1996
+    "opencode" : 1819
 ```
 
 ```mermaid
 pie title AI lines by model
-    "big-pickle" : 1996
+    "big-pickle" : 1819
 ```
 
 
 
-> **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
-> the lines (model is recorded when git-ai can resolve it from the agent's
-> session data). `bot` = committed by an automated account (`github-actions[bot]`
-> and other `[bot]` accounts, e.g. the workflow regenerating this report) — known
-> authorship, not attributed through git-ai. `untracked` = lines with no
-> attribution data — written before git-ai was set up or made in the github.com
-> web UI (cannot be retroactively attributed). `human` = written directly by a
-> human and recorded via `git-ai checkpoint human` or the git-ai extension.
-> `Human (direct)` = human-written lines; `Human (direction)` = the credited
-> share of AI lines from sessions whose human driver git-ai recorded (weight
-> `W` = `REPORT_HUMAN_DIRECTION_WEIGHT`, default 0.5); `Agent (idea)` = lines
-> implementing an idea the agent itself suggested earlier (via `Idea-By: agent`
-> commit trailer), credited to the agent rather than the human who requested
-> it (weight `I` = `REPORT_IDEA_WEIGHT`, default 0.3). `AI` = the AI lines not
-> credited to the human (including autonomous AI with no recorded driver). `A` in
-> the per-commit table marks a commit whose idea the agent originated; `✓` marks
-> a co-authored commit (contains both human-written and AI lines). These are
-> line-count percentages, not commit counts. The composition pie excludes the
-> report's own `bot` commits by default; set `REPORT_SHOW_BOT_CHART=1` to
-> include them, or `REPORT_SHOW_DIRECTION=0` for a strict AI/Human/Untracked
-> line-count pie. The "AI lines by tool" and "AI lines by model" pies break
-> down the AI attribution by the agent tool and LLM model that produced the
-> lines. "Human lines by contributor" shows human-written lines broken down by
-> the commit author who recorded them (via `git-ai checkpoint human`).
+<details>
+<summary>Legend — Human, AI, direction credit, and table markers</summary>
+
+> **Agent format:** `opencode · big-pickle` = agent and the LLM model that
+> generated the lines (model is recorded when git-ai can resolve it from the
+> agent's session data).
+>
+> **Pie slices:** `Human (direct)` = human-written lines; `Human (direction)` =
+> the credited share of AI lines from sessions whose human driver git-ai
+> recorded (weight `W` = `REPORT_HUMAN_DIRECTION_WEIGHT`, default 0.5);
+> `Agent (idea)` = lines implementing an idea the agent itself suggested
+> earlier (via `Idea-By: agent` commit trailer), credited to the agent rather
+> than the human who requested it (weight `I` = `REPORT_IDEA_WEIGHT`, default
+> 0.3); `AI` = the AI lines not credited to the human (including autonomous
+> AI with no recorded driver).
+>
+> **Table markers:** `✓` = co-authored commit (contains both human-written
+> and AI lines); `A` = commit whose idea the agent originated.
+>
+> **Other:** `bot` = committed by an automated account (`github-actions[bot]`
+> and other `[bot]` accounts) — known authorship, not attributed through
+> git-ai. `untracked` = lines with no attribution data — written before
+> git-ai was set up or made in the github.com web UI (cannot be retroactively
+> attributed). `human` = written directly by a human and recorded via
+> `git-ai checkpoint human` or the git-ai extension.
+>
+> **Config:** these are line-count percentages, not commit counts. The
+> composition pie excludes the report's own `bot` commits by default; set
+> `REPORT_SHOW_BOT_CHART=1` to include them, or `REPORT_SHOW_DIRECTION=0`
+> for a strict AI/Human/Untracked line-count pie. The "AI lines by tool" and
+> "AI lines by model" pies break down the AI attribution by the agent tool
+> and LLM model that produced the lines. "Human lines by contributor" shows
+> human-written lines broken down by the commit author who recorded them (via
+> `git-ai checkpoint human`).
+
+</details>
 
 ## Per-commit breakdown
 
 | Commit | Date | Message | Lines | AI | Human | Co | Idea | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 763ed32 | 2026-08-17 | feat: make legend collapsible in report | 36 | 100% | 0% |  |  | opencode · big-pickle |
+| 64f84b9 | 2026-08-17 | docs: regenerate AI authorship report | 121 | 0% | 0% |  |  | bot |
 | f0043ab | 2026-08-17 | docs: add issue/PR links to suggest line | 1 | 100% | 0% |  |  | opencode · big-pickle |
 | 760e469 | 2026-08-17 | docs: regenerate AI authorship report | 122 | 0% | 0% |  |  | bot |
 | ea4994c | 2026-08-17 | docs: move Ollama to Future Testing section | 5 | 100% | 0% |  |  | opencode · big-pickle |
@@ -123,8 +137,6 @@ pie title AI lines by model
 | 03c0e9e | 2026-08-16 | docs: regenerate AI authorship report | 94 | 0% | 0% |  |  | bot |
 | c8a71b4 | 2026-08-16 | docs: add 'let your coding agent install it' as a Quick Start install path | 29 | 100% | 0% |  |  | opencode · big-pickle |
 | f505760 | 2026-08-16 | docs: regenerate AI authorship report | 99 | 0% | 0% |  |  | bot |
-| 36f699a | 2026-08-16 | feat: add consumer sync helper + pinned auto-update workflow variant + template-sync docs | 213 | 100% | 0% |  |  | opencode · big-pickle |
-| 2c796a6 | 2026-08-16 | docs: regenerate AI authorship report | 69 | 0% | 0% |  |  | bot |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -132,7 +144,51 @@ pie title AI lines by model
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit f0043abda3b444f148841a9e0af0c1dce9eb2634 (HEAD -> main, origin/main)
+commit 763ed3252db5d6ddc24b4c5017638176ad1e7f9f (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-17T14:18:15-07:00
+
+    feat: make legend collapsible in report
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      scripts/authorship-report.sh
+        s_52d0732141ad88::t_41921f395fd4ac 451-486
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "763ed3252db5d6ddc24b4c5017638176ad1e7f9f",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 64f84b9fa423aa6863332f4899b96ab4117c26c9
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-17T21:06:04Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit f0043abda3b444f148841a9e0af0c1dce9eb2634
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-17T14:05:27-07:00
 
@@ -647,50 +703,6 @@ Date:   2026-08-16T22:35:01-07:00
         "schema_version": "authorship/3.0.0",
         "git_ai_version": "1.6.22",
         "base_commit_sha": "4a976161708dfe34db094b603e11025a26776ff2",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit 76e3f51aa9f4d3628c69bc3b4b92834ce5d8bd2b
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-17T05:23:23Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit a6e80459abfa75f5b4074bbd7e78438cb717eaac
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-16T22:22:36-07:00
-
-    fix: change human-directed AI percentage to match pie chart
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      scripts/authorship-report.sh
-        s_52d0732141ad88::t_1d2cfff8634aec 430
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "a6e80459abfa75f5b4074bbd7e78438cb717eaac",
         "prompts": {},
         "sessions": {
           "s_52d0732141ad88": {
