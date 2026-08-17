@@ -448,6 +448,11 @@ git push origin main
 | `preToolUseDecisions` | [`bridge/config.json`](https://github.com/CaliMark/ai-authorship/blob/main/bridge/config.json) | Tool permission rules (`allow` / `ask` / `deny`) |
 | `GIT_AI_BIN` | System Environment | Custom path to `git-ai.exe` |
 | `GIT_AI_VERSION` | Workflow YAML | `git-ai` CLI version used in CI runs |
+| `REPORT_SHOW_DIRECTION` | Workflow env | `1` = weighted co-contribution pie; `0` = strict AI/Human/Untracked pie |
+| `REPORT_HUMAN_DIRECTION_WEIGHT` | Workflow env | Share of human-directed AI lines credited to the human (default `0.5`) |
+| `REPORT_IDEA_WEIGHT` | Workflow env | Share of direction credit withheld from human for agent-idea commits (default `0.3`) |
+| `REPORT_SHOW_BOT_CHART` | Workflow env | `1` = include bot commits in composition pie (default `0`) |
+| `REPORT_SHOW_BREAKDOWN` | Workflow env | `1` = show per-tool and per-model breakdown pies (default `1`) |
 | Commit Limits | [`scripts/authorship-report.sh`](https://github.com/CaliMark/ai-authorship/blob/main/scripts/authorship-report.sh) | Custom depth limits (e.g. `bash scripts/authorship-report.sh 50 25`) |
 
 ---

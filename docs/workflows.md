@@ -1,187 +1,179 @@
-# AI Attribution Workflows for Different Situations
+# Workflows for Different Situations
 
-## Model routing (OpenRouter, proxies, local models)
+Practical guides for AI attribution across varied team setups, models, and remotes.
 
-Attribution is **provider-agnostic** — `git-ai` tracks the agent session, not the
-upstream model. OpenRouter, OpenAI-compatible proxies, or local models (e.g.
-Ollama, LM Studio) all work without changes. Only the model label in the report changes to the
-provider's model id (e.g. `opencode · openrouter/anthropic/claude-sonnet-4`). For
-custom providers defined in `opencode.json`, use a short readable model `id`.
+---
 
-**Local models (LM Studio/Ollama):** verified live with `qwen2.5-7b-instruct`
-(attributed as `opencode · qwen2.5-7b-instruct`). Use models **trained for tool
-use** — the `qwen2.5-coder` family is not, so its tool calls arrive as
-`<tools>`/```json``` text in `content` with an empty `tool_calls` array and the
-agent never executes the edit. Prefer `qwen2.5-instruct` or `qwen3:8b`.
+## Model Routing
 
-## Multiple agents or sessions in one repo
+### OpenRouter / Custom Providers
 
-Keep only the active agent session open. A live OpenCode session can claim edits
-made by other tools, so close it before committing work attributed through the
-Antigravity bridge.
+When using OpenRouter or a proxy, the model id in `git-ai` notes will reflect
+the provider's naming (e.g. `openrouter/anthropic/claude-3.5-sonnet`). The
+report displays it as-is. To get cleaner labels, set a short custom `id` in
+`opencode.json`:
 
-## Switching models across sessions (e.g. OpenRouter)
+```json
+{
+  "provider": {
+    "openrouter": {
+      "apiKey": "...",
+      "models": {
+        "my-claude": {
+          "id": "anthropic/claude-3.5-sonnet"
+        }
+      }
+    }
+  }
+}
+```
 
-When jumping between models — all under OpenCode — open a **new session per model**.
-Attribution labels come from the session record, so each model's work gets a clean,
-distinct label (e.g. `opencode · big-pickle` vs `opencode · openrouter/...`).
-Switching models inside one session muddles attribution, since git-ai can only
-resolve a single model label for that session's edits.
+The report then shows `my-claude` instead of the full provider path.
 
-It doesn't matter which model performs the final push. Attribution is attached to
-each commit when it's made, not when it's pushed, so `AI-AUTHORSHIP.md` lists every
-model that wrote lines across all commits — regardless of who ran `git push`. Before
-that final push, make sure every session's pending checkpoints are swept:
+### Local Models (LM Studio, Ollama, etc.)
+
+When routing through a local server, the model id is whatever the server reports.
+Typical examples: `qwen2.5-7b-instruct`, `llama-3.1-8b`. If the server does not
+report a model name, git-ai records `unknown`, which the report hides by default
+to keep labels clean.
+
+---
+
+## Multi-Agent Sessions
+
+When two agents share a session (e.g. OpenCode delegates to Cline mid-session),
+git-ai records both tools in the same `sessions` block. The report's `Agent(s)`
+column shows the combined label (e.g. `opencode · cline`). The `tool_model_breakdown`
+pie and summary break them out as separate slices.
+
+If you deliberately route between models mid-session (e.g. `big-pickle` for
+planning, `composer-2.5` for implementation), each model's lines are attributed
+separately in the breakdown pies and per-commit `model_ai_lines` JSON field.
+
+---
+
+## Mixed Human + AI Commits
+
+### What counts as "co-authored"
+
+A commit is marked **co-authored** (`✓` in the Co column) when it contains
+**both** `human_additions > 0` **and** `ai_additions > 0`. The report counts
+these in the summary line: "Co-authored commits (human + AI lines): N".
+
+### When does this happen?
+
+- A human edits AI-generated code in the same commit (e.g. fixes a typo in a
+  file the agent just wrote).
+- A human and an agent both modify the same file before a single commit.
+- A merge commit that combines a human-authored branch and an AI-authored branch
+  (git-ai attributes each side; the merge itself may be a mix).
+
+### When does it NOT happen?
+
+- The agent commits all lines as AI (the agent's own commit — no human edits in
+  the same commit). Column shows 100% AI, 0% Human.
+- The human commits directly without the agent (pure human commit). Column shows
+  100% Human, 0% AI.
+- A bot commits (e.g. `github-actions[bot]` regenerating the report). Column
+  shows `bot` in the Agent(s) column.
+
+### Weighted co-contribution
+
+Even when a commit is not co-authored, the weighted co-contribution pie credits
+the human who directed the session with a share of the AI lines (weight `W` =
+`REPORT_HUMAN_DIRECTION_WEIGHT`, default 0.5). This reflects that the human's
+guidance was part of the work, even if they did not write code in that commit.
+
+When a commit carries an `Idea-By: agent` trailer (indicating the agent
+originated the idea and the human later requested it), the `Agent (idea)` slice
+in the weighted pie and the `A` marker in the Idea column reflect this origin.
+
+---
+
+## Remotes
+
+### Moving or Renaming a Repo
+
+Attribution notes live in `refs/notes/ai` on the remote. When you move or
+rename a repository:
+
+1. Push notes to the new remote: `git push origin refs/notes/ai`
+2. Update `scripts/sync-consumers.sh` if you use the template copy-in model.
+3. Re-run the workflow or regenerate locally to verify the report still works.
+
+### Non-GitHub Remotes
+
+The CI workflow assumes GitHub Actions. For GitLab, Bitbucket, or self-hosted
+CI:
+
+- The workflow file must `git fetch origin refs/notes/ai` and `git push` the
+  note refs. The structure is identical; only the CI syntax differs.
+- Set `GIT_AI_VERSION` to match your local version.
+
+### Fresh Clones / Teammates
+
+New clones do not fetch attribution notes by default. Teammates must run:
 
 ```bash
-git-ai await --timeout 30
-git pull --rebase origin main
-git push origin refs/notes/ai
-git push origin main
+git fetch origin refs/notes/ai:refs/notes/ai
 ```
 
-## Mixed human + AI commits
+Or use `git-ai fetch-notes` which does the same thing.
 
-Attribute human edits with `git-ai checkpoint human` so a single commit can show
-both `human` and AI lines. `bridge/verify-attribution.cmd` validates an
-end-to-end attributed edit.
+---
 
-Verified live on the
-[game-of-life](https://github.com/CaliMark/game-of-life) repo: commit `b7e37f0`
-shows `100% human` in `AI-AUTHORSHIP.md` (a manual README edit recorded via
-`git-ai checkpoint human` before committing). Confirm attribution the same way:
+## Keeping the Template in Sync
 
-```powershell
-git-ai checkpoint human   # after making your manual edit, before committing
-git-ai status             # pending Human checkpoint, no agent id
-git-ai log --raw -1       # after commit: note shows a "humans" entry, no "tool"
-```
-
-Use **additions**, not pure deletions, when testing — git-ai cannot attribute a
-commit whose only change removes lines.
-
-## Moving or renaming a repo
-
-Attribution data is keyed by session and commit IDs, not repo paths, so relocating
-a repo is safe. Keep the folder name when using the Antigravity bridge, since its
-transcripts are keyed by folder name.
-
-## Fresh clones and teammates
-
-History only shows attribution once notes exist locally. On a new clone run
-`git-ai fetch-notes` (or `git fetch origin refs/notes/ai:refs/notes/ai`), otherwise
-older commits display as `untracked`.
-
-## CI and bot commits
-
-Commits made by the workflow (e.g. `github-actions[bot]` regenerating the report)
-have no attribution and correctly show as `untracked`. Merge commits skip stats.
-
-## Web edits (github.com)
-
-Commits created in the github.com web UI (author your account, committer
-`GitHub <noreply@github.com>`) never touch local git-ai hooks, so they get no
-note and show as `untracked` — not `human`. `human` only appears from an explicit
-checkpoint: `git-ai checkpoint human` before committing your own edits, or the
-git-ai VS Code extension's save-based KnownHuman attestation. Prefer local edits
-if you want manual changes attributed as `human`.
-
-## Pushing from any IDE / terminal
-
-The report regenerates on every push to `main`, regardless of where you push from.
-Remember to push the notes ref too:
+When you update your report script in ai-authorship, push a new release tag
+(e.g. `v1.2.0`) and run:
 
 ```bash
-git-ai await --timeout 30
-git pull --rebase origin main
-git push origin refs/notes/ai
-git push origin main
+bash scripts/sync-consumers.sh "sync: update from ai-authorship"
 ```
 
-## Non-GitHub remotes (GitLab, self-hosted)
+This copies the updated `scripts/authorship-report.sh` and the copy-in workflow
+template into each consumer repo (game-of-life, needpc-main, etc.), commits,
+and pushes. CI then regenerates the report with the new script.
 
-The GitHub Actions workflow is GitHub-specific. For other remotes, run
-`scripts/authorship-report.sh` in your own CI pipeline (or locally) and commit the
-generated `AI-AUTHORSHIP.md` and `AI-AUTHORSHIP.json`.
+For pinned-version consumers (using `workflow/authorship-report-pinned.yml`),
+update `AUTHORSHIP_SCRIPT_VERSION` in the pinned workflow to the new tag.
 
-## Machine-readable report (AI-AUTHORSHIP.json)
+---
 
-Alongside the human-readable `AI-AUTHORSHIP.md`, `scripts/authorship-report.sh`
-writes `AI-AUTHORSHIP.json` — a structured export for tools and downstream
-automation, always in sync with the Markdown report (the workflow commits both):
+## CI/Bot Commits
 
-- `schema_version`, `generated_at` (UTC ISO-8601)
-- `summary`: `commits_analyzed`, line totals, percentages, and an `agents` map
-  (label → AI lines)
-- `commits[]`: per commit, `sha`, `date`, `subject`, line counts, `ai_pct` /
-  `human_pct`, `agents`, and `agent_ai_lines` (label → AI lines)
+The workflow commits regenerated reports as `github-actions[bot]`. These
+commits are:
 
-## Related approach: manual policy disclosure (academic publishing)
+- **Excluded** from the composition pie by default (`REPORT_SHOW_BOT_CHART=0`).
+- **Shown** in the per-commit table with `bot` in the Agent(s) column.
+- **Counted** in the summary: "Bot: N lines (X%)".
 
-[`claude-code-for-social-scientists`](https://github.com/OnourImpram/claude-code-for-social-scientists)
-attaches AI disclosure through **manual policy** rather than git notes: every
-booklet carries a YAML frontmatter block declaring `ai_contribution_level` (a
-5-level scale from `editing-only` to `full-draft`), a `human_review` state
-(`complete`/`partial`/`pending`), verified vs fabricated citation counts, and
-dated model identifiers (`model_alias` + `model_dated`). CI refuses any booklet
-on `main` whose `human_review` is `pending`.
+To include bot commits in the pie, set `REPORT_SHOW_BOT_CHART: "1"` in the
+workflow env.
 
-| Concern | Manual frontmatter (that repo) | git-ai notes (this repo) |
-| --- | --- | --- |
-| Where the data lives | YAML blocks inside each content file | `refs/notes/ai` notes, attached per commit |
-| Granularity | Per document / booklet | Per line (`git ai blame`) |
-| Model recorded | `model_alias` + `model_dated` (may be `null`) | Exact model string from the agent session, per commit |
-| Human contribution | `human_review` field (author reviewed AI output) | Line-level `human` via `git-ai checkpoint human` |
-| Enforcement | CI blocks `human_review: pending` on `main` | Report surfaces `untracked` lines, no block |
+Bot commits do not re-trigger the workflow (GITHUB_TOKEN pushes do not create
+new runs), so the system converges after one regeneration.
 
-Lessons worth borrowing: their `human_review` states distinguish "AI wrote it"
-from "AI wrote it **and a human reviewed it**" (see the future idea below). Their
-`model_dated` worry — an alias like `claude-opus-4-7` may later point at a
-different checkpoint — is already handled here: the note records the concrete
-model id the session used, so report labels don't drift.
+---
 
-## Human-review states — future idea
+## Web Edits (github.com)
 
-git-ai captures **who wrote** each line (agent, or `human` via
-`git-ai checkpoint human`), but not whether a human has **reviewed** an
-AI-authored commit. A natural extension: an optional per-commit review
-attestation (e.g. a note field or `git-ai checkpoint review`) recording
-`human_review: complete | partial | pending`, so `AI-AUTHORSHIP.json` consumers
-can filter for "reviewed AI" vs "unreviewed AI" and CI can block `pending` on
-`main` — mirroring the policy-repo's release blocker above. Not implemented
-here; offered as a spec for the upstream git-ai project.
+Edits made through the github.com web UI are not intercepted by git-ai hooks.
+They show as `untracked` in the report — the lines are there, but git-ai
+cannot retroactively attribute them.
 
-## Keeping the template in sync
+To attribute web edits, make the edit locally through an IDE with git-ai hooks
+enabled instead.
 
-The report generator ships as a **copy-in template**, not an installed package.
-A consumer repo (`game-of-life`, `yrhapp`, or anyone else's) owns its own copy
-of `scripts/authorship-report.sh` and `.github/workflows/authorship-report.yml`,
-committed at the version they installed. Nothing pushes updates to their copy —
-that's by design: it means the consumer behaves like a real install, and it's
-why this repo's demo repos stay faithful to what a user actually experiences.
+---
 
-There are **two version tracks** that update independently:
+## Pushing from Any IDE/Terminal
 
-| Track | Lives where | How it updates |
-| --- | --- | --- |
-| git-ai CLI (the engine) | installed globally + `GIT_AI_VERSION` in the workflow | user upgrades their CLI and bumps the env var |
-| report-generator script + workflow | copied into the consumer repo | re-copy on a new release, or switch to the pinned variant below |
+The attribution notes are written by git-ai hooks at commit time, regardless of
+which IDE or terminal you use. As long as git-ai hooks are installed and the
+tool (e.g. OpenCode, Cline) has `git-ai` on its PATH, commits from any
+interface are attributed correctly.
 
-A real user has three ways to pick up changes (new graphs, JSON export, etc.):
-
-1. **Re-copy on release** (default). Grab the two files from the latest
-   ai-authorship release and commit them into the repo. Full ownership of the
-   copy, zero coupling, but manual.
-2. **Fork ai-authorship + pull upstream.** Fork the repo, add it as `upstream`,
-   and `git pull upstream main` to get updates — a familiar fork-based flow.
-3. **Pinned auto-update variant.** Copy
-   `workflow/authorship-report-pinned.yml` instead of the plain template. The
-   workflow downloads the script from a pinned ai-authorship tag at run time, so
-   updating is just bumping `AUTHORSHIP_SCRIPT_VERSION` (Dependabot can even do
-   it). Trade-off: the report depends on ai-authorship at run time.
-
-**Maintainer helper:** `scripts/sync-consumers.sh` re-copies the two files into
-this repo's own demo consumers (`game-of-life`, `yrhapp`) and commits + pushes
-each — one command instead of hand-syncing. Override the targets with
-`CONSUMER_REPOS="path1 path2"`. It is idempotent (skips repos already in sync)
-and never changes how consumers are wired, so they keep simulating real installs.
+The only exception: IDEs that bypass git hooks entirely (e.g. some built-in
+terminal emulators with hooks disabled) will not record notes.
