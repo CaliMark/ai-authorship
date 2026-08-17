@@ -157,6 +157,19 @@ new runs), so the system converges after one regeneration.
 
 ---
 
+## Agent Chart Toggle
+
+The report draws three breakdown pies: "AI lines by agent" (tool × model
+combo), "AI lines by tool", and "AI lines by model". When each tool only uses
+one model, the agent chart is redundant — it shows the same data as the tool
+and model charts.
+
+To hide the agent chart, set `REPORT_SHOW_AGENT_CHART: "0"` in the workflow
+env. The agent data is always written to `AI-AUTHORSHIP.json` regardless of
+the toggle, so programmatic access is unaffected.
+
+---
+
 ## Web Edits (github.com)
 
 Edits made through the github.com web UI are not intercepted by git-ai hooks.
