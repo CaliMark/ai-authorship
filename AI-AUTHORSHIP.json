@@ -1,49 +1,77 @@
 {
   "schema_version": 4,
-  "generated_at": "2026-08-17T07:13:54.853853+00:00",
+  "generated_at": "2026-08-17T20:27:09.852679+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 5310,
-    "ai_lines": 2968,
-    "ai_pct": 55.9,
+    "total_lines": 5497,
+    "ai_lines": 3076,
+    "ai_pct": 56.0,
     "human_lines": 0,
     "human_pct": 0.0,
-    "bot_lines": 2341,
-    "bot_pct": 44.1,
-    "unknown_lines": 1,
+    "bot_lines": 2421,
+    "bot_pct": 44.0,
+    "unknown_lines": 0,
     "unknown_pct": 0.0,
-    "human_directed_ai_lines": 2968,
+    "human_directed_ai_lines": 3076,
     "human_directed_ai_pct": 100.0,
     "autonomous_ai_lines": 0,
     "direction_weight": 0.5,
-    "direction_credit_lines": 1484,
-    "human_direction_credit_lines": 1484,
+    "direction_credit_lines": 1538,
+    "human_direction_credit_lines": 1538,
     "agent_idea_ai_lines": 0,
     "agent_idea_ai_pct": 0.0,
     "idea_weight": 0.3,
     "agent_idea_credit_lines": 0,
     "co_contributed_commits": 0,
     "agents": {
-      "opencode · big-pickle": 2968
+      "opencode · big-pickle": 3076
     },
     "tools": {
-      "opencode": 2968
+      "opencode": 3076
     },
     "models": {
-      "big-pickle": 2968
+      "big-pickle": 3076
     }
   },
   "commits": [
     {
-      "sha": "8e73951",
+      "sha": "4134116",
       "date": "2026-08-17",
       "author": "CaliMark",
-      "subject": "chore: move VALUE-PROPOSITION.md to local-only (gitignored)",
-      "lines_added": 1,
+      "subject": "docs: restructure README — quick start at top, LM Studio/Ollama split",
+      "lines_added": 114,
+      "ai_additions": 114,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 114
+      },
+      "tool_ai_lines": {
+        "opencode": 114
+      },
+      "model_ai_lines": {
+        "big-pickle": 114
+      }
+    },
+    {
+      "sha": "878ccd8",
+      "date": "2026-08-17",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 132,
       "ai_additions": 0,
       "human_additions": 0,
-      "unknown_additions": 1,
+      "unknown_additions": 132,
       "ai_pct": 0,
       "human_pct": 0,
       "human_directed": false,
@@ -51,11 +79,39 @@
       "idea_source": "human",
       "co_contributed": false,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {},
       "tool_ai_lines": {},
       "model_ai_lines": {}
+    },
+    {
+      "sha": "8e73951",
+      "date": "2026-08-17",
+      "author": "CaliMark",
+      "subject": "chore: move VALUE-PROPOSITION.md to local-only (gitignored)",
+      "lines_added": 1,
+      "ai_additions": 1,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 1
+      },
+      "tool_ai_lines": {
+        "opencode": 1
+      },
+      "model_ai_lines": {
+        "big-pickle": 1
+      }
     },
     {
       "sha": "feab192",
@@ -1233,56 +1289,6 @@
       },
       "model_ai_lines": {
         "big-pickle": 35
-      }
-    },
-    {
-      "sha": "c7b38d5",
-      "date": "2026-08-16",
-      "author": "github-actions[bot]",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 52,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 52,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "human_directed": false,
-      "session_count": 0,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "bot"
-      ],
-      "agent_ai_lines": {},
-      "tool_ai_lines": {},
-      "model_ai_lines": {}
-    },
-    {
-      "sha": "3db2752",
-      "date": "2026-08-15",
-      "author": "CaliMark",
-      "subject": "docs: note game-of-life local-model (LM Studio) proof as 8th attribution source",
-      "lines_added": 7,
-      "ai_additions": 7,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "human_directed": true,
-      "session_count": 1,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "opencode · big-pickle"
-      ],
-      "agent_ai_lines": {
-        "opencode · big-pickle": 7
-      },
-      "tool_ai_lines": {
-        "opencode": 7
-      },
-      "model_ai_lines": {
-        "big-pickle": 7
       }
     }
   ]
