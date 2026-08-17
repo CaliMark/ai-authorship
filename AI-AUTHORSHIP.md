@@ -8,39 +8,40 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **4791**
-- **AI-generated:** 2976 lines (62.1%)
+- Total lines added: **4745**
+- **AI-generated:** 2930 lines (61.7%)
 - **Human:** 0 lines (0.0%)
-- **Bot:** 1815 lines (37.9%)
+- **Bot:** 1815 lines (38.3%)
 - **Untracked:** 0 lines (0.0%)
-- **Human-directed AI:** 2976 lines (100.0% of AI; direction weight 0.5)
-- **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 1488 lines; credit to agent: 0 lines
+- **Human-directed AI:** 2930 lines (100.0% of AI; direction weight 0.5)
+- **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 1465 lines; credit to agent: 0 lines
 - **Co-authored commits (human + AI lines):** 0
-- **Agents:** opencode · big-pickle (2976 lines)
+- **Agents:** opencode · big-pickle (2930 lines)
 
 ## Composition
 
 ```mermaid
 pie title Co-contribution (weighted, human direction weight W=0.5)
     "Human (direct)" : 0
-    "Human (direction)" : 1488
-    "AI" : 1488
+    "Human (direction)" : 1465
+    "AI" : 1465
+    "Bot" : 1815
     "Untracked" : 0
 ```
 
 ```mermaid
 pie title AI lines by agent
-    "opencode · big-pickle" : 2976
+    "opencode · big-pickle" : 2930
 ```
 
 ```mermaid
 pie title AI lines by tool
-    "opencode" : 2976
+    "opencode" : 2930
 ```
 
 ```mermaid
 pie title AI lines by model
-    "big-pickle" : 2976
+    "big-pickle" : 2930
 ```
 
 
@@ -74,12 +75,13 @@ pie title AI lines by model
 
 | Commit | Date | Message | Lines | AI | Human | Co | Idea | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 6d609e2 | 2026-08-16 | feat: add Human lines by contributor pie to the composition section | 63 | 100% | 0% |  |  | opencode · big-pickle |
 | 3910014 | 2026-08-17 | docs: regenerate AI authorship report | 123 | 0% | 0% |  |  | bot |
 | fbb8ab7 | 2026-08-16 | docs: add workflows.md with mixed-commit guide, update README env-var table | 155 | 100% | 0% |  |  | opencode · big-pickle |
 | 9a99560 | 2026-08-17 | docs: regenerate AI authorship report | 96 | 0% | 0% |  |  | bot |
 | cf52f15 | 2026-08-16 | feat: tool/model breakdown pies, agent-idea provenance (Idea-By trailer), JSON schema v4 | 578 | 100% | 0% |  |  | opencode · big-pickle |
 | 2ea42ab | 2026-08-16 | docs: regenerate AI authorship report | 81 | 0% | 0% |  |  | bot |
-| 8cb6742 | 2026-08-16 | feat: weighted co-contribution view â€” human-direction credit (REPORT_HUMAN_DIRECTION_WEIGHT) + co-authored commit marker; JSON schema v3 | 398 | 100% | 0% |  |  | opencode · big-pickle |
+| 8cb6742 | 2026-08-16 | feat: weighted co-contribution view — human-direction credit (REPORT_HUMAN_DIRECTION_WEIGHT) + co-authored commit marker; JSON schema v3 | 398 | 100% | 0% |  |  | opencode · big-pickle |
 | c593e3f | 2026-08-16 | docs: regenerate AI authorship report | 95 | 0% | 0% |  |  | bot |
 | 6a7b53d | 2026-08-16 | fix: copy-in workflow template now commits AI-AUTHORSHIP.json alongside the .md (mirrors ai-authorship's own workflow) | 5 | 100% | 0% |  |  | opencode · big-pickle |
 | 48265cc | 2026-08-16 | docs: regenerate AI authorship report | 95 | 0% | 0% |  |  | bot |
@@ -123,7 +125,6 @@ pie title AI lines by model
 | 5582168 | 2026-08-14 | chore: gitignore private competition reference notes | 1 | 100% | 0% |  |  | opencode · big-pickle |
 | 7877d8a | 2026-08-15 | docs: regenerate AI authorship report | 93 | 0% | 0% |  |  | bot |
 | e635355 | 2026-08-14 | docs: expand live demo note, link both public repos, fix local file:// links | 10 | 100% | 0% |  |  | opencode · big-pickle |
-| 907fb12 | 2026-08-14 | docs: move workflows reference to docs/workflows.md, link from README | 109 | 100% | 0% |  |  | opencode · big-pickle |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -131,7 +132,42 @@ pie title AI lines by model
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 3910014af4074890bb7ad80a17fccf13efe2055a (HEAD -> main, origin/main, origin/HEAD)
+commit 6d609e2f6cfbe8f78bafcb1c9071eca8c937eabe (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-16T18:56:39-07:00
+
+    feat: add Human lines by contributor pie to the composition section
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      scripts/authorship-report.sh
+        s_52d0732141ad88::t_9118070580aabc 260-266,363,445-446,469-470
+      AI-AUTHORSHIP.json
+        s_52d0732141ad88::t_8de899fa25e6cc 3,7,9,12-13,38-59,164
+      AI-AUTHORSHIP.md
+        s_52d0732141ad88::t_8de899fa25e6cc 11-12,14,46-47,70-71,77,82,134-147
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "6d609e2f6cfbe8f78bafcb1c9071eca8c937eabe",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 3910014af4074890bb7ad80a17fccf13efe2055a
 Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 Date:   2026-08-17T01:27:10Z
 
@@ -719,47 +755,6 @@ Date:   2026-08-16T10:35:44-07:00
         "schema_version": "authorship/3.0.0",
         "git_ai_version": "1.6.22",
         "base_commit_sha": "d95e7d3528c3b548fb6150a87b632f11406d0d00",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit 4d898b8f5d4849cbfc0f5b2358fa3b9ade85f5c6
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-16T10:35:27-07:00
-
-    feat: emit machine-readable AI-AUTHORSHIP.json; document manual-policy case study and human-review future idea
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      .github/workflows/authorship-report.yml
-        s_52d0732141ad88::t_8a614b9e4f7f1a 57,66-67,69,74
-      README.md
-        s_52d0732141ad88::t_d4750edac00e6b 24
-      scripts/authorship-report.sh
-        s_52d0732141ad88::t_910fb62ea9f2eb 3-5,41-42,48-51
-        s_52d0732141ad88::t_59da895dd8c99d 115-124
-        s_52d0732141ad88::t_f6f9b6e0ea7c5f 15,20
-        s_52d0732141ad88::t_9370aa8a1fe94f 208-230
-        s_52d0732141ad88::t_08981f113a9336 131,138-153
-      docs/workflows.md
-        s_52d0732141ad88::t_03ee99945e2945 105-152
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "4d898b8f5d4849cbfc0f5b2358fa3b9ade85f5c6",
         "prompts": {},
         "sessions": {
           "s_52d0732141ad88": {
