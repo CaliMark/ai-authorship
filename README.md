@@ -1,11 +1,11 @@
 # 🤖 AI Authorship
 
-> Automated AI authorship attribution and GitHub Markdown reporting powered by [git-ai](https://usegitai.com).
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/CaliMark/ai-authorship/authorship-report.yml?branch=main&label=CI%20Report)](.github/workflows/authorship-report.yml)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-blue)](#-requirements)
 [![git-ai](https://img.shields.io/badge/git--ai-v1.6%2B-brightgreen)](https://usegitai.com)
+
+> Automated AI authorship attribution and GitHub Markdown reporting powered by [git-ai](https://usegitai.com).
 
 **AI code attribution for every commit** — a `git note` records which AI agent (or human) wrote each line of code.
 
