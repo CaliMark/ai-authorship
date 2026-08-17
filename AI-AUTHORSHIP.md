@@ -8,10 +8,10 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **4722**
-- **AI-generated:** 2976 lines (63.0%)
+- Total lines added: **4791**
+- **AI-generated:** 2976 lines (62.1%)
 - **Human:** 0 lines (0.0%)
-- **Bot:** 1746 lines (37.0%)
+- **Bot:** 1815 lines (37.9%)
 - **Untracked:** 0 lines (0.0%)
 - **Human-directed AI:** 2976 lines (100.0% of AI; direction weight 0.5)
 - **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 1488 lines; credit to agent: 0 lines
@@ -25,7 +25,6 @@ pie title Co-contribution (weighted, human direction weight W=0.5)
     "Human (direct)" : 0
     "Human (direction)" : 1488
     "AI" : 1488
-    "Bot" : 1746
     "Untracked" : 0
 ```
 
@@ -43,6 +42,8 @@ pie title AI lines by tool
 pie title AI lines by model
     "big-pickle" : 2976
 ```
+
+
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -66,17 +67,19 @@ pie title AI lines by model
 > include them, or `REPORT_SHOW_DIRECTION=0` for a strict AI/Human/Untracked
 > line-count pie. The "AI lines by tool" and "AI lines by model" pies break
 > down the AI attribution by the agent tool and LLM model that produced the
-> lines.
+> lines. "Human lines by contributor" shows human-written lines broken down by
+> the commit author who recorded them (via `git-ai checkpoint human`).
 
 ## Per-commit breakdown
 
 | Commit | Date | Message | Lines | AI | Human | Co | Idea | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 3910014 | 2026-08-17 | docs: regenerate AI authorship report | 123 | 0% | 0% |  |  | bot |
 | fbb8ab7 | 2026-08-16 | docs: add workflows.md with mixed-commit guide, update README env-var table | 155 | 100% | 0% |  |  | opencode · big-pickle |
 | 9a99560 | 2026-08-17 | docs: regenerate AI authorship report | 96 | 0% | 0% |  |  | bot |
 | cf52f15 | 2026-08-16 | feat: tool/model breakdown pies, agent-idea provenance (Idea-By trailer), JSON schema v4 | 578 | 100% | 0% |  |  | opencode · big-pickle |
 | 2ea42ab | 2026-08-16 | docs: regenerate AI authorship report | 81 | 0% | 0% |  |  | bot |
-| 8cb6742 | 2026-08-16 | feat: weighted co-contribution view — human-direction credit (REPORT_HUMAN_DIRECTION_WEIGHT) + co-authored commit marker; JSON schema v3 | 398 | 100% | 0% |  |  | opencode · big-pickle |
+| 8cb6742 | 2026-08-16 | feat: weighted co-contribution view â€” human-direction credit (REPORT_HUMAN_DIRECTION_WEIGHT) + co-authored commit marker; JSON schema v3 | 398 | 100% | 0% |  |  | opencode · big-pickle |
 | c593e3f | 2026-08-16 | docs: regenerate AI authorship report | 95 | 0% | 0% |  |  | bot |
 | 6a7b53d | 2026-08-16 | fix: copy-in workflow template now commits AI-AUTHORSHIP.json alongside the .md (mirrors ai-authorship's own workflow) | 5 | 100% | 0% |  |  | opencode · big-pickle |
 | 48265cc | 2026-08-16 | docs: regenerate AI authorship report | 95 | 0% | 0% |  |  | bot |
@@ -121,7 +124,6 @@ pie title AI lines by model
 | 7877d8a | 2026-08-15 | docs: regenerate AI authorship report | 93 | 0% | 0% |  |  | bot |
 | e635355 | 2026-08-14 | docs: expand live demo note, link both public repos, fix local file:// links | 10 | 100% | 0% |  |  | opencode · big-pickle |
 | 907fb12 | 2026-08-14 | docs: move workflows reference to docs/workflows.md, link from README | 109 | 100% | 0% |  |  | opencode · big-pickle |
-| 9acc1c7 | 2026-08-15 | docs: regenerate AI authorship report | 54 | 0% | 0% |  |  | bot |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -129,7 +131,20 @@ pie title AI lines by model
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit fbb8ab702a3aa8afcc2a6f7e961f5058182cc6d5 (HEAD -> main, origin/main)
+commit 3910014af4074890bb7ad80a17fccf13efe2055a (HEAD -> main, origin/main, origin/HEAD)
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-17T01:27:10Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit fbb8ab702a3aa8afcc2a6f7e961f5058182cc6d5
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-16T18:25:22-07:00
 
@@ -757,19 +772,6 @@ Date:   2026-08-16T10:35:27-07:00
           }
         }
       }
-
-commit 90aece29970de69a053093a238fe1f499e6505ad
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-16T05:05:21Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
 
 
 ```
