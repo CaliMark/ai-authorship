@@ -1,49 +1,49 @@
 {
   "schema_version": 4,
-  "generated_at": "2026-08-17T06:50:23.382507+00:00",
+  "generated_at": "2026-08-17T06:55:24.180681+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 4991,
-    "ai_lines": 2874,
-    "ai_pct": 57.6,
+    "total_lines": 5115,
+    "ai_lines": 2881,
+    "ai_pct": 56.3,
     "human_lines": 0,
     "human_pct": 0.0,
-    "bot_lines": 2104,
-    "bot_pct": 42.2,
-    "unknown_lines": 13,
-    "unknown_pct": 0.3,
-    "human_directed_ai_lines": 2874,
+    "bot_lines": 2184,
+    "bot_pct": 42.7,
+    "unknown_lines": 50,
+    "unknown_pct": 1.0,
+    "human_directed_ai_lines": 2881,
     "human_directed_ai_pct": 100.0,
     "autonomous_ai_lines": 0,
     "direction_weight": 0.5,
-    "direction_credit_lines": 1437,
-    "human_direction_credit_lines": 1437,
+    "direction_credit_lines": 1440,
+    "human_direction_credit_lines": 1440,
     "agent_idea_ai_lines": 0,
     "agent_idea_ai_pct": 0.0,
     "idea_weight": 0.3,
     "agent_idea_credit_lines": 0,
     "co_contributed_commits": 0,
     "agents": {
-      "opencode · big-pickle": 2874
+      "opencode · big-pickle": 2881
     },
     "tools": {
-      "opencode": 2874
+      "opencode": 2881
     },
     "models": {
-      "big-pickle": 2874
+      "big-pickle": 2881
     }
   },
   "commits": [
     {
-      "sha": "a51d345",
+      "sha": "46937b5",
       "date": "2026-08-16",
       "author": "CaliMark",
-      "subject": "docs: add agent chart toggle to workflows guide",
-      "lines_added": 13,
+      "subject": "docs: add value proposition internal doc",
+      "lines_added": 50,
       "ai_additions": 0,
       "human_additions": 0,
-      "unknown_additions": 13,
+      "unknown_additions": 50,
       "ai_pct": 0,
       "human_pct": 0,
       "human_directed": false,
@@ -56,6 +56,56 @@
       "agent_ai_lines": {},
       "tool_ai_lines": {},
       "model_ai_lines": {}
+    },
+    {
+      "sha": "1f2e00b",
+      "date": "2026-08-17",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 137,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 137,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
+    },
+    {
+      "sha": "a51d345",
+      "date": "2026-08-16",
+      "author": "CaliMark",
+      "subject": "docs: add agent chart toggle to workflows guide",
+      "lines_added": 13,
+      "ai_additions": 13,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 13
+      },
+      "tool_ai_lines": {
+        "opencode": 13
+      },
+      "model_ai_lines": {
+        "big-pickle": 13
+      }
     },
     {
       "sha": "f3e7a21",
@@ -1233,56 +1283,6 @@
       },
       "model_ai_lines": {
         "big-pickle": 26
-      }
-    },
-    {
-      "sha": "37c930a",
-      "date": "2026-08-15",
-      "author": "github-actions[bot]",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 57,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 57,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "human_directed": false,
-      "session_count": 0,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "bot"
-      ],
-      "agent_ai_lines": {},
-      "tool_ai_lines": {},
-      "model_ai_lines": {}
-    },
-    {
-      "sha": "f9fd6f2",
-      "date": "2026-08-14",
-      "author": "CaliMark",
-      "subject": "docs: strengthen AI code attribution keywords in headings and intro for indexing",
-      "lines_added": 6,
-      "ai_additions": 6,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "human_directed": true,
-      "session_count": 1,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "opencode · big-pickle"
-      ],
-      "agent_ai_lines": {
-        "opencode · big-pickle": 6
-      },
-      "tool_ai_lines": {
-        "opencode": 6
-      },
-      "model_ai_lines": {
-        "big-pickle": 6
       }
     }
   ]
