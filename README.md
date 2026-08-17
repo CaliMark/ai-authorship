@@ -56,7 +56,6 @@ Works out-of-the-box with **seven AI coding agents and IDEs**:
 - 🛠️ **Cline** — via CLI PreToolUse hooks with an apply-and-restore bridge (`~/.cline/hooks/PreToolUse.ps1`).
 - 🛠️ **Devin Desktop** (Devin Local) — via project `.devin/hooks.v1.json` hooks calling the `bridge/devin/HookBridge.ps1` adapter.
 - 🖥️ **Local models via OpenCode** (LM Studio) — [see setup guide](docs/lm-studio.md) (verified).
-- 🖥️ **Local models via OpenCode** (Ollama) — [see setup notes](#-ollama-untested) (untested).
 
 A GitHub Actions workflow automatically reads the attribution notes and generates a live [`AI-AUTHORSHIP.md`](https://github.com/CaliMark/ai-authorship/blob/main/AI-AUTHORSHIP.md) report — plus a machine-readable [`AI-AUTHORSHIP.json`](https://github.com/CaliMark/ai-authorship/blob/main/AI-AUTHORSHIP.json) twin — on every push to `main`.
 
@@ -76,8 +75,8 @@ A GitHub Actions workflow automatically reads the attribution notes and generate
 - [Requirements](#-requirements)
 - [Agent Support](#-agent-support)
   - [Local models through LM Studio](docs/lm-studio.md)
-  - [Ollama](#-ollama-untested)
 - [Currently Testing](#-currently-testing)
+  - [Future Testing](#-future-testing)
 - [Full Install Details](#-full-install-details)
   - [1. Install git-ai](#1-install-git-ai)
   - [2. Native Agents (OpenCode · VS Code Copilot Chat · Cursor)](#2-native-agents-setup-opencode--vs-code-copilot-chat--cursor)
@@ -137,7 +136,6 @@ See [Agent Support](#-agent-support) below for per-agent versions and setup.
 | **Cline CLI** | CLI hooks bridge (`~/.cline/hooks/PreToolUse.ps1`) | Copy from `bridge/cline/` (see §3) |
 | **Devin Desktop** (Devin Local) | Project hooks + bridge (`bridge/devin/HookBridge.ps1`) | Copy from `bridge/devin/` (see §4) |
 | **Local models via LM Studio** | OpenAI-compatible server; point OpenCode at it | [See docs/lm-studio.md](docs/lm-studio.md) — verified |
-| **Local models via Ollama** | OpenAI-compatible server; point OpenCode at it | Same approach as LM Studio — untested |
 
 > [!NOTE]
 > The OpenCode, Antigravity IDE, VS Code / Copilot Chat, Cursor, Cline, Devin,
@@ -153,13 +151,6 @@ See [Agent Support](#-agent-support) below for per-agent versions and setup.
 Full setup guide: [docs/lm-studio.md](docs/lm-studio.md) — hardware requirements, model recommendations, config, and gotchas.
 
 Verified live: commit `7b79bd1` in [game-of-life](https://github.com/CaliMark/game-of-life) was written offline by `qwen2.5-7b-instruct` through LM Studio and shows as `opencode · qwen2.5-7b-instruct` (100% AI).
-
-### 🤖 Ollama (self-hosted, no cloud) — untested
-
-Ollama exposes the same OpenAI-compatible server as LM Studio, so the same
-OpenCode config approach works — just point at Ollama's endpoint instead. We
-haven't verified this live yet; if you try it, open an issue or PR and we'll
-add it to the live examples.
 
 ### 📦 git-ai checkpoint presets (not tested here yet)
 
@@ -185,6 +176,10 @@ don't offer a free tier to test with:
 We validate new setups live and report the honest, in-progress status — no
 overclaiming. Nothing is in testing right now; anything validated here moves up
 to [Agent Support](#-agent-support).
+
+### 🔜 Future Testing
+
+- **Local models via Ollama** — same OpenAI-compatible server approach as LM Studio; just point at Ollama's endpoint instead. Not verified live yet.
 
 > **Suggest a model, workflow, or tool** — open an issue or PR and we'll wire
 > up a bridge and add it to the live examples.
