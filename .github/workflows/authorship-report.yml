@@ -35,6 +35,11 @@ env:
   # for the strict AI/Human/Untracked line-count pie.
   REPORT_SHOW_DIRECTION: "1"
   REPORT_HUMAN_DIRECTION_WEIGHT: "0.5"
+  # Idea-origin weighting: withhold a share of the direction credit for
+  # agent-idea commits (tagged Idea-By: agent in the commit body).
+  REPORT_IDEA_WEIGHT: "0.3"
+  # Per-tool and per-model breakdown pies alongside the combined agent pie.
+  REPORT_SHOW_BREAKDOWN: "1"
 
 jobs:
   generate:

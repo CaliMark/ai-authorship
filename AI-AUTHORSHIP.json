@@ -1,16 +1,16 @@
 {
-  "schema_version": 3,
-  "generated_at": "2026-08-16T20:46:27.046383+00:00",
+  "schema_version": 4,
+  "generated_at": "2026-08-17T01:10:02.109312+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 4009,
+    "total_lines": 4020,
     "ai_lines": 2311,
-    "ai_pct": 57.6,
+    "ai_pct": 57.5,
     "human_lines": 0,
     "human_pct": 0.0,
-    "bot_lines": 1698,
-    "bot_pct": 42.4,
+    "bot_lines": 1709,
+    "bot_pct": 42.5,
     "unknown_lines": 0,
     "unknown_pct": 0.0,
     "human_directed_ai_lines": 2311,
@@ -18,17 +18,50 @@
     "autonomous_ai_lines": 0,
     "direction_weight": 0.5,
     "direction_credit_lines": 1156,
+    "human_direction_credit_lines": 1156,
+    "agent_idea_ai_lines": 0,
+    "agent_idea_ai_pct": 0.0,
+    "idea_weight": 0.3,
+    "agent_idea_credit_lines": 0,
     "co_contributed_commits": 0,
     "agents": {
       "opencode · big-pickle": 2311
+    },
+    "tools": {
+      "opencode": 2311
+    },
+    "models": {
+      "big-pickle": 2311
     }
   },
   "commits": [
     {
+      "sha": "2ea42ab",
+      "date": "2026-08-16",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 81,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 81,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
+    },
+    {
       "sha": "8cb6742",
       "date": "2026-08-16",
       "author": "CaliMark",
-      "subject": "feat: weighted co-contribution view — human-direction credit (REPORT_HUMAN_DIRECTION_WEIGHT) + co-authored commit marker; JSON schema v3",
+      "subject": "feat: weighted co-contribution view â€” human-direction credit (REPORT_HUMAN_DIRECTION_WEIGHT) + co-authored commit marker; JSON schema v3",
       "lines_added": 398,
       "ai_additions": 398,
       "human_additions": 0,
@@ -37,12 +70,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 398
+      },
+      "tool_ai_lines": {
+        "opencode": 398
+      },
+      "model_ai_lines": {
+        "big-pickle": 398
       }
     },
     {
@@ -58,11 +98,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "6a7b53d",
@@ -77,12 +120,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 5
+      },
+      "tool_ai_lines": {
+        "opencode": 5
+      },
+      "model_ai_lines": {
+        "big-pickle": 5
       }
     },
     {
@@ -98,11 +148,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "6f78064",
@@ -117,12 +170,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 4
+      },
+      "tool_ai_lines": {
+        "opencode": 4
+      },
+      "model_ai_lines": {
+        "big-pickle": 4
       }
     },
     {
@@ -138,11 +198,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "9548fe3",
@@ -157,12 +220,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 2,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 88
+      },
+      "tool_ai_lines": {
+        "opencode": 88
+      },
+      "model_ai_lines": {
+        "big-pickle": 88
       }
     },
     {
@@ -178,11 +248,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "1436e0e",
@@ -197,12 +270,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 180
+      },
+      "tool_ai_lines": {
+        "opencode": 180
+      },
+      "model_ai_lines": {
+        "big-pickle": 180
       }
     },
     {
@@ -218,11 +298,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "c8a71b4",
@@ -237,12 +320,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 29
+      },
+      "tool_ai_lines": {
+        "opencode": 29
+      },
+      "model_ai_lines": {
+        "big-pickle": 29
       }
     },
     {
@@ -258,11 +348,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "36f699a",
@@ -277,12 +370,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 213
+      },
+      "tool_ai_lines": {
+        "opencode": 213
+      },
+      "model_ai_lines": {
+        "big-pickle": 213
       }
     },
     {
@@ -298,11 +398,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "9c8954c",
@@ -317,12 +420,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 59
+      },
+      "tool_ai_lines": {
+        "opencode": 59
+      },
+      "model_ai_lines": {
+        "big-pickle": 59
       }
     },
     {
@@ -338,11 +448,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "4fd1f6d",
@@ -357,12 +470,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 58
+      },
+      "tool_ai_lines": {
+        "opencode": 58
+      },
+      "model_ai_lines": {
+        "big-pickle": 58
       }
     },
     {
@@ -378,11 +498,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "d95e7d3",
@@ -397,12 +520,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 823
+      },
+      "tool_ai_lines": {
+        "opencode": 823
+      },
+      "model_ai_lines": {
+        "big-pickle": 823
       }
     },
     {
@@ -418,12 +548,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 115
+      },
+      "tool_ai_lines": {
+        "opencode": 115
+      },
+      "model_ai_lines": {
+        "big-pickle": 115
       }
     },
     {
@@ -439,11 +576,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "6bb37ac",
@@ -458,12 +598,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 2
+      },
+      "tool_ai_lines": {
+        "opencode": 2
+      },
+      "model_ai_lines": {
+        "big-pickle": 2
       }
     },
     {
@@ -479,11 +626,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "6cdd963",
@@ -498,12 +648,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 35
+      },
+      "tool_ai_lines": {
+        "opencode": 35
+      },
+      "model_ai_lines": {
+        "big-pickle": 35
       }
     },
     {
@@ -519,11 +676,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "3db2752",
@@ -538,12 +698,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 7
+      },
+      "tool_ai_lines": {
+        "opencode": 7
+      },
+      "model_ai_lines": {
+        "big-pickle": 7
       }
     },
     {
@@ -559,11 +726,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "2f5d298",
@@ -578,12 +748,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 17
+      },
+      "tool_ai_lines": {
+        "opencode": 17
+      },
+      "model_ai_lines": {
+        "big-pickle": 17
       }
     },
     {
@@ -599,11 +776,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "4a6e461",
@@ -618,12 +798,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 26
+      },
+      "tool_ai_lines": {
+        "opencode": 26
+      },
+      "model_ai_lines": {
+        "big-pickle": 26
       }
     },
     {
@@ -639,11 +826,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "f9fd6f2",
@@ -658,12 +848,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 6
+      },
+      "tool_ai_lines": {
+        "opencode": 6
+      },
+      "model_ai_lines": {
+        "big-pickle": 6
       }
     },
     {
@@ -679,11 +876,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "a211e22",
@@ -698,12 +898,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 26
+      },
+      "tool_ai_lines": {
+        "opencode": 26
+      },
+      "model_ai_lines": {
+        "big-pickle": 26
       }
     },
     {
@@ -719,11 +926,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "487cb82",
@@ -738,12 +948,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 1
+      },
+      "tool_ai_lines": {
+        "opencode": 1
+      },
+      "model_ai_lines": {
+        "big-pickle": 1
       }
     },
     {
@@ -759,11 +976,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "9c03147",
@@ -778,12 +998,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 20
+      },
+      "tool_ai_lines": {
+        "opencode": 20
+      },
+      "model_ai_lines": {
+        "big-pickle": 20
       }
     },
     {
@@ -799,11 +1026,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "118047e",
@@ -818,12 +1048,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 11
+      },
+      "tool_ai_lines": {
+        "opencode": 11
+      },
+      "model_ai_lines": {
+        "big-pickle": 11
       }
     },
     {
@@ -839,11 +1076,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "5582168",
@@ -858,12 +1098,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 1
+      },
+      "tool_ai_lines": {
+        "opencode": 1
+      },
+      "model_ai_lines": {
+        "big-pickle": 1
       }
     },
     {
@@ -879,11 +1126,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "e635355",
@@ -898,12 +1148,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 10
+      },
+      "tool_ai_lines": {
+        "opencode": 10
+      },
+      "model_ai_lines": {
+        "big-pickle": 10
       }
     },
     {
@@ -919,12 +1176,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 109
+      },
+      "tool_ai_lines": {
+        "opencode": 109
+      },
+      "model_ai_lines": {
+        "big-pickle": 109
       }
     },
     {
@@ -940,11 +1204,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "ba7e6bd",
@@ -959,12 +1226,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 17
+      },
+      "tool_ai_lines": {
+        "opencode": 17
+      },
+      "model_ai_lines": {
+        "big-pickle": 17
       }
     },
     {
@@ -980,11 +1254,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "7fdaec7",
@@ -999,32 +1276,20 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 51
+      },
+      "tool_ai_lines": {
+        "opencode": 51
+      },
+      "model_ai_lines": {
+        "big-pickle": 51
       }
-    },
-    {
-      "sha": "2a38a48",
-      "date": "2026-08-14",
-      "author": "github-actions[bot]",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 70,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 70,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "human_directed": false,
-      "session_count": 0,
-      "co_contributed": false,
-      "agents": [
-        "bot"
-      ],
-      "agent_ai_lines": {}
     }
   ]
 }
