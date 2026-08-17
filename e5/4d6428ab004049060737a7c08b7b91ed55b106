@@ -1,0 +1,26 @@
+docs/lm-studio.md
+  s_52d0732141ad88::t_30c3e49b437b80 1-56
+README.md
+  s_52d0732141ad88::t_f784aa49132afa 152,154,156-161
+  s_52d0732141ad88::t_cf645081ad5887 138-139
+  s_52d0732141ad88::t_9ccd563fed1495 15-50,153,155
+  s_52d0732141ad88::t_f4d57b024e620d 72-73,76-80,89
+  s_52d0732141ad88::t_8fddf9b56cd38f 52
+  s_52d0732141ad88::t_453493fa247129 193
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "e54d6428ab004049060737a7c08b7b91ed55b106",
+  "prompts": {},
+  "sessions": {
+    "s_52d0732141ad88": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+        "model": "big-pickle"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
