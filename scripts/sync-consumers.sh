@@ -35,6 +35,7 @@ WORKFLOW_SRC="$SRC_REPO/workflow/authorship-report.yml"
 DEFAULT_CONSUMERS=(
   "C:/Users/calim/Coding Projects/game-of-life"
   "C:/Users/calim/Coding Projects/needpc-main"
+  "C:/Users/calim/Mahjong_Testing"
 )
 
 COMMIT_MSG="${1:-sync: update authorship report script + workflow from ai-authorship}"
