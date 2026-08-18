@@ -8,49 +8,32 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **4211**
-- **AI-generated:** 1186 lines (28.2%)
+- Total lines added: **3727**
+- **AI-generated:** 636 lines (17.1%)
 - **Human:** 0 lines (0.0% of project)
-- **Bot:** 3025 lines (71.8%) — excluded from pie
+- **Bot:** 3091 lines (82.9%) — excluded from pie
 - **Untracked:** 0 lines (0.0%)
-- **Human-directed AI:** 1186 lines (weighted credit: 593 lines at W=0.5, 50.0% of project)
-- **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 593 lines; credit to agent: 0 lines
+- **Human-directed AI:** 636 lines (weighted credit: 318 lines at W=0.5, 50.0% of project)
+- **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 318 lines; credit to agent: 0 lines
 - **Co-authored commits (human + AI lines):** 0
-- **Agents:** opencode · big-pickle (1186 lines)
+- **Agents:** opencode · big-pickle (636 lines)
 
 ## Composition
 
 ```mermaid
 pie title Co-contribution (weighted, human direction weight W=0.5)
     "Human (direct)" : 0
-    "Human (direction)" : 593
-    "AI" : 593
+    "Human (direction)" : 318
+    "AI" : 318
     "Untracked" : 0
 ```
 
-```mermaid
-pie title AI lines by agent
-    "opencode · big-pickle" : 1186
-```
-
-```mermaid
-pie title AI lines by tool
-    "opencode" : 1186
-```
-
-```mermaid
-pie title AI lines by model
-    "big-pickle" : 1186
-```
-
-
-
 <details>
-<summary>Show strict AI/Human/Untracked chart (no direction credit)</summary>
+<summary>Show Strict AI/Human/Untracked chart</summary>
 
 ```mermaid
 pie title Lines by author (AI vs Human vs Untracked)
-    "AI" : 1186
+    "AI" : 636
     "Human" : 0
     "Untracked" : 0
 ```
@@ -58,31 +41,48 @@ pie title Lines by author (AI vs Human vs Untracked)
 </details>
 
 <details>
-<summary>Show chart with bot commits included</summary>
+<summary>Show Weighted with bot commits chart</summary>
 
 ```mermaid
 pie title Co-contribution with bot (weighted, W=0.5)
     "Human (direct)" : 0
-    "Human (direction)" : 593
-    "AI" : 593
-    "Bot" : 3025
+    "Human (direction)" : 318
+    "AI" : 318
+    "Bot" : 3091
     "Untracked" : 0
 ```
 
 </details>
 
 <details>
-<summary>Show AI vs Human vs Bot (non-weighted)</summary>
+<summary>Show AI vs Human vs Bot (non-weighted) chart</summary>
 
 ```mermaid
 pie title Lines by author (AI vs Human vs Bot vs Untracked)
-    "AI" : 1186
+    "AI" : 636
     "Human" : 0
-    "Bot" : 3025
+    "Bot" : 3091
     "Untracked" : 0
 ```
 
 </details>
+
+```mermaid
+pie title AI lines by agent
+    "opencode · big-pickle" : 636
+```
+
+```mermaid
+pie title AI lines by tool
+    "opencode" : 636
+```
+
+```mermaid
+pie title AI lines by model
+    "big-pickle" : 636
+```
+
+
 
 <details>
 <summary>Legend — Human, AI, direction credit, and table markers</summary>
@@ -125,6 +125,8 @@ pie title Lines by author (AI vs Human vs Bot vs Untracked)
 
 | Commit | Date | Message | Lines | AI | Human | Co | Idea | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| dce3cde | 2026-08-17 | feat: REPORT_DEFAULT_CHART flag to choose which chart is expanded | 28 | 100% | 0% |  |  | opencode · big-pickle |
+| da153cf | 2026-08-18 | docs: regenerate AI authorship report | 147 | 0% | 0% |  |  | bot |
 | 3007fe1 | 2026-08-17 | feat: add non-weighted with bot chart to collapsible options | 17 | 100% | 0% |  |  | opencode · big-pickle |
 | 9077c30 | 2026-08-18 | docs: regenerate AI authorship report | 147 | 0% | 0% |  |  | bot |
 | db05a6b | 2026-08-17 | feat: collapsible alternative charts (strict + bot-included) | 49 | 100% | 0% |  |  | opencode · big-pickle |
@@ -173,8 +175,6 @@ pie title Lines by author (AI vs Human vs Bot vs Untracked)
 | 3910014 | 2026-08-17 | docs: regenerate AI authorship report | 123 | 0% | 0% |  |  | bot |
 | fbb8ab7 | 2026-08-16 | docs: add workflows.md with mixed-commit guide, update README env-var table | 155 | 100% | 0% |  |  | opencode · big-pickle |
 | 9a99560 | 2026-08-17 | docs: regenerate AI authorship report | 96 | 0% | 0% |  |  | bot |
-| cf52f15 | 2026-08-16 | feat: tool/model breakdown pies, agent-idea provenance (Idea-By trailer), JSON schema v4 | 578 | 100% | 0% |  |  | opencode · big-pickle |
-| 2ea42ab | 2026-08-16 | docs: regenerate AI authorship report | 81 | 0% | 0% |  |  | bot |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -182,7 +182,57 @@ pie title Lines by author (AI vs Human vs Bot vs Untracked)
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 3007fe1c027e1c5dc20708a2b387583bfbb4811c (HEAD -> main, origin/main)
+commit dce3cde13e2a5fb245b588fa0112ab73af4b88ee (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-17T20:10:03-07:00
+
+    feat: REPORT_DEFAULT_CHART flag to choose which chart is expanded
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      scripts/authorship-report.sh
+        s_52d0732141ad88::t_70f6f84bf4d21c 509
+        s_52d0732141ad88::t_b8af4831269dc0 102-108
+        s_52d0732141ad88::t_7e6dbae47b4c2f 471-486
+      workflow/authorship-report.yml
+        s_52d0732141ad88::t_160faa6297e071 46-48
+      README.md
+        s_52d0732141ad88::t_72c5cee8b3ee60 454
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "dce3cde13e2a5fb245b588fa0112ab73af4b88ee",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit da153cf696c3dff81bd84ff77c96a4bd59d7462e
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-18T02:18:15Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 3007fe1c027e1c5dc20708a2b387583bfbb4811c
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-17T19:17:44-07:00
 
@@ -696,57 +746,6 @@ Date:   2026-08-17T13:31:57-07:00
         "schema_version": "authorship/3.0.0",
         "git_ai_version": "1.6.22",
         "base_commit_sha": "531b635c274dd529509b607fd19b90133805bdf2",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit c5c90fa200eafab28dec67067d81fa05099f59dd
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-17T20:27:09Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit 4134116caed374388549d906422f16a0393f2fda
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-17T13:26:33-07:00
-
-    docs: restructure README — quick start at top, LM Studio/Ollama split
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      docs/lm-studio.md
-        s_52d0732141ad88::t_30c3e49b437b80 1-56
-      README.md
-        s_52d0732141ad88::t_f784aa49132afa 152,154,156-161
-        s_52d0732141ad88::t_cf645081ad5887 138-139
-        s_52d0732141ad88::t_9ccd563fed1495 15-50,153,155
-        s_52d0732141ad88::t_f4d57b024e620d 72-73,76-80,89
-        s_52d0732141ad88::t_8fddf9b56cd38f 52
-        s_52d0732141ad88::t_453493fa247129 193
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "4134116caed374388549d906422f16a0393f2fda",
         "prompts": {},
         "sessions": {
           "s_52d0732141ad88": {
