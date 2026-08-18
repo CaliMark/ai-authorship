@@ -451,6 +451,7 @@ git push origin main
 | `REPORT_SHOW_BOT_CHART` | Workflow env | `1` = include bot commits in composition pie (default `0`) |
 | `REPORT_SHOW_BREAKDOWN` | Workflow env | `1` = show per-tool and per-model breakdown pies (default `1`) |
 | `REPORT_SHOW_AGENT_CHART` | Workflow env | `1` = show AI lines by agent (tool × model) pie (default `1`) |
+| `REPORT_DEFAULT_CHART` | Workflow env | Which chart is expanded at top: `weighted` (default), `strict`, `bot`, `strict_bot` |
 | Commit Limits | [`scripts/authorship-report.sh`](https://github.com/CaliMark/ai-authorship/blob/main/scripts/authorship-report.sh) | Custom depth limits (e.g. `bash scripts/authorship-report.sh 50 25`) |
 
 ---
