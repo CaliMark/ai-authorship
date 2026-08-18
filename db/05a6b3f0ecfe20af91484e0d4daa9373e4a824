@@ -1,0 +1,20 @@
+scripts/authorship-report.sh
+  s_52d0732141ad88::t_da5f575fd7dd5c 419-453
+  s_52d0732141ad88::t_2bec1d6b49ed37 486-499
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "db05a6b3f0ecfe20af91484e0d4daa9373e4a824",
+  "prompts": {},
+  "sessions": {
+    "s_52d0732141ad88": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+        "model": "big-pickle"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
