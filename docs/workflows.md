@@ -170,6 +170,27 @@ the toggle, so programmatic access is unaffected.
 
 ---
 
+## Collapsible Charts
+
+The report shows one composition chart expanded at the top, with all other
+charts collapsed under it. Click any collapsed section to expand and view
+that chart.
+
+Set `REPORT_DEFAULT_CHART` in the workflow env to control which chart is
+shown at the top:
+
+| Value | Top chart |
+|---|---|
+| `weighted` (default) | Co-contribution (weighted, direction credit) |
+| `strict` | AI vs Human vs Untracked (no direction credit) |
+| `bot` | Weighted with bot commits included |
+| `strict_bot` | AI vs Human vs Bot vs Untracked (non-weighted) |
+
+The breakdown pies (agent, tool, model, human) are also collapsed and can
+be toggled via `REPORT_SHOW_AGENT_CHART` and `REPORT_SHOW_BREAKDOWN`.
+
+---
+
 ## Web Edits (github.com)
 
 Edits made through the github.com web UI are not intercepted by git-ai hooks.
