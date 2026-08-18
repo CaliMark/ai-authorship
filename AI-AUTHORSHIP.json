@@ -1,40 +1,90 @@
 {
   "schema_version": 4,
-  "generated_at": "2026-08-17T21:41:57.483435+00:00",
+  "generated_at": "2026-08-18T02:08:25.849984+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 4475,
-    "ai_lines": 1523,
-    "ai_pct": 34.0,
+    "total_lines": 4540,
+    "ai_lines": 1567,
+    "ai_pct": 34.5,
     "human_lines": 0,
     "human_pct": 0.0,
-    "bot_lines": 2952,
-    "bot_pct": 66.0,
+    "bot_lines": 2973,
+    "bot_pct": 65.5,
     "unknown_lines": 0,
     "unknown_pct": 0.0,
-    "human_directed_ai_lines": 1523,
+    "human_directed_ai_lines": 1567,
     "human_directed_ai_pct": 100.0,
     "autonomous_ai_lines": 0,
     "direction_weight": 0.5,
-    "direction_credit_lines": 762,
-    "human_direction_credit_lines": 762,
+    "direction_credit_lines": 784,
+    "human_direction_credit_lines": 784,
     "agent_idea_ai_lines": 0,
     "agent_idea_ai_pct": 0.0,
     "idea_weight": 0.3,
     "agent_idea_credit_lines": 0,
     "co_contributed_commits": 0,
     "agents": {
-      "opencode · big-pickle": 1523
+      "opencode · big-pickle": 1567
     },
     "tools": {
-      "opencode": 1523
+      "opencode": 1567
     },
     "models": {
-      "big-pickle": 1523
+      "big-pickle": 1567
     }
   },
   "commits": [
+    {
+      "sha": "db05a6b",
+      "date": "2026-08-17",
+      "author": "CaliMark",
+      "subject": "feat: collapsible alternative charts (strict + bot-included)",
+      "lines_added": 49,
+      "ai_additions": 49,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 49
+      },
+      "tool_ai_lines": {
+        "opencode": 49
+      },
+      "model_ai_lines": {
+        "big-pickle": 49
+      }
+    },
+    {
+      "sha": "6c835be",
+      "date": "2026-08-17",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 116,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 116,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
+    },
     {
       "sha": "7275fa0",
       "date": "2026-08-17",
@@ -1215,56 +1265,6 @@
     },
     {
       "sha": "c593e3f",
-      "date": "2026-08-16",
-      "author": "github-actions[bot]",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 95,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 95,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "human_directed": false,
-      "session_count": 0,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "bot"
-      ],
-      "agent_ai_lines": {},
-      "tool_ai_lines": {},
-      "model_ai_lines": {}
-    },
-    {
-      "sha": "6a7b53d",
-      "date": "2026-08-16",
-      "author": "CaliMark",
-      "subject": "fix: copy-in workflow template now commits AI-AUTHORSHIP.json alongside the .md (mirrors ai-authorship's own workflow)",
-      "lines_added": 5,
-      "ai_additions": 5,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "human_directed": true,
-      "session_count": 1,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "opencode · big-pickle"
-      ],
-      "agent_ai_lines": {
-        "opencode · big-pickle": 5
-      },
-      "tool_ai_lines": {
-        "opencode": 5
-      },
-      "model_ai_lines": {
-        "big-pickle": 5
-      }
-    },
-    {
-      "sha": "48265cc",
       "date": "2026-08-16",
       "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",

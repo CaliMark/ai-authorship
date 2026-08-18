@@ -8,42 +8,68 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **4475**
-- **AI-generated:** 1523 lines (34.0%)
+- Total lines added: **4540**
+- **AI-generated:** 1567 lines (34.5%)
 - **Human:** 0 lines (0.0% of project)
-- **Bot:** 2952 lines (66.0%) — excluded from pie
+- **Bot:** 2973 lines (65.5%) — excluded from pie
 - **Untracked:** 0 lines (0.0%)
-- **Human-directed AI:** 1523 lines (weighted credit: 762 lines at W=0.5, 50.0% of project)
-- **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 762 lines; credit to agent: 0 lines
+- **Human-directed AI:** 1567 lines (weighted credit: 784 lines at W=0.5, 50.0% of project)
+- **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 784 lines; credit to agent: 0 lines
 - **Co-authored commits (human + AI lines):** 0
-- **Agents:** opencode · big-pickle (1523 lines)
+- **Agents:** opencode · big-pickle (1567 lines)
 
 ## Composition
 
 ```mermaid
 pie title Co-contribution (weighted, human direction weight W=0.5)
     "Human (direct)" : 0
-    "Human (direction)" : 762
-    "AI" : 761
+    "Human (direction)" : 784
+    "AI" : 783
     "Untracked" : 0
 ```
 
 ```mermaid
 pie title AI lines by agent
-    "opencode · big-pickle" : 1523
+    "opencode · big-pickle" : 1567
 ```
 
 ```mermaid
 pie title AI lines by tool
-    "opencode" : 1523
+    "opencode" : 1567
 ```
 
 ```mermaid
 pie title AI lines by model
-    "big-pickle" : 1523
+    "big-pickle" : 1567
 ```
 
 
+
+<details>
+<summary>Show strict AI/Human/Untracked chart (no direction credit)</summary>
+
+```mermaid
+pie title Lines by author (AI vs Human vs Untracked)
+    "AI" : 1567
+    "Human" : 0
+    "Untracked" : 0
+```
+
+</details>
+
+<details>
+<summary>Show chart with bot commits included</summary>
+
+```mermaid
+pie title Co-contribution with bot (weighted, W=0.5)
+    "Human (direct)" : 0
+    "Human (direction)" : 784
+    "AI" : 783
+    "Bot" : 2973
+    "Untracked" : 0
+```
+
+</details>
 
 <details>
 <summary>Legend — Human, AI, direction credit, and table markers</summary>
@@ -86,6 +112,8 @@ pie title AI lines by model
 
 | Commit | Date | Message | Lines | AI | Human | Co | Idea | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| db05a6b | 2026-08-17 | feat: collapsible alternative charts (strict + bot-included) | 49 | 100% | 0% |  |  | opencode · big-pickle |
+| 6c835be | 2026-08-17 | docs: regenerate AI authorship report | 116 | 0% | 0% |  |  | bot |
 | 7275fa0 | 2026-08-17 | feat: note 'not shown in strict pie' when direction is off | 2 | 100% | 0% |  |  | opencode · big-pickle |
 | 2c4ee3b | 2026-08-17 | docs: regenerate AI authorship report | 120 | 0% | 0% |  |  | bot |
 | 86120c0 | 2026-08-17 | feat: note 'excluded from pie' on bot line when hidden | 1 | 100% | 0% |  |  | opencode · big-pickle |
@@ -134,8 +162,6 @@ pie title AI lines by model
 | 2ea42ab | 2026-08-16 | docs: regenerate AI authorship report | 81 | 0% | 0% |  |  | bot |
 | 8cb6742 | 2026-08-16 | feat: weighted co-contribution view — human-direction credit (REPORT_HUMAN_DIRECTION_WEIGHT) + co-authored commit marker; JSON schema v3 | 398 | 100% | 0% |  |  | opencode · big-pickle |
 | c593e3f | 2026-08-16 | docs: regenerate AI authorship report | 95 | 0% | 0% |  |  | bot |
-| 6a7b53d | 2026-08-16 | fix: copy-in workflow template now commits AI-AUTHORSHIP.json alongside the .md (mirrors ai-authorship's own workflow) | 5 | 100% | 0% |  |  | opencode · big-pickle |
-| 48265cc | 2026-08-16 | docs: regenerate AI authorship report | 95 | 0% | 0% |  |  | bot |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -143,7 +169,52 @@ pie title AI lines by model
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 7275fa05fbb6953458df5b4b655668b3fa80eab3 (HEAD -> main, origin/main)
+commit db05a6b3f0ecfe20af91484e0d4daa9373e4a824 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-17T19:07:52-07:00
+
+    feat: collapsible alternative charts (strict + bot-included)
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      scripts/authorship-report.sh
+        s_52d0732141ad88::t_da5f575fd7dd5c 419-453
+        s_52d0732141ad88::t_2bec1d6b49ed37 486-499
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "db05a6b3f0ecfe20af91484e0d4daa9373e4a824",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 6c835be7ee360f15d924c5cec1eb233caa3e0327
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-17T21:41:57Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 7275fa05fbb6953458df5b4b655668b3fa80eab3
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-17T14:41:29-07:00
 
@@ -653,50 +724,6 @@ Date:   2026-08-17T00:12:34-07:00
         "schema_version": "authorship/3.0.0",
         "git_ai_version": "1.6.22",
         "base_commit_sha": "8e739517160a426e92d9417e75ca6d91fbcbebd0",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit feab1920eccae1aefb83833f9993cc221b7d73d7
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-17T07:09:24Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit 6582e483b1f2f33cadaeabd70ac74411cb422781
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-17T00:08:11-07:00
-
-    docs: merge research + competition insights into value proposition
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      docs/VALUE-PROPOSITION.md
-        s_52d0732141ad88::t_89d4fbb11d2d4a 44-121,129-130
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "6582e483b1f2f33cadaeabd70ac74411cb422781",
         "prompts": {},
         "sessions": {
           "s_52d0732141ad88": {
