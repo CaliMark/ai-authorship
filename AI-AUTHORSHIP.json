@@ -1,49 +1,77 @@
 {
   "schema_version": 4,
-  "generated_at": "2026-08-18T04:20:02.439911+00:00",
+  "generated_at": "2026-08-18T04:30:36.535399+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 3643,
-    "ai_lines": 481,
-    "ai_pct": 13.2,
+    "total_lines": 3604,
+    "ai_lines": 457,
+    "ai_pct": 12.7,
     "human_lines": 0,
     "human_pct": 0.0,
-    "bot_lines": 3144,
-    "bot_pct": 86.3,
-    "unknown_lines": 18,
-    "unknown_pct": 0.5,
-    "human_directed_ai_lines": 481,
+    "bot_lines": 3147,
+    "bot_pct": 87.3,
+    "unknown_lines": 0,
+    "unknown_pct": 0.0,
+    "human_directed_ai_lines": 457,
     "human_directed_ai_pct": 100.0,
     "autonomous_ai_lines": 0,
     "direction_weight": 0.5,
-    "direction_credit_lines": 240,
-    "human_direction_credit_lines": 240,
+    "direction_credit_lines": 228,
+    "human_direction_credit_lines": 228,
     "agent_idea_ai_lines": 0,
     "agent_idea_ai_pct": 0.0,
     "idea_weight": 0.3,
     "agent_idea_credit_lines": 0,
     "co_contributed_commits": 0,
     "agents": {
-      "opencode · big-pickle": 481
+      "opencode · big-pickle": 457
     },
     "tools": {
-      "opencode": 481
+      "opencode": 457
     },
     "models": {
-      "big-pickle": 481
+      "big-pickle": 457
     }
   },
   "commits": [
     {
-      "sha": "2df016c",
+      "sha": "87bb706",
       "date": "2026-08-17",
       "author": "CaliMark",
-      "subject": "feat: collapse all charts except top, add per-chart visibility",
-      "lines_added": 18,
+      "subject": "docs: add collapsible charts + REPORT_DEFAULT_CHART to workflows guide",
+      "lines_added": 21,
+      "ai_additions": 21,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 21
+      },
+      "tool_ai_lines": {
+        "opencode": 21
+      },
+      "model_ai_lines": {
+        "big-pickle": 21
+      }
+    },
+    {
+      "sha": "39fabd8",
+      "date": "2026-08-18",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 126,
       "ai_additions": 0,
       "human_additions": 0,
-      "unknown_additions": 18,
+      "unknown_additions": 126,
       "ai_pct": 0,
       "human_pct": 0,
       "human_directed": false,
@@ -51,11 +79,39 @@
       "idea_source": "human",
       "co_contributed": false,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {},
       "tool_ai_lines": {},
       "model_ai_lines": {}
+    },
+    {
+      "sha": "2df016c",
+      "date": "2026-08-17",
+      "author": "CaliMark",
+      "subject": "feat: collapse all charts except top, add per-chart visibility",
+      "lines_added": 18,
+      "ai_additions": 18,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 18
+      },
+      "tool_ai_lines": {
+        "opencode": 18
+      },
+      "model_ai_lines": {
+        "big-pickle": 18
+      }
     },
     {
       "sha": "e2ba071",
@@ -1216,56 +1272,6 @@
       "ai_additions": 0,
       "human_additions": 0,
       "unknown_additions": 90,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "human_directed": false,
-      "session_count": 0,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "bot"
-      ],
-      "agent_ai_lines": {},
-      "tool_ai_lines": {},
-      "model_ai_lines": {}
-    },
-    {
-      "sha": "6d609e2",
-      "date": "2026-08-16",
-      "author": "CaliMark",
-      "subject": "feat: add Human lines by contributor pie to the composition section",
-      "lines_added": 63,
-      "ai_additions": 63,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "human_directed": true,
-      "session_count": 1,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "opencode · big-pickle"
-      ],
-      "agent_ai_lines": {
-        "opencode · big-pickle": 63
-      },
-      "tool_ai_lines": {
-        "opencode": 63
-      },
-      "model_ai_lines": {
-        "big-pickle": 63
-      }
-    },
-    {
-      "sha": "3910014",
-      "date": "2026-08-17",
-      "author": "github-actions[bot]",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 123,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 123,
       "ai_pct": 0,
       "human_pct": 0,
       "human_directed": false,
